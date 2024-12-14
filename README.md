@@ -1,2 +1,0 @@
-# saynetes
-Projet Saynètes Farm
