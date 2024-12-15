@@ -15,6 +15,8 @@ DOMAIN = config('DOMAIN', cast=str)
 WWW_DOMAIN = config('WWW_DOMAIN', cast=str)
 DB_URL = config('DB_URL', cast=str)
 DB_NAME = config('DB_NAME', cast=str)
+SSL_CERT_PEM = config('SSL_CERT_PEM', cast=str)
+SSL_KEY_PEM = config('SSL_KEY_PEM', cast=str)
 
 # used by frontend calls
 origins = [
@@ -60,6 +62,6 @@ async def shutdown_db_client():
     app.mongodb_client.close()
         
 app.include_router(saynete_main_router, prefix="/saynetes", tags=["saynetes"])
-        
+
 if __name__ == "__main__":
-    uvicorn.run("__main__:app",host=HOST,port=8000, reload=True)
+    uvicorn.run("__main__:app", host="0.0.0.0", port=8000, ssl_certfile=SSL_CERT_PEM , ssl_keyfile=SSL_KEY_PEM, reload=True, )

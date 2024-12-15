@@ -16,8 +16,8 @@ async def list_all_saynetes(request:Request, language_uid: Optional[str]=None)->
     result = [LangDeckDB(**raw_rec) async for raw_rec in full_query]
     return result
 
-#--- list one langdeck by language uid
-@router.get("/{uid}", response_description="List saynetes by language uid")
+#--- filter by language uid
+@router.get("/{uid}/", response_description="List saynetes by language uid")
 async def list_saynetes_by_language_id (request: Request, uid: str):
     if (language := await request.app.mongodb["saynetes"].find_one({"language":uid})) is not None:
         return LangDeckDB(**language)
