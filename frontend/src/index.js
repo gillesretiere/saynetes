@@ -1,14 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { ThemeProvider, createTheme, useColorScheme } from '@mui/material/styles';
+
 import './index.css';
-import App from './App';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
+
+import LandingPage from './pages/LandingPage';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ThemeProvider theme={theme} defaultMode="dark">
+    <BrowserRouter>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+        } />
+      </Routes>
+    </BrowserRouter>
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
