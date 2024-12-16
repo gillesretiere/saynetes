@@ -1,5 +1,15 @@
 backend/.env
 backend/pem/fullchain.pem
 backend/pem/privkey.pem
-
-
+backend/save_pid.txt
+backend/__pycache__/
+backend/routers/__pycache__/
+backend/nohup.out
+backend/nohup.err
+frontend/node_modules/
+frontend/public/
+frontend/src/assets/
+frontend/src/nohup.out
+frontend/src/save_pid.txt
+frontend/package-lock.json
+frontend/package.json
