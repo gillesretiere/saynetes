@@ -2,16 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
 
 @import url('https://use.typekit.net/tjn2ftb.css');
-/* special fonts */
-@import url('https://fonts.cdnfonts.com/css/euclid-circular-b');
 /* mui fonts */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-/* Miller fonts */
-/* Nexus Mix */
+
 /*
 The box-sizing CSS property sets how the total width and height of an element is calculated.
 https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
@@ -25,29 +20,11 @@ here padding is included in box-sizing but not margin which is extra-sizing
 }
 
 :root{
-  --mui-palette-primary-main: #f44336;
-  --mui-palette-primary-light: #ef9a9a;
-  --mui-palette-primary-dark: #c62828;
-  --mui-palette-primary-contrastText: #fff;  
-
-  --mui-palette-secondary-main: #00D2E9;
-  --mui-palette-secondary-light: #abecf5;
-  --mui-palette-secondary-dark: #00aecb;
-  --mui-palette-secondary-contrastText: #00626a;  
-
-  --mui-palette-analogous-main: #f4a236;
-  --mui-palette-analogous-light:#fdf2e1;
-  --mui-palette-analogous-dark: #ed8720;
-
-  --mui-palette-triadic-main :#e7f436;
-  --mui-palette-triadic-light :#fdfee8;
-  --mui-palette-triadic-dark :#b6b21d;
-  --mui-palette-triadic-complementary :#36f443;
+  font-family: articulat-cf, sans-serif;
 }
 
 html {
-  font-family: sans-serif;
-  /* background: #ffffff; */
+  font-family: articulat-cf, sans-serif;
 }
 
 body {
@@ -62,101 +39,5 @@ body {
 
   --serif-primary-font : artifex-cf, serif;
   --serif-secondary-font : ff-nexus-mix, sans-serif;
-  --primary-color: #FA7F08;
-  --secondary-color: #1f2023;
-  --text-fr-color: #1f2023;
-  --text-tr-color: #0091ff;
-  --alt-primary-color: #727272;
-  --alt-secondary-color: #6F6F6F;
-  --color-bg-alu: hsl(190, 10%, 80%);  
-  --blue-theme-primary-color: #96C2DB;
-  --blue-theme-secondary-color: #E5EDF1;
-  --palette-blue-primary-color:#96C2DB;
-  --palette-blue-secondary-color:#E5EDF1;
-  --palette-blue-tertiary-color:#6d9ab3;
-  --palette-dark-blue: #111439;
-}
-
-@layer components {
-  .max-container {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .input {
-    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-500 pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-100 max-sm:rounded-full;
-  }
-}
-
-@layer utilities {
-  .padding {
-    @apply sm:px-16 px-8 sm:py-24 py-12;
-  }
-
-  .padding-x {
-    @apply sm:px-16 px-8;
-  }
-
-  .padding-y {
-    @apply sm:py-24 py-12;
-  }
-
-  .padding-l {
-    @apply sm:pl-16 pl-8;
-  }
-
-  .padding-r {
-    @apply sm:pr-16 pr-8;
-  }
-
-  .padding-t {
-    @apply sm:pt-24 pt-12;
-  }
-
-  .padding-b {
-    @apply sm:pb-24 pb-12;
-  }
-
-  .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-  --color-foreground: #efefef;
-  }
-}
-
-.App-header {
-  /*background-color: var(--color-background);*/
-  color: var(--color-foreground);
-}
-
-.logo-small img{
-    width:60px;
-}
-
-.keyword__wrapper {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem; 
-  padding-left: 0.5rem;
-  padding-right: 0.5rem; 
-  margin-left: 0.5rem; 
-  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
-  /* 2. shadow ring 👇 */
-  0 0 0 1px hsla(230, 13%, 9%, 0.075),
-  /* 3. multiple soft shadows 👇 */
-  0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
-  0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
-  0 3.5px 6px hsla(230, 13%, 9%, 0.09);
-  background-color: var(--primary-color);
-  filter: grayscale(40%);
-  color: white;
-  width: 100%;
-  height: 100%;
-  font-family : var(--secondary-font);
-  font-size: 0.8em;
-  border-radius: 12px;
 }
 

@@ -1,8 +1,11 @@
 import React from 'react'
+// import MenuNavigation from '../components/UI/HomeSection/MenuNavigation';
+
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <>
+    </>
   )
 }
 
