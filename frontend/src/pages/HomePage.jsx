@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import CustomButton from '../components/UI/CustomButton';
-import HomeAppBar from '../components/UI/Navigation/HomeAppBar';
 import classes from "./Pages.module.css";
 import Demo from '../components/Demo';
+
+import Layout from '../components/UI/Layout';
 
 const styles = theme => ({
     button: {
@@ -17,16 +18,15 @@ const styles = theme => ({
 const HomePage = () => {
     return (
         <>
-            <Demo>
+            <Layout>
+                <Link to={{ pathname: `/language_page/` }}>
+                    <CustomButton label="Languages" />
+                </Link>
+                <Link to={{ pathname: `/landing_page/` }}>
+                    <CustomButton label="HMRT" />
+                </Link>
+            </Layout>
 
-            </Demo>
-            <HomeAppBar />
-                <div className={`${classes.bg}`}>
-                    <h1>Home Page</h1>
-                    <Link to={{ pathname: `/language_page/` }}>
-                    <CustomButton label="Go"/>
-                    </Link>
-                </div>
         </>
     )
 }

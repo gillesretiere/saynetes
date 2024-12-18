@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import LanguageDeckCard from './LanguageDeckCard';
+import classes from './Deck.module.css';
 
-const LanguageDeck = ({deck}) => {
-  const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, } = deck;
+const LanguageDeck = ({ deck }) => {
   return (
-    <div>{lang_name_native}</div>
+    <>
+      <div className={`${classes.card__list}`}>
+        {deck && deck.map(
+          (el) => {
+            return (<LanguageDeckCard key={el._id} card={el} />)
+          }
+        )}
+      </div>
+    </>
   )
 }
 

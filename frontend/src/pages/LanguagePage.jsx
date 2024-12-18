@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext, } from 'react';
+import React, { useState, useEffect, } from 'react';
 import LanguageDeck from '../components/decks/LanguageDeck';
-
+import Layout from '../components/UI/Layout';
 
 const LanguagePage = () => {
     const BASE_URL = "https://hammer-marteau.com:8000/saynetes"; /*'https://hammer-marteau.com:8000/saynetes/';*/
@@ -21,11 +21,9 @@ const LanguagePage = () => {
 
     return (
         <>
-            {languages && languages.map(
-                (el) => {
-                    return (<LanguageDeck key={el._id} deck={el} />)
-                }
-            )}
+            <Layout>
+                <LanguageDeck deck={languages} />
+            </Layout>
         </>
     )
 }

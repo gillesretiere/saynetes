@@ -1,4 +1,8 @@
 import * as React from 'react';
+import HomeAppBar from './UI/Navigation/HomeAppBar';
+import { Link } from "react-router-dom";
+
+
 import {
   unstable_createCssVarsProvider as createCssVarsProvider,
   unstable_prepareCssVars as prepareCssVars,
@@ -122,6 +126,14 @@ function App() {
         <Button type="button" onClick={toggleMode}>
           Toggle Mode
         </Button>
+        <div>
+          <h1>Home Page</h1>
+          <Link to={{ pathname: `/language_page/` }}>
+            <Button type="button">
+              GO
+            </Button>
+          </Link>
+        </div>
       </div>
     </WrapperDiv>
   );
@@ -131,6 +143,7 @@ export default function CreateCssVarsProvider() {
   return (
     <CssVarsProvider>
       <App />
+
     </CssVarsProvider>
   );
 }

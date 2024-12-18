@@ -21,10 +21,10 @@ const orangeMain = alpha(orangeBase, 0.9);
 
 const theme = createTheme({
     colorSchemes: {
-        dark: true,
+        light: true,
     },
     palette: {
-        mode: 'light',
+        mode:'light',
         primary: {
             /* f44336 */
             main: '#fff',

@@ -1,9 +1,9 @@
 
 function App() {
   return (
-    <>
-    Saynetes App !
-    </>
+    <div>
+      App
+    </div>
   );
 }
 

@@ -1,0 +1,20 @@
+.layout {
+    /*
+    flex-1 min-h-full flex flex-col flex-grow align-baseline mt-2 pt-0
+    */
+       display: flex;
+       flex: 1 1 0%; 
+       min-height: 100vh; 
+       flex-direction: column; 
+       flex-grow: 1;
+       vertical-align: baseline;
+       margin-top: 2rem;
+   }
+   
+   .container {
+       display: flex; 
+       flex-direction: column; 
+       min-height: 100vh; 
+       /*background: var(--color-background);   fallback for old browsers */
+   }
+   
