@@ -8,11 +8,11 @@ const CustomButton = ({
   }) => {
     return (
       <button
-        className={`flex justify-center items-center gap-2 px-7 py-4 border-none font-articulat-cf tracking-wide text-lg font-semibold leading-none
+        className={`flex justify-center items-center gap-2 px-7 m-2 py-4 border font-articulat-cf tracking-wide text-lg font-semibold leading-none
       ${
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
-          : "bg-purple-900 text-white border-white"
+          : "bg-white text-black border-black"
       } rounded-full ${fullWidth && "w-full"}`}
       >
         {label}

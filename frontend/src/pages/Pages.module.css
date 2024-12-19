@@ -1,19 +1,72 @@
 .bg {
-    background: rgb(114, 111, 168);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 10px;
-    padding: 5px;
+  background: rgb(114, 111, 168);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.landing_page_title {
+  font-family: var(--primary-font);
+}
+
+.landing_page_button {
+  font-family: var(--primary-font);
+  font-weight: 100;
+}
+
+.landing_page_languages_title {
+  font-family: var(--primary-font);
+}
+
+.landing_page {
+  display: flex;
+  align-items: center;
+}
+
+.landing_page > img {
+  width: 50%;
+  height : 50%;
+  max-width: 350px;
+}
+
+
+
+/* sm : Extra small devices (phones, 640px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 640px) {
+  .welcome {
+    font-weight: 900;
+    font-size: 3rem;
   }
-  
-  .landing_page_title {
-    font-family: var(--primary-font);
+}
+
+@media only screen and (min-width: 640px) {
+  .welcome {
+    font-weight: 900;
+    font-size: 3rem;
   }
-  
-  .landing_page_button {
-    font-family: var(--primary-font);
-    font-weight: 100;
+}
+
+/* md : Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .welcome {
+    font-weight: 900;
+    font-size: 4rem;
   }
-  
-  .landing_page_languages_title {
-    font-family: var(--primary-font);
+}
+
+/* lg : Large devices (laptops/desktops, 1024px and up) */
+@media only screen and (min-width: 1024px) {
+  .welcome {
+    font-weight: 900;
+    font-size: 5rem;
   }
+}
+
+/* xl: Extra large devices (large laptops and desktops, 1280px and up) */
+@media only screen and (min-width: 1280px) {
+  .welcome {
+    font-weight: 900;
+    font-size: 6rem;
+  }
+}
