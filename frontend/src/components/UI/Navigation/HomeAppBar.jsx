@@ -17,6 +17,11 @@ import Divider from "@mui/material/Divider";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import DescriptionIcon from "@mui/icons-material/Description";
+
 // import { navLinks, currentVersion, } from "../../../assets/constants/index.js";
 
 // import { LGDK_LOGO_NOTEXT_BLUE, } from "../../../assets/images";
@@ -169,15 +174,19 @@ const HomeAppBar = () => {
               </Box>
 
               {search}
+              <Box sx={{ mb: 2 }}>
+                {/* on itère sur les liens de navigations intrapage : ajout du lien 
+               https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
+               */}
 
-              <Button
-                sx={[
-                  (theme) => ({
-                    color: '#fff',
-                      backgroundColor: theme.palette.primary.main,
-                    }),
-                ]}
-              > Change </Button>
+                <ListItemButton key="/language_page/" component="a" href="/language_page/" >
+                  <ListItemIcon>
+                    <DescriptionIcon sx={{ color: "primary.contrastText" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Langues" sx={{ color: "primary.contrastText" }} />
+                </ListItemButton>
+
+              </Box>
 
             </Box>
           </Drawer>

@@ -21,7 +21,7 @@ const orangeMain = alpha(orangeBase, 0.9);
 
 const theme = createTheme({
     colorSchemes: {
-        light: true,
+        dark: true,
     },
     palette: {
         mode:'light',

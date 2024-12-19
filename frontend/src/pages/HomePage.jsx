@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 import Layout from '../components/UI/Layout';
 import classes from "./Pages.module.css";
@@ -16,12 +17,15 @@ import { hmrt_logo_squared } from '../assets/img/index.js';
 
 
 const styles = theme => ({
-    button: {
-        margin: theme.spacing.unit,
-    },
-    input: {
-        display: 'none',
-    },
+    root: {
+        backgroundColor: 'blue',
+        // Match [md, md + 1)
+        //       [md, lg)
+        //       [900px, 1200px)
+        [theme.breakpoints.only('md')]: {
+          backgroundColor: 'red',
+        },
+      },
 });
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -39,11 +43,11 @@ const HomePage = () => {
     return (
         <>
             <Layout>
-                <Grid container maxWidth="1" spacing={2} columns={{ xs: 8, sm: 8, md: 16 }} size="grow" alignItems="center">
-                    <Grid minHeight='100%' size={8}>
-                        <Grid display="flex" justifyContent="center" size="grow">
-                            <img className={`flex pt-12 w-full max-w-md mb-3 p-1 ${classes.landing_page}`} src={hmrt_logo_squared} loading="lazy"></img>
-                        </Grid>
+                <Grid container maxWidth="1" spacing={2} columns={{ xs: 4, sm: 4, md: 8 }} size="grow" alignItems="center">
+                    <Grid display="flex" justifyContent="center" alignItems="center" size={4}>
+                        <Box sx={{ maxWidth: 345 }}>
+                        <img className={`flex pt-12 mb-3 p-1 ${classes.landing_page}`} src={hmrt_logo_squared} loading="lazy"></img>
+                        </Box >
                     </Grid>
                     <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
                         <Grid display="flex" flexDirection="column" justifyContent="center" alignItems="center">

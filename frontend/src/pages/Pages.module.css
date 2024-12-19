@@ -18,18 +18,6 @@
   font-family: var(--primary-font);
 }
 
-.landing_page {
-  display: flex;
-  align-items: center;
-}
-
-.landing_page > img {
-  width: 50%;
-  height : 50%;
-  max-width: 350px;
-}
-
-
 
 /* sm : Extra small devices (phones, 640px and down) */
 /* Small devices (portrait tablets and large phones, 600px and up) */
