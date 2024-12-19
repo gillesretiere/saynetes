@@ -10,6 +10,7 @@ frontend/node_modules/
 frontend/public/
 frontend/src/assets/
 frontend/src/nohup.out
+frontend/src/nohup.err
 frontend/src/save_pid.txt
 frontend/package-lock.json
 frontend/package.json
