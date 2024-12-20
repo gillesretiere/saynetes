@@ -42,7 +42,7 @@ const LanguageDeckCard = ({ card }) => {
                     <CardMedia
                         component="img"
                         image={lang_flag_icon}
-                        alt="Paella dish"
+                        alt="Flag Icon"
                     />
                     <CardActions>
                         <Button size="small">Learn More</Button>

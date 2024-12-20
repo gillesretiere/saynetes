@@ -23,18 +23,17 @@ export default function LanguageCard({ card }) {
                 title={lang_name_fr}
             />
             </div>
-
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {lang_name_fr}
+                    {lang_name_native}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {lang_name_native}
+                    {lang_name_fr}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small" href={`/theme_page/${language}?l=${language}`}>Learn More</Button>
             </CardActions>
         </Card>
     );

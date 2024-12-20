@@ -11,7 +11,7 @@ const LanguageSelectionPage = () => {
     useEffect(() => {
         const loadData = () => JSON.parse(JSON.stringify(json_data));
         setLanguages(loadData);
-    }, [languages]);
+    }, []);
 
     return (
         <>

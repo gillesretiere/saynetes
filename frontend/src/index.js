@@ -10,6 +10,7 @@ import theme from './theme';
 import HomePage from './pages/HomePage';
 import LandingPage from './pages/LandingPage';
 import LanguageSelectionPage from './pages/LanguageSelectionPage';
+import ThemePage from './pages/ThemePage';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -23,6 +24,7 @@ root.render(
           <Route path="/" element={<HomePage />} />
           <Route path="/landing_page" element={<LandingPage />} />
           <Route path="/language_page" element={<LanguageSelectionPage />} />
+          <Route path="theme_page/:id" element={<ThemePage />} />
           <Route path="*" element={
             <main style={{ padding: "1rem" }}>
               <p>There's nothing here!</p>
