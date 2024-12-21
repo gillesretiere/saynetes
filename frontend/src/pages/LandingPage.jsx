@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 // import MenuNavigation from '../components/UI/HomeSection/MenuNavigation';
 import Deck from '../components/decks/Deck';
 import Layout from '../components/UI/Layout';
 import DeckCard from '../components/decks/DeckCard';
 
+import { UserContext } from '../store/user_context.jsx';
 
 const LandingPage = () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus non erat sit amet porta. Sed nec tortor at purus tempus elementum non quis ligula. Curabitur et risus in massa fermentum fermentum. Suspendisse vehicula interdum augue sodales vestibulum. Sed id consectetur nisl. Vestibulum in quam vitae nunc placerat euismod ac vitae lectus. Ut non cursus urna. Phasellus tristique felis sodales eros porttitor dapibus. Fusce rutrum mauris vel dui fringilla, placerat porta leo consequat.';
@@ -38,6 +39,9 @@ const LandingPage = () => {
     "text": lorem
   },
   ];
+
+  const ctx = useContext (UserContext);
+  console.log (ctx);
 
   return (
     <>

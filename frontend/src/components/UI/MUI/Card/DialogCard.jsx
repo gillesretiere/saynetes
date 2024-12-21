@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { UserContext } from '../../../../store/user_context';
 
 
-export default function StoryCard({ card }) {
+export default function DialogCard({ card }) {
     const { story_order,
         story_name,
         story_translation,
@@ -19,7 +19,12 @@ export default function StoryCard({ card }) {
         story_synopsis_translation,
         story_language,
         story_translation_id,
-        phrases } = card;
+        phrase,
+        phrase_translation,
+        phrase_audio_url,
+        phrase_illustration,
+        phrase_position,
+      } = card;
 
 
     const ctx = useContext (UserContext);
@@ -27,7 +32,6 @@ export default function StoryCard({ card }) {
 
     const linkHandler = (event) => {
         console.log(card);
-        ctx.decks = phrases;
 };
 
 
@@ -35,15 +39,15 @@ export default function StoryCard({ card }) {
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
                 sx={{ height: 140 }}
-                image={story_illustration}
+                image={phrase_illustration}
                 title={story_name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {story_translation}
-                </Typography>
+                    {phrase_position}
+                </Typography> 
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {story_name}
+                    {phrase_translation}
                 </Typography>
             </CardContent>
             <CardActions>

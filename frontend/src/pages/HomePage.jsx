@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState, useEffect, } from 'react';
 import { Link } from "react-router-dom";
 import CustomButton from '../components/UI/CustomButton';
 import { styled } from '@mui/material/styles';
@@ -15,6 +15,7 @@ import classes from "./Pages.module.css";
 // import Demo from '../components/Demo';
 import { hmrt_logo_squared } from '../assets/img/index.js';
 
+import { UserContext } from '../store/user_context.jsx';
 
 const styles = theme => ({
     root: {
@@ -40,6 +41,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const HomePage = () => {
+
+    const [item, setItem] = useState({
+        decks:[]
+    });
+
+    const ctx = useContext (UserContext);
     return (
         <>
             <Layout>
