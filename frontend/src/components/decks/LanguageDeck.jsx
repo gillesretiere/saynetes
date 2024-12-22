@@ -1,7 +1,5 @@
 import React from 'react';
-import LanguageDeckCard from './LanguageDeckCard';
 import LanguageCard from '../UI/MUI/Card/LanguageCard';
-import DumbCard from '../UI/MUI/Card/DumbCard';
 import classes from './Deck.module.css';
 
 const LanguageDeck = ({ deck }) => {

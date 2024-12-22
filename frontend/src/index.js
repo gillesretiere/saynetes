@@ -9,8 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
 
 import HomePage from './pages/HomePage';
-import LandingPage from './pages/LandingPage';
-import LanguageSelectionPage from './pages/LanguageSelectionPage';
+import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
 import App from './App';
@@ -27,8 +26,7 @@ root.render(
           <CssBaseline />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/landing_page" element={<LandingPage />} />
-            <Route path="/language_page" element={<LanguageSelectionPage />} />
+            <Route path="/language_page" element={<LanguagePage />} />
             <Route path="theme_page/:id" element={<ThemePage />} />
             <Route path="dialog_page/:id" element={<DialogPage />} />
             <Route path="*" element={

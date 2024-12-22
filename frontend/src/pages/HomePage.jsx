@@ -59,13 +59,10 @@ const HomePage = () => {
                     <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
                         <Grid display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                             <Typography className={`font-artifex_cf mb-3 ${classes.welcome}`}>
-                                Welcome
+                                Les Sayn&egrave;tes
                             </Typography>
                             <Link to={{ pathname: `/language_page/` }}>
-                                <CustomButton label="Languages" />
-                            </Link>
-                            <Link to={{ pathname: `/landing_page/` }}>
-                                <CustomButton label="HMRT" />
+                                <CustomButton label="Démarrer" />
                             </Link>
                         </Grid>
 

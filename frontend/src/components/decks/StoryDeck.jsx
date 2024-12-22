@@ -1,5 +1,4 @@
 import React from 'react';
-import DeckCard from './DeckCard';
 import StoryCard from '../UI/MUI/Card/StoryCard';
 import classes from "./Deck.module.css";
 

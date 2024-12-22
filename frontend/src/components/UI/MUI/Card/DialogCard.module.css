@@ -1,0 +1,57 @@
+
+.dialog__card__list {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 1.5rem 1rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+}  
+
+/* sm : Extra small devices (phones, 640px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    .card__list {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 1.5rem 1rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }    
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .card__list {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 1.5rem 1rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }   
+  }
+  
+  /* md : Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .card__list {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 1.5rem 1rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }   
+  }
+  
+  /* lg : Large devices (laptops/desktops, 1024px and up) */
+  @media only screen and (min-width: 1024px) {
+    .card__list {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 1.5rem 1rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }   
+  }
+  
+  /* xl: Extra large devices (large laptops and desktops, 1280px and up) */
+  @media only screen and (min-width: 1280px) {
+    .card__list {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 1.5rem 1rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }   
+  }

@@ -2,9 +2,7 @@ import React, { useState, useEffect, } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Layout from '../components/UI/Layout';
 import { json_data } from '../assets/data/index.js';
-import myJson from "../assets/data/saynetes.json";
 import ThemeDeck from '../components/decks/ThemeDeck.jsx';
-import FilteredDeck from '../components/decks/FilteredDeck.jsx';
 
 const ThemePage = () => {
 

@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import HomeIcon from '@mui/icons-material/Home';
 
 //drawer elements used
 import Drawer from "@mui/material/Drawer";
@@ -112,6 +113,22 @@ const HomeAppBar = () => {
             </div>
           </Typography>
           */}
+
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="home"
+            href="/"
+            sx={{
+              mr: 2,
+              display: {
+                xs: "block",
+                /* md: "none", hidden if device >= md */
+              }
+            }}
+          >
+            <HomeIcon />
+          </IconButton>
           <IconButton
             edge="start"
             color="inherit"

@@ -1,0 +1,5 @@
+.marked__item {
+    background-color: var(--mui-palette-triadic-main);
+    padding: 2px;
+    border-radius: 4px;
+}

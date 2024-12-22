@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext, } from 'react';
-import LanguageDeck from '../components/decks/LanguageDeck';
-import Layout from '../components/UI/Layout';
+import LanguageDeck from '../components/decks/LanguageDeck.jsx';
+import Layout from '../components/UI/Layout.jsx';
 import { json_data } from '../assets/data/index.js';
 
 import { UserContext } from '../store/user_context.jsx';
-import { useStepContext } from '@mui/material';
 
-const LanguageSelectionPage = () => {
+const LanguagePage = () => {
 
     const [languages, setLanguages] = useState([]);
 
@@ -27,4 +26,4 @@ const LanguageSelectionPage = () => {
     )
 }
 
-export default LanguageSelectionPage
+export default LanguagePage
