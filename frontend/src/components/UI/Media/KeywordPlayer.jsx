@@ -5,7 +5,7 @@ import KeywordPopper from "./KeywordPopper";
 import classes from "./KeywordPlayer.module.css";
 
 
-const KeywordPlayer = ({ wordDeck }) => {
+const KeywordPlayer = ({ wordDeck, language }) => {
 
     const [wordsId, setWordsId] = useState('');
     const [words, setWords] = useState('');
@@ -14,6 +14,7 @@ const KeywordPlayer = ({ wordDeck }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [wordElement, setWordElement] = useState(null);
     const [arrowRef, setArrowRef] = useState(null);
+    const [french, setFrench] = useState (language);
 
     // console.log(wordDeck);
     const callbackModal = () => {
@@ -65,7 +66,7 @@ const KeywordPlayer = ({ wordDeck }) => {
                         }
                     ]}
                 >
-                    <KeywordPopper word={wordElement} callbackModal={callbackModal} />
+                    <KeywordPopper keyword={wordElement} language={french} callbackModal={callbackModal} />
                 </Popper>
             </div>
             <div>

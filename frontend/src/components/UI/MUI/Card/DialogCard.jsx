@@ -88,7 +88,7 @@ export default function DialogCard({ card }) {
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                     {french ? <>
-                        <KeywordPlayer wordDeck={wordDeck}></KeywordPlayer>
+                        <KeywordPlayer wordDeck={wordDeck} language={french}></KeywordPlayer>
                     </> : <>
                         {phrase_translation}
                     </>}
