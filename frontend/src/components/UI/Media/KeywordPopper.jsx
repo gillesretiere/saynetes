@@ -14,6 +14,9 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import AudioPlayer from './AudioPlayer';
 
 
@@ -68,7 +71,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
 
 
           </CardContent>
-          <CardActions sx={{ flexGrow: 1,}}>
+          <CardActions sx={{ flexGrow: 1, }}>
             <IconButton aria-label="play/pause" sx={{ margin: 'auto' }}>
               <AudioPlayer media_url={french ? word_audio_url_fr : word_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
             </IconButton>
@@ -76,10 +79,14 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
 
 
           <CardActions sx={{ flexGrow: 1, width: 290 }}>
-            <Button size="extrasmall" onClick={() => showMoreClickHandler()}>...</Button>
-            <Button size="extrasmall" onClick={() => closeButtonClickHandler()}>OK</Button>
-            <Button size="extrasmall" onClick={() => languageToggler('FR')}>fre</Button>
-            <Button size="extrasmall" onClick={() => languageToggler('TR')}>{word_language}</Button>
+            {showMore ? <>
+              <Button size="extrasmall" onClick={() => showMoreClickHandler()} sx={{ color: 'text.secondary' }}><CheckOutlinedIcon /></Button>
+            </> : <>
+              <Button size="extrasmall" onClick={() => showMoreClickHandler()} sx={{ color: 'text.secondary' }}><LiveHelpOutlinedIcon /></Button>
+            </>}
+            <Button size="extrasmall" onClick={() => closeButtonClickHandler()} sx={{ color: 'text.secondary' }}><CloseIcon /></Button>
+            <Button size="extrasmall" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
+            <Button size="extrasmall" onClick={() => languageToggler('TR')} sx={{ color: 'text.secondary' }}>{word_language}</Button>
           </CardActions>
         </CardActionArea>
       </Card>

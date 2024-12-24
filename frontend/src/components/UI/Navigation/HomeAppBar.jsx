@@ -98,7 +98,7 @@ const HomeAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{bgcolor:''}}>
       <Container maxWidth="lg" disableGutters="true">
         <Toolbar>
           {/* 

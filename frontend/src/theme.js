@@ -24,7 +24,7 @@ const theme = createTheme({
         dark: true,
     },
     palette: {
-        mode:'dark',
+        mode:'light',
         primary: {
             /* f44336 */
             main: '#fff',

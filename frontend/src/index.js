@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
+import Home from './pages/Home';
 import App from './App';
 
 // import reportWebVitals from './reportWebVitals';
@@ -25,7 +26,7 @@ root.render(
         <BrowserRouter>
           <CssBaseline />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Home />} />
             <Route path="/language_page" element={<LanguagePage />} />
             <Route path="theme_page/:id" element={<ThemePage />} />
             <Route path="dialog_page/:id" element={<DialogPage />} />

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 import AudioPlayer from '../../Media/AudioPlayer';
 import KeywordPlayer from '../../Media/KeywordPlayer';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -41,29 +42,29 @@ export default function DialogCard({ card }) {
 
     const [wordDeck, setWordDeck] = useState([
         {
-          phrase: '',
-          phrase_html_rec_id: '',
-          phrase_html_kw: '',
-          phrase_words_rec_id: '',
-          phrase_words: '',
+            phrase: '',
+            phrase_html_rec_id: '',
+            phrase_html_kw: '',
+            phrase_words_rec_id: '',
+            phrase_words: '',
         }
-      ]);
+    ]);
 
-      useEffect(() => {
+    useEffect(() => {
         const vkUrl = phrase_audio.split('/');
         const updateWordDeck = [
-          {
-            phrase: phrase,
-            phrase_html_rec_id: phrase_html_rec_id,
-            phrase_html_kw: phrase_html_kw,
-            phrase_words_rec_id: phrase_words_rec_id,
-            phrase_words: words,
-    
-          }
+            {
+                phrase: phrase,
+                phrase_html_rec_id: phrase_html_rec_id,
+                phrase_html_kw: phrase_html_kw,
+                phrase_words_rec_id: phrase_words_rec_id,
+                phrase_words: words,
+
+            }
         ];
         setWordDeck(updateWordDeck);
-    
-      }, [card]);
+
+    }, [card]);
 
     const languageToggler = (val) => {
         // console.log(val);
@@ -95,11 +96,12 @@ export default function DialogCard({ card }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={() => languageToggler('FR')}>fre</Button>
-                <Button size="small" onClick={() => languageToggler('TR')} >{story_language}</Button>
+                <Button size="small" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
+                <Button size="small" onClick={() => languageToggler('TR')} sx={{ color: 'text.secondary' }}>{story_language}</Button>
                 <IconButton aria-label="play/pause">
                     <AudioPlayer media_url={french ? phrase_audio_url_fr : phrase_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
                 </IconButton>
+                <Button size="small" sx={{ color: 'text.secondary' }}><AutoStoriesOutlinedIcon /></Button>
             </CardActions>
         </Card>
     );

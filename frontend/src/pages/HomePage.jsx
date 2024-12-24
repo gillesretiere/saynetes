@@ -50,10 +50,10 @@ const HomePage = () => {
     return (
         <>
             <Layout>
-                <Grid container maxWidth="1" spacing={2} columns={{ xs: 4, sm: 4, md: 8 }} size="grow" alignItems="center">
-                    <Grid display="flex" justifyContent="center" alignItems="center" size={4}>
+                <Grid container maxWidth="1" spacing={2} columns={{ xs: 4, sm: 4, md: 8 }} size="grow" alignItems="center" >
+                    <Grid display="flex" justifyContent="center" alignItems="center" size={4} sx={{bgcolor:'text.primary'}}>
                         <Box sx={{ maxWidth: 345 }}>
-                        <img className={`flex pt-12 mb-3 p-1 ${classes.landing_page}`} src={hmrt_logo_squared} loading="lazy"></img>
+                        <img className={`flex mb-3 ${classes.landing_page}`} src={hmrt_logo_squared} loading="lazy"></img>
                         </Box >
                     </Grid>
                     <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
