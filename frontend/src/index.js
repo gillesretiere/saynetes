@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
+import SaynetesPage from './pages/SaynetesPage';
 import Home from './pages/Home';
 import App from './App';
 
@@ -27,6 +28,7 @@ root.render(
           <CssBaseline />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/saynetes_page" element={<SaynetesPage />} />
             <Route path="/language_page" element={<LanguagePage />} />
             <Route path="theme_page/:id" element={<ThemePage />} />
             <Route path="dialog_page/:id" element={<DialogPage />} />

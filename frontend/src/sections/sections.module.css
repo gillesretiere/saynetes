@@ -1,0 +1,13 @@
+.landing_page_title {
+    font-family: var(--primary-font);
+  }
+  
+  .landing_page_button {
+    font-family: var(--primary-font);
+    font-weight: 100;
+  }
+  
+  .landing_page_languages_title {
+    font-family: var(--primary-font);
+  }
+  

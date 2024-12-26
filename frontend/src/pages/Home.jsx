@@ -17,11 +17,16 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Layout from '../components/UI/Layout';
 import classes from "./Pages.module.css";
+import ProjectCard from '../components/UI/MUI/Card/ProjectCard.jsx';
 
-import { homepage, saynetes_project, langdeck_project, } from '../assets/img/index.js';
+import { homepage, saynetes_project, langdeck_project, man_blue_bg, } from '../assets/img/index.js';
+import { projects } from "../assets/localData/data.js";
+
 
 
 const Home = () => {
+
+    console.log(projects);
 
     const mq_xs = useMediaQuery('(min-width:0px)');
     const mq_sm = useMediaQuery('(min-width:600px)');
@@ -45,13 +50,24 @@ const Home = () => {
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 1,
                         gridTemplateRows: 'auto',
-                        gridTemplateAreas:
-                            `"header header header ."
-                        "leftlink . . rightlink"
-                        "image image image image"
-                        "about1 about2 about2 about2"
-                        "project1 project1 project2 project2"
-                        `,
+                        gridTemplateAreas: {
+                            xs:
+                                `"header header header ."
+                            "leftlink . . rightlink"
+                            "image image image image"
+                            "about1 about2 about2 about2"
+                            "project1 project1 project1 project1"
+                            "project2 project2 project2 project2"
+                            "project3 project3 project3 project3"
+                            `,
+                            md:
+                                `"header header header ."
+                            "leftlink . . rightlink"
+                            "image image image image"
+                            "about1 about2 about2 about2"
+                            "project1 project2 project3 ."
+                            `,
+                        },
                     }}
                 >
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '25vh' }}>
@@ -71,8 +87,8 @@ const Home = () => {
                             <SmallButton label="à propos" />
                         </Link>
                     </Box>
-                    <Box sx={{ gridArea: 'image', bgcolor: 'warning.dark' }}>
-                        <img src={homepage} width="100%" />
+                    <Box sx={{ gridArea: 'image', }}>
+                        <img src={man_blue_bg} width="100%" className='h-full max-h-90 xl:max-h-[640px] object-cover' />
                     </Box>
                     <Box className={`mx-0 px-4`} sx={{ gridArea: 'about1', }}>
                         <Typography className={`font-articulat_cf font-normal`}
@@ -80,48 +96,24 @@ const Home = () => {
                             Portfolio
                         </Typography>
                     </Box>
-                    <Box className={`mx-0 px-4`} sx={{ gridArea: 'about2', height: '25vh'}}>
+                    <Box className={`mx-0 px-4`} sx={{ gridArea: 'about2', height: '25vh', }}>
                         <Typography className={`font-articulat_cf font-normal leading-tight tracking-normal`}
                             sx={{ typography: { xs: "body2", sm: "h5", md: "h5", lg: "h4", mq_xl: "h2", }, ...dynamicStyles }}>
                             Applications numériques pour communiquer sur diverses thématiques, à l'attention des professionnels de santé et des non francophones.
                         </Typography>
                     </Box>
-                    <Box sx={{ gridArea: 'project1', bgcolor: 'warning.dark' }}>
-                        <Card>
-                            <CardMedia
-                                sx={{ minHeight: 240 }}
-                                image={saynetes_project}
-                                title="Project 1"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    Les Saynètes
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" href={`/language_page/`}>Vers le projet</Button>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                    <Box sx={{ gridArea: 'project2', bgcolor: 'warning.light' }}>
-                    <Card>
-                            <CardMedia
-                                sx={{ minHeight: 240 }}
-                                image={langdeck_project}
-                                title="Project 2"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    Langdeck
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" href={`/language_page/`}>Vers le projet</Button>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                </Box>
-            </Layout>
+                    {projects && projects.map(
+                        (el) => {
+                            return (
+                                <>
+                                    <Box className='m-4' sx={{ gridArea: el.item, }}>
+                                        <ProjectCard project={el}></ProjectCard>
+                                    </Box></>
+                            )
+                        }
+                    )}
+            </Box>
+        </Layout >
         </>
     )
 }
