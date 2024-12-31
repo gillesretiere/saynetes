@@ -1,5 +1,8 @@
 .landing_page_title {
     font-family: var(--primary-font);
+    display: flex;
+    justify-items: left;
+    justify-content: left;
   }
   
   .landing_page_button {
