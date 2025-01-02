@@ -12,6 +12,7 @@ import ProjectImageList from "../components/UI/Media/ProjectImageList.jsx";
 
 import { man_blue_bg, } from '../assets/img/index.js';
 import { projects } from "../assets/localData/data.js";
+import { useTheme } from '@mui/material';
 
 import {
     ProjectSection,
@@ -19,7 +20,11 @@ import {
 
 
 const Home = () => {
+    const { palette } = useTheme();
+    const { typography } = useTheme();
 
+    console.log (palette);
+    console.log (typography);
     const navigate = useNavigate();
 
     const callBack = (href) => {
@@ -60,10 +65,6 @@ const Home = () => {
     }
 
     const minMediaSize = useMediaQuery('(max-width:600px)');
-
-    console.log(projects);
-
-
 
     return (
         <main>

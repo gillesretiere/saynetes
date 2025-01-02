@@ -27,6 +27,12 @@ import DescriptionIcon from "@mui/icons-material/Description";
 
 // import { LGDK_LOGO_NOTEXT_BLUE, } from "../../../assets/images";
 
+/*
+How to enable ListItemButton to use React Router v6 Link?
+https://stackoverflow.com/questions/71822728/how-to-enable-listitembutton-to-use-react-router-v6-link
+
+*/
+
 const StyledSearch = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,

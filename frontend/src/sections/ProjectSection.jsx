@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 const ProjectSection = ({ project, dynamicStylesSubTitle, dynamicStylesSubSection, minMediaSize, }) => {
-    console.log(project);
     return (
         <>
-            <section id={project.section}>
+            <section id={project.section} className='min-h-screen max-container'>
                 <Box
-                    className={`pt-10 pb-60 space-b-12 px-1 ${project.bg_color}`}
+                    className={`pt-10 space-b-12 px-1 min-h-screen ${project.bg_color}`}
                     sx={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4,1fr)',
@@ -44,8 +45,11 @@ const ProjectSection = ({ project, dynamicStylesSubTitle, dynamicStylesSubSectio
                         </Typography>
                     </Box>
                     <Box className={minMediaSize ? `mx-2 mt-6` : `mx-0 mt-5 px-4`} sx={{ gridArea: 'image', }}>
-                        <img src={project.image} className='pr-4 max-w-[320px] md:max-w-[640px] object-cover' />
+                        <Link to={{ pathname: `${project.route}` }}>
+                            <img src={project.image} className='pr-4 max-w-[320px] md:max-w-[640px] object-cover' />
+                        </Link>
                     </Box>
+
                 </Box>
             </section>
         </>

@@ -13,6 +13,7 @@ import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
 import SaynetesPage from './pages/SaynetesPage';
+import CartolangPage from './pages/CartolangPage';
 import Home from './pages/Home';
 import App from './App';
 
@@ -32,6 +33,7 @@ root.render(
             <Route path="/language_page" element={<LanguagePage />} />
             <Route path="theme_page/:id" element={<ThemePage />} />
             <Route path="dialog_page/:id" element={<DialogPage />} />
+            <Route path="cartolang" element={<CartolangPage />} />
             <Route path="*" element={
               <main style={{ padding: "1rem" }}>
                 <p>There's nothing here!</p>

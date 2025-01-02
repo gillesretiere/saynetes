@@ -11,7 +11,6 @@ const DialogPage = () => {
     const s = searchParams.get("s");
     const l = s.slice(- 3);
 
-    console.log (l);
     const filtered = [];
     for (var i = 0; i < json_data.length; i++) {
         if (json_data[i].language === l) {
@@ -25,7 +24,6 @@ const DialogPage = () => {
             dialog.push(stories[i]);
         }
     }
-    console.log (dialog[0]);
 
     return (
         <>

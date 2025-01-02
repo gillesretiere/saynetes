@@ -1,6 +1,5 @@
 import { red } from '@mui/material/colors';
 import { createTheme, alpha, getContrastRatio } from '@mui/material/styles';
-import { dark } from '@mui/material/styles/createPalette';
 
 /* A custom theme for this app
 https://mui.com/material-ui/customization/color/

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, } from 'react';
 import LanguageDeck from '../components/decks/LanguageDeck.jsx';
+import GoTopOfPage from './GoTopOfPage.jsx';
 import Layout from '../components/UI/Layout.jsx';
 import { json_data } from '../assets/data/index.js';
 
@@ -20,6 +21,7 @@ const LanguagePage = () => {
     return (
         <>
             <Layout>
+                <GoTopOfPage />
                 <LanguageDeck deck={languages} />
             </Layout>
         </>

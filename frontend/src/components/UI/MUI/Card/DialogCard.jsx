@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, } from 'react';
+import React, { useEffect, useState, } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -6,13 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 import AudioPlayer from '../../Media/AudioPlayer';
 import KeywordPlayer from '../../Media/KeywordPlayer';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { UserContext } from '../../../../store/user_context';
-
 
 export default function DialogCard({ card }) {
     const { story_order,
