@@ -8,11 +8,21 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import classes from "./card.module.css";
 
-export default function RegionCard({ card }) {
-    const { region_uid, region_name, region_name_fr, region_picture, } = card;
+export default function CountryCard({ card }) {
+    const { 
+        country_uid, 
+        country_name_en, 
+        country_name_fr, 
+        country_name_native, 
+        country_national_flag, 
+        country_openstreetmap_xy,
+        country_summary,
+        country_languages,
+        country_mapicon,
+     } = card;
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
-            <Link to={`/country_page/${region_uid}?r=${region_uid}`}>
+            <Link to={`/country_page/${country_uid}?r=${country_uid}`}>
                 <div className={`${classes.card}`}>
                     <CardMedia
                         component="img"
@@ -23,21 +33,21 @@ export default function RegionCard({ card }) {
                             boxShadow: 3
                         }}
 
-                        image={region_picture}
-                        title={region_picture}
+                        image={country_national_flag}
+                        title={country_national_flag}
                     />
                 </div>
             </Link>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {region_name}
+                    {country_name_fr}
                 </Typography>
                 <Typography variant="subtitle1">
-                    {region_name_fr}
+                    {country_name_native}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" variant="button" href={`/country_page/${region_uid}?r=${region_uid}`}>Choisir</Button>
+                <Button size="small" variant="button" href={`/country_page/${country_uid}?r=${country_uid}`}>Choisir</Button>
             </CardActions>
         </Card>
     );
