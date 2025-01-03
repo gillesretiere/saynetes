@@ -1,7 +1,10 @@
 import React, { useContext, } from 'react';
+import Layout from '../../UI/Layout.jsx';
 import { useSearchParams } from 'react-router-dom';
 import { langdeck_countries } from '../../../assets/data/index.js';
 import CountryCard from './CountryCard.jsx';
+import classes from './card.module.css';
+
 
 
 const CountryPage = () => {
@@ -16,13 +19,15 @@ const CountryPage = () => {
     }
     return (
         <>
-            <div>
-                {filtered && filtered.map(
-                    (el) => {
-                        return (<CountryCard key={el._id} card={el} />)
-                    }
-                )}
-            </div>
+            <Layout>
+                <div className={`${classes.card__list}`}>
+                    {filtered && filtered.map(
+                        (el) => {
+                            return (<CountryCard key={el._id} card={el} />)
+                        }
+                    )}
+                </div>
+            </Layout>
         </>
     )
 }

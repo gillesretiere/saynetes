@@ -6,3 +6,9 @@
 .card > img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.card__list {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 1.5rem 1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+}
