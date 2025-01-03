@@ -93,11 +93,11 @@ const Home = () => {
                         <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                                 sx={{ ...dynamicStylesTitle }}>
-                                <p className={`xs:break-normal`}>Design et créativité</p>
+                                <p className={`xs:break-normal`}>Langdeck</p>
                             </Typography>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
                                 sx={{ ...dynamicStylesSubTitle }}>
-                                Mise en valeur de vos contenus numériques
+                                Applications pour briser les barrières de la langue
                             </Typography>
                         </Box>
 
