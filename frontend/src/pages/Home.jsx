@@ -22,9 +22,6 @@ import {
 const Home = () => {
     const { palette } = useTheme();
     const { typography } = useTheme();
-
-    console.log (palette);
-    console.log (typography);
     const navigate = useNavigate();
 
     const callBack = (href) => {

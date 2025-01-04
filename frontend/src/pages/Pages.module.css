@@ -73,3 +73,18 @@
     border-radius: '20%';
   }
 }
+.landing_page_title {
+  font-family: var(--primary-font);
+  display: flex;
+  justify-items: left;
+  justify-content: left;
+}
+
+.landing_page_button {
+  font-family: var(--primary-font);
+  font-weight: 100;
+}
+
+.landing_page_languages_title {
+  font-family: var(--primary-font);
+}
