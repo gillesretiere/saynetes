@@ -15,6 +15,7 @@ import DialogPage from './pages/DialogPage';
 import SaynetesPage from './pages/SaynetesPage';
 import CartolangPage from './pages/CartolangPage';
 import CountryPage from './components/decks/Cartolang/CountryPage';
+import CountryLanguagesPage from './components/decks/Cartolang/CountryLanguagesPage';
 import Home from './pages/Home';
 import App from './App';
 
@@ -27,7 +28,7 @@ Penser à ajuster cette constante avant de faire un build
 - true => hammer-marteau.com (VPS2)
 - false => saynetes.fr (VPS3)
 */
-const pathHMRT = false;
+const pathHMRT = true;
 
 root.render(
 
@@ -43,6 +44,7 @@ root.render(
             <Route path="dialog_page/:id" element={<DialogPage />} />
             <Route path="cartolang" element={<CartolangPage />} />
             <Route path="country_page/:id" element={<CountryPage />} />
+            <Route path="country_languages_page/:id" element={<CountryLanguagesPage />} />
             <Route path="*" element={
               <main style={{ padding: "1rem" }}>
                 <p>There's nothing here!</p>

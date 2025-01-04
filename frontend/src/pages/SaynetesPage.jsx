@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect, useContext, } from 'react';
+
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import SmallButton from '../components/UI/SmallButton';
 import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ProjectImageList from "../components/UI/Media/ProjectImageList.jsx";
-
 import { langdeck_projects_saynetes_wide, } from '../assets/img/index.js';
-import { projects } from "../assets/localData/data.js";
+import { projects, saynetes_sections,  } from "../assets/localData/data.js";
 import { useTheme } from '@mui/material';
-import classes from './Pages.module.css';
-
-import {
-    ProjectSection,
-} from "../sections";
+import DeckContext from "../store/DeckContext";
+import { json_data } from '../assets/data/index.js';
 
 import Layout from '../components/UI/Layout';
 
@@ -23,6 +19,53 @@ const SaynetesPage = () => {
     const { palette } = useTheme();
     const { typography } = useTheme();
     const navigate = useNavigate();
+
+    const [languages, setLanguages] = useState([]);
+
+    let deckContext = useContext(DeckContext);
+
+    const initNavlinks = (data) => {
+        const arr = [];
+        {
+            data && data.map(
+                (el) => {
+                    let item = {};
+                    item["label"] = el.label;
+                    item["url"] = el.href;
+                    arr.push(item);
+                }
+            )
+        }
+        deckContext.current_deck.navlinks = arr;
+    };
+
+    useEffect(() => {
+        const loadData = () => JSON.parse(JSON.stringify(json_data));
+        setLanguages(loadData);
+        initNavlinks (saynetes_sections);
+    }, []);
+
+    const updateNavlinks = (languages) => {
+        const arr = [];
+        {
+            languages && languages.map(
+                (el) => {
+                    let item = {};
+                    item["label"] = el.lang_name_native;
+                    item["url"] = `/theme_page/${el.language}?l=${el.language}`;
+                    arr.push(item);
+                }
+            )
+        }
+        deckContext.current_deck.navlinks = arr;
+    }
+
+    const handleClick = () => {
+        updateNavlinks(languages);
+
+        deckContext.deck = languages;
+        deckContext.current_deck.language_deck = languages;
+    };
 
     const callBack = (href) => {
         navigate(href);
@@ -62,6 +105,8 @@ const SaynetesPage = () => {
     }
 
     const minMediaSize = useMediaQuery('(max-width:600px)');
+
+
     return (
         <Layout>
             <main className='relative'>
@@ -89,7 +134,7 @@ const SaynetesPage = () => {
                         <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                                 sx={{ ...dynamicStylesTitle }}>
-                                <p className={`xs:break-normal`}>{projects[0].full_description.series}</p>
+                                <div className={`xs:break-normal`}>{projects[0].full_description.series}</div>
                             </Typography>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
                                 sx={{ ...dynamicStylesSubTitle }}>
@@ -102,12 +147,12 @@ const SaynetesPage = () => {
                         </Box>
 
                         <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                            <a href='#sectionLangues'>
+                            <a href='#desc'>
                                 <SmallButton label="Visite guidée" />
                             </a>
                         </Box>
                         <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>
-                            <Link to={{ pathname: `/language_page/` }}>
+                            <Link onClick={handleClick} to={{ pathname: `/language_page/` }}>
                                 <SmallButton label={projects[0].full_description.button_text} />
                             </Link>
                         </Box>
@@ -116,30 +161,39 @@ const SaynetesPage = () => {
                         </Box>
                     </Box>
                 </section>
-                <section id="sectionLangues" className='min-h-screen max-container'>
+                <section id="desc" className='min-h-screen max-container'>
                     <Box className={`mx-0 p-4`}>
                         <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                             sx={{ ...dynamicStylesTitle }}>
-                            <p className={`xs:break-normal`}>Langues</p>
+                            <div className={`xs:break-normal`}>Description</div>
                         </Typography>
                     </Box>
                 </section>
-                <section id="s3" className='min-h-screen max-container'>
+                <section id="lang" className='min-h-screen max-container'>
                     <Box className={`mx-0 p-4`}>
                         <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                             sx={{ ...dynamicStylesTitle }}>
-                            <p className={`xs:break-normal`}>Section</p>
+                            <div className={`xs:break-normal`}>Langues</div>
                         </Typography>
                     </Box>
                 </section>
-                <section id="s4" className='min-h-screen max-container'>
+                <section id="hist" className='min-h-screen max-container'>
                     <Box className={`mx-0 p-4`}>
                         <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                             sx={{ ...dynamicStylesTitle }}>
-                            <p className={`xs:break-normal`}>Section</p>
+                            <div className={`xs:break-normal`}>Saynètes</div>
+                        </Typography>
+                    </Box>
+                </section>                
+                <section id="apro" className='min-h-screen max-container'>
+                    <Box className={`mx-0 p-4`}>
+                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
+                            sx={{ ...dynamicStylesTitle }}>
+                            <div className={`xs:break-normal`}>A propos</div>
                         </Typography>
                     </Box>
                 </section>
+
             </main>
         </Layout>
     )

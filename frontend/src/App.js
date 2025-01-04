@@ -1,17 +1,30 @@
 import React, { useState, } from 'react';
 import { UserContext } from './store/user_context';
+import DeckContext from './store/DeckContext';
 
 function App() {
 
   const [decks, setDecks] = useState([]);
 
-  return (
-    <UserContext.Provider value={decks}>
-      <div>
-        App
-      </div>
-    </UserContext.Provider>
-  );
+  <UserContext.Provider value={decks}>
+    <DeckContext.Provider
+      value={{
+        deck: '',
+        language: 'all',
+        update: () => { // we added this callback
+          this.setDeck((props) => ({
+            deck: props,
+          }));
+        },
+
+      }}>
+      return (
+      <>
+        This is the App
+      </>
+      );
+    </DeckContext.Provider>
+  </UserContext.Provider>
 
 }
 

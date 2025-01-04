@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useContext, } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import SmallButton from '../components/UI/SmallButton';
@@ -11,7 +12,10 @@ import Layout from '../components/UI/Layout';
 import ProjectImageList from "../components/UI/Media/ProjectImageList.jsx";
 
 import { man_blue_bg, } from '../assets/img/index.js';
-import { projects } from "../assets/localData/data.js";
+import { projects, home_sections, } from "../assets/localData/data.js";
+import { json_data } from '../assets/data/index.js';
+import DeckContext from "../store/DeckContext";
+
 import { useTheme } from '@mui/material';
 
 import {
@@ -19,10 +23,58 @@ import {
 } from "../sections";
 
 
+
 const Home = () => {
     const { palette } = useTheme();
     const { typography } = useTheme();
     const navigate = useNavigate();
+
+    const [languages, setLanguages] = useState([]);
+
+    const deckContext = useContext(DeckContext);
+
+    const initNavlinks = (data) => {
+        const arr = [];
+        {
+            data && data.map(
+                (el) => {
+                    let item = {};
+                    item["label"] = el.label;
+                    item["url"] = el.href;
+                    arr.push(item);
+                }
+            )
+        }
+        deckContext.current_deck.navlinks = arr;
+    };
+
+    useEffect(() => {
+        const loadData = () => JSON.parse(JSON.stringify(json_data));
+        setLanguages(loadData);
+        initNavlinks(home_sections);
+    }, []);
+
+    const updateNavlinks = (languages) => {
+        const arr = [];
+        {
+            languages && languages.map(
+                (el) => {
+                    let item = {};
+                    item["label"] = el.lang_name_native;
+                    item["url"] = `/theme_page/${el.language}?l=${el.language}`;
+                    arr.push(item);
+                }
+            )
+        }
+        deckContext.current_deck.navlinks = arr;
+    }
+
+    const handleClick = () => {
+        updateNavlinks(languages);
+
+        deckContext.deck = languages;
+        deckContext.current_deck.language_deck = languages;
+    };
 
     const callBack = (href) => {
         navigate(href);
@@ -104,8 +156,8 @@ const Home = () => {
                             </Link>
                         </Box>
                         <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>
-                            <Link to={{ pathname: `/language_page/` }}>
-                                <SmallButton label="à propos" />
+                            <Link onClick={handleClick} to={{ pathname: `/language_page/` }}>
+                                <SmallButton label="Saynètes" />
                             </Link>
                         </Box>
                         <Box sx={{ gridArea: 'image', }}>
@@ -113,7 +165,7 @@ const Home = () => {
                         </Box>
                     </Box>
                 </section>
-                <section id="portfolio">
+                <section id="proj">
                     <Box
                         className={`mb-60`}
                         sx={{
@@ -159,7 +211,7 @@ const Home = () => {
 
                 {
                     projects && projects.map((item) => (
-                        <ProjectSection project={item} dynamicStylesSubTitle={dynamicStylesSubTitle} dynamicStylesSubSection={dynamicStylesSubSection} minMediaSize={minMediaSize}/>
+                        <ProjectSection project={item} dynamicStylesSubTitle={dynamicStylesSubTitle} dynamicStylesSubSection={dynamicStylesSubSection} minMediaSize={minMediaSize} />
                     ))
                 }
 

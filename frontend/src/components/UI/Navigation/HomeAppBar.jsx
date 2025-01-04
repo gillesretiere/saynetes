@@ -1,6 +1,6 @@
 // https://codesandbox.io/p/sandbox/material-ui-5-hamburger-menu-navigation-fms85m
 
-import React, { useState } from "react";
+import React, { useState, useContext, } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,6 +22,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DescriptionIcon from "@mui/icons-material/Description";
+import DeckContext from "../../../store/DeckContext";
 
 // import { navLinks, currentVersion, } from "../../../assets/constants/index.js";
 
@@ -91,6 +92,8 @@ const HomeAppBar = () => {
   //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
   const [open, setState] = useState(false);
 
+  let deckContext = useContext(DeckContext);
+
   //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
   const toggleDrawer = (open) => (event) => {
     if (
@@ -104,7 +107,7 @@ const HomeAppBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{bgcolor:''}}>
+    <AppBar position="static" sx={{ bgcolor: '' }}>
       <Container maxWidth="lg" disableGutters="true">
         <Toolbar>
           {/* 
@@ -201,14 +204,17 @@ const HomeAppBar = () => {
                 {/* on itère sur les liens de navigations intrapage : ajout du lien 
                https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
                */}
-
-                <ListItemButton key="/language_page/" component="a" href="/language_page/" >
-                  <ListItemIcon>
-                    <DescriptionIcon sx={{ color: "primary.contrastText" }} />
-                  </ListItemIcon>
-                  <ListItemText primary="Langues" sx={{ color: "primary.contrastText" }} />
-                </ListItemButton>
-
+                {deckContext.current_deck.navlinks && deckContext.current_deck.navlinks.map(
+                  (item) => (
+                    <>
+                      <ListItemButton key={`${item.url}`} component="a" href={`${item.url}`} >
+                        <ListItemIcon>
+                          <DescriptionIcon sx={{ color: "primary.contrastText" }} />
+                        </ListItemIcon>
+                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
+                      </ListItemButton>
+                    </>
+                  ))}
               </Box>
 
             </Box>
