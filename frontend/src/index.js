@@ -16,6 +16,7 @@ import SaynetesPage from './pages/SaynetesPage';
 import CartolangPage from './pages/CartolangPage';
 import CountryPage from './components/decks/Cartolang/CountryPage';
 import CountryLanguagesPage from './components/decks/Cartolang/CountryLanguagesPage';
+import { CountryDashboard } from './components/decks/Cartolang/CountryDashboard';
 import Home from './pages/Home';
 import App from './App';
 
@@ -43,7 +44,7 @@ root.render(
             <Route path="theme_page/:id" element={<ThemePage />} />
             <Route path="dialog_page/:id" element={<DialogPage />} />
             <Route path="cartolang" element={<CartolangPage />} />
-            <Route path="country_page/:id" element={<CountryPage />} />
+            <Route path="country_page/:id" element={<CountryDashboard />} />
             <Route path="country_languages_page/:id" element={<CountryLanguagesPage />} />
             <Route path="*" element={
               <main style={{ padding: "1rem" }}>
