@@ -12,18 +12,32 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import IconButton from "@mui/material/IconButton";
+import Paper from '@mui/material/Paper';
+
+import CountryMapCard from './CountryMapCard.jsx';
 
 import { Box } from '@mui/material';
 import classes from './card.module.css';
 
 const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
-    const handleClick = (event) => {
-        console.log(event.currentTarget.id);
-        callBackFunction(event.currentTarget.id);
-    };
+
     const drawerWidth = 240;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [isClosing, setIsClosing] = React.useState(false);
+    const [country, setCountry] = useState([])
+    const [CountryName, setCountryName] = useState('')
+    const [isPending, setIsPending] = useState(true)
+    const [page, setPage] = useState(1)
+    const [uid, setUid] = useState('')
+    const [data, setdata] = useState();
+
+    const setUpdatedCountry = (updatedCountry) => {
+        callBackFunction(updatedCountry);
+    }
+
+    const handleClick = (event) => {
+        callBackFunction(event.currentTarget.id);
+    };
 
     const handleDrawerClose = () => {
         setIsClosing(true);
@@ -119,23 +133,27 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                     ". . . . cwmap"
                     ". . . . ratio"
                     `,
-                            md:
+                            lg:
                                 `
-                    ". cflag cflag cflag cflag"
-                    ". cname cname cname cname"
-                    ". fact1 fact1 fact2 fact2"
+                    ". cflag cname cname cname"
+                    ". fact1 fact1 cwmap cwmap"
+                    ". . . fact2 fact2"
                     ". fact3 fact3 fact4 fact4"
                     ". lfreq lfreq lfreq lfreq"
-                    ". cwmap cwmap cwmap cwmap"
                     ". ratio ratio ratio ratio"
                     `,
                         },
                     }}>
 
                     <Box className={`mt-20 p-4`} sx={{ gridArea: 'cflag', }}>
-                        <img src={card.country_national_flag} className='pr-1 w-64 max-w-[240px] md:max-w-[620px] object-fit' />
+                        <img src={card.country_national_flag} className='pr-1 w-64 max-w-[80px] md:max-w-[180px] object-fit' />
                     </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cname', }}>
+                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cwmap',}}>
+                        <div className="card-item" sx={{ height: '50vh' }}>
+                            <CountryMapCard sx={{ height: '100%' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
+                        </div>
+                    </Box>
+                    <Box className={`mt-20 mx-0 p-4`} sx={{ gridArea: 'cname', }}>
                         <Typography className={`font-articulat_cf font-bold text:2xl md:text-4xl xl:text-6xl leading-none tracking-tight`}>
                             {card.country_name_fr}
                         </Typography>
@@ -145,37 +163,45 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                     </Box>
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact1', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                            {card.country_summary}
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.country_summary}
+                            </Paper>
                         </Typography>
                     </Box>
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact2', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                            {card.country_languages_summary}
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.country_languages_summary}
+                            </Paper>
                         </Typography>
                     </Box>
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact3', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                            {card.wfb_facts.Land_boundaries.border_countries}
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.wfb_facts.Land_boundaries.border_countries}
+                            </Paper>
                         </Typography>
                     </Box>
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact4', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                            {card.wfb_facts.Country_name.etymology}
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.wfb_facts.Country_name.etymology}
+                            </Paper>
                         </Typography>
                     </Box>
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'lfreq', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                        Freq.
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.wfb_facts.Country_name.etymology}
+                            </Paper>
                         </Typography>
                     </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cwmap', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                        Map
-                        </Typography>
-                    </Box>
+
                     <Box className={`mx-0 p-4`} sx={{ gridArea: 'ratio', }}>
                         <Typography className={`font-ff_nexus_mix font-normal`}>
-                        Ratio
+                            <Paper className={`mx-0 p-4`} elevation={3}>
+                                {card.wfb_facts.Country_name.etymology}
+                            </Paper>
                         </Typography>
                     </Box>
                 </Box>

@@ -20,7 +20,9 @@ function App() {
       }}>
       return (
       <>
-        This is the App
+        <div class="amchart" id="chartdiv">
+          This is the App
+        </div>
       </>
       );
     </DeckContext.Provider>
