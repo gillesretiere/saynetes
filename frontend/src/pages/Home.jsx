@@ -37,8 +37,9 @@ const Home = () => {
         const arr = [];
         {
             data && data.map(
-                (el) => {
+                (el, index) => {
                     let item = {};
+                    item["id"] = index;
                     item["label"] = el.label;
                     item["url"] = el.href;
                     arr.push(item);
@@ -58,8 +59,9 @@ const Home = () => {
         const arr = [];
         {
             languages && languages.map(
-                (el) => {
+                (el, index) => {
                     let item = {};
+                    item["id"] = index;
                     item["label"] = el.lang_name_native;
                     item["url"] = `/theme_page/${el.language}?l=${el.language}`;
                     arr.push(item);
@@ -140,18 +142,19 @@ const Home = () => {
                         }}
                     >
                         <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
-                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                                sx={{ ...dynamicStylesTitle }}>
-                                <p className={`xs:break-normal`}>Design et créativité</p>
-                            </Typography>
+                            <div className={`xs:break-normal`}>
+                                <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
+                                    sx={{ ...dynamicStylesTitle }}>
+                                    Design et créativité
+                                </Typography>
+                            </div>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
                                 sx={{ ...dynamicStylesSubTitle }}>
                                 Mise en valeur de vos contenus numériques
                             </Typography>
                         </Box>
-
                         <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                            <Link to={{ pathname: `/language_page/` }}>
+                            <Link to={{ pathname: `/saynetes_page/` }}>
                                 <SmallButton label="Visite guidée" />
                             </Link>
                         </Box>

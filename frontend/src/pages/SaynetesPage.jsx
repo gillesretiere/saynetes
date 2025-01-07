@@ -8,7 +8,8 @@ import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ProjectImageList from "../components/UI/Media/ProjectImageList.jsx";
 import { langdeck_projects_saynetes_wide, } from '../assets/img/index.js';
-import { projects, saynetes_sections,  } from "../assets/localData/data.js";
+import { projects, saynetes_sections, } from "../assets/localData/data.js";
+import { SaynetesMainSection, SaynetesLanguagesSection, SaynetesStoriesSection, } from '../sections/index.js';
 import { useTheme } from '@mui/material';
 import DeckContext from "../store/DeckContext";
 import { json_data } from '../assets/data/index.js';
@@ -42,15 +43,16 @@ const SaynetesPage = () => {
     useEffect(() => {
         const loadData = () => JSON.parse(JSON.stringify(json_data));
         setLanguages(loadData);
-        initNavlinks (saynetes_sections);
+        initNavlinks(saynetes_sections);
     }, []);
 
     const updateNavlinks = (languages) => {
         const arr = [];
         {
             languages && languages.map(
-                (el) => {
+                (el, index) => {
                     let item = {};
+                    item["id"] = index;
                     item["label"] = el.lang_name_native;
                     item["url"] = `/theme_page/${el.language}?l=${el.language}`;
                     arr.push(item);
@@ -132,10 +134,12 @@ const SaynetesPage = () => {
                         }}
                     >
                         <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
-                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                                sx={{ ...dynamicStylesTitle }}>
-                                <div className={`xs:break-normal`}>{projects[0].full_description.series}</div>
-                            </Typography>
+                            <div className={`xs:break-normal`}>
+                                <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
+                                    sx={{ ...dynamicStylesTitle }}>
+                                    {projects[0].full_description.series}
+                                </Typography>
+                            </div>
                             <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
                                 sx={{ ...dynamicStylesSubTitle }}>
                                 {projects[0].full_description.title}
@@ -157,45 +161,31 @@ const SaynetesPage = () => {
                             </Link>
                         </Box>
                         <Box sx={{ gridArea: 'image', }}>
-                            <img src={langdeck_projects_saynetes_wide} width="100%" className='h-full max-h-90 xl:max-h-[640px] object-cover' />
+                            <img src={projects[0].full_description.illustration} width="100%" className='h-full max-h-90 xl:max-h-[640px] object-cover' />
                         </Box>
                     </Box>
                 </section>
-                <section id="desc" className='min-h-screen max-container'>
-                    <Box className={`mx-0 p-4`}>
-                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                            sx={{ ...dynamicStylesTitle }}>
-                            <div className={`xs:break-normal`}>Description</div>
-                        </Typography>
-                    </Box>
-                </section>
-                <section id="lang" className='min-h-screen max-container'>
-                    <Box className={`mx-0 p-4`}>
-                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                            sx={{ ...dynamicStylesTitle }}>
-                            <div className={`xs:break-normal`}>Langues</div>
-                        </Typography>
-                    </Box>
-                </section>
-                <section id="hist" className='min-h-screen max-container'>
-                    <Box className={`mx-0 p-4`}>
-                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                            sx={{ ...dynamicStylesTitle }}>
-                            <div className={`xs:break-normal`}>Saynètes</div>
-                        </Typography>
-                    </Box>
-                </section>                
+                {/*
+                MAIN SECTION
+                */}
+                <SaynetesMainSection />
+
+                <SaynetesLanguagesSection />
+
+                <SaynetesStoriesSection />
+
                 <section id="apro" className='min-h-screen max-container'>
                     <Box className={`mx-0 p-4`}>
-                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                            sx={{ ...dynamicStylesTitle }}>
-                            <div className={`xs:break-normal`}>A propos</div>
-                        </Typography>
+                        <div className={`xs:break-normal`}>
+                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
+                                sx={{ ...dynamicStylesTitle }}>
+                                A propos
+                            </Typography>
+                        </div>
                     </Box>
                 </section>
-
             </main>
-        </Layout>
+        </Layout >
     )
 }
 

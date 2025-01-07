@@ -118,13 +118,14 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                         flexGrow: 1,
                         gridTemplateColumns: 'repeat(5, 1fr)',
                         gap: 1,
-                        width: { sm: `calc(100% - ${drawerWidth}px)` },
+                        width: { md: `calc(100% - ${drawerWidth}px)` },
                         gridTemplateRows: 'auto',
                         gridTemplateAreas: {
                             xs:
                                 `
-                    ". . . . cflag"
+                    ". . . cflag cflag"
                     ". . . . cname"
+                    ". . . . cwmap"
                     ". . . . fact1"
                     ". . . . fact2"
                     ". . . . fact3"
@@ -132,6 +133,18 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                     ". . . . lfreq"
                     ". . . . cwmap"
                     ". . . . ratio"
+                    `,
+                            sm:
+                                `
+                    ". . cflag cflag cflag"
+                    ". . cname cname cname"
+                    ". . cwmap cwmap cwmap"
+                    ". . fact1 fact1 fact1"
+                    ". . fact2 fact2 fact2"
+                    ". . fact3 fact3 fact3"
+                    ". . fact4 fact4 fact4"
+                    ". . lfreq lfreq lfreq"
+                    ". . ratio ratio ratio"
                     `,
                             lg:
                                 `
@@ -148,7 +161,7 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                     <Box className={`mt-20 p-4`} sx={{ gridArea: 'cflag', }}>
                         <img src={card.country_national_flag} className='pr-1 w-64 max-w-[80px] md:max-w-[180px] object-fit' />
                     </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cwmap',}}>
+                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cwmap', }}>
                         <div className="card-item" sx={{ height: '50vh' }}>
                             <CountryMapCard sx={{ height: '100%' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
                         </div>

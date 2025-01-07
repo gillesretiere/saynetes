@@ -176,7 +176,7 @@ const HomeAppBar = () => {
             //function that is called when the drawer should close
             onClose={toggleDrawer(false)}
             //function that is called when the drawer should open
-            onOpen={toggleDrawer(true)}
+            // onOpen={toggleDrawer(true)}
           >
             {/* The inside of the drawer */}
             <Box
@@ -207,7 +207,7 @@ const HomeAppBar = () => {
                 {deckContext.current_deck.navlinks && deckContext.current_deck.navlinks.map(
                   (item) => (
                     <>
-                      <ListItemButton key={`${item.url}`} component="a" href={`${item.url}`} >
+                      <ListItemButton key={`${item.id}`} component="a" href={`${item.url}`} >
                         <ListItemIcon>
                           <DescriptionIcon sx={{ color: "primary.contrastText" }} />
                         </ListItemIcon>
