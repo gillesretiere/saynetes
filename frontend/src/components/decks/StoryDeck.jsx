@@ -23,7 +23,7 @@ const StoryDeck = ({ deck, language }) => {
   return (
     <>
       <div className={`${classes.card__list}`}>
-        {deck && deck.map(
+        {deck && deck.sort((a, b) => a.story_order > b.story_order ? 1:-1).map(
           (el) => {
             return (<StoryCard key={el._id} card={el} />)
           }

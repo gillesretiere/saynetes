@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import classes from "./Card.module.css";
 
 export default function LanguageCard({ card }) {
+    console.log (card);
     const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, } = card;
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
@@ -36,7 +37,7 @@ export default function LanguageCard({ card }) {
                     {lang_name_fr}
                 </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions disableSpacing sx={{ mt: "auto", justifyContent: "space-between", }}>
                 <Button size="small" variant="button" href={`/theme_page/${language}?l=${language}`}>Choisir</Button>
             </CardActions>
         </Card>

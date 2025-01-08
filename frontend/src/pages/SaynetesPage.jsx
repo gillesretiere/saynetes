@@ -168,9 +168,9 @@ const SaynetesPage = () => {
                 {/*
                 MAIN SECTION
                 */}
-                <SaynetesMainSection />
+                <SaynetesMainSection updateNavlinks={updateNavlinks}/>
 
-                <SaynetesLanguagesSection />
+                <SaynetesLanguagesSection updateNavlinks={updateNavlinks}/>
 
                 <SaynetesStoriesSection />
 
