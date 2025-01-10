@@ -14,7 +14,7 @@ const violetMain = alpha(violetBase, 0.7);
 const greyBase = '#0D0D0D';
 const greyMain = alpha(greyBase, 0.7);
 
-const orangeBase = '#F28705';
+const orangeBase = '#F44336';
 const orangeMain = alpha(orangeBase, 0.9);
 
 
@@ -26,7 +26,7 @@ const theme = createTheme({
         mode:'light',
         primary: {
             /* f44336 */
-            main: '#fff',
+            main: '#f44336',
             light: '#ef9a9a',
             dark: '#c62828',
             contrastText: '#fff',
@@ -129,7 +129,7 @@ const theme = createTheme({
             styleOverrides: {
                 colorPrimary: {
                     /* backgroundColor: "white",*/
-                    color: "#f74216",
+                    color: "#f44336",
                 }
             }
         }

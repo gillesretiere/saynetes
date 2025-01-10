@@ -4,13 +4,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid2';
+import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import classes from "./Card.module.css";
 
 export default function LanguageCard({ card }) {
-    console.log (card);
-    const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, } = card;
+    const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, lang_is_available, } = card;
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
             <Link to={`/theme_page/${language}?l=${language}`}>
@@ -30,16 +32,40 @@ export default function LanguageCard({ card }) {
                 </div>
             </Link>
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {lang_name_native}
-                </Typography>
-                <Typography variant="subtitle1">
-                    {lang_name_fr}
-                </Typography>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2}>
+                        <Grid size={12} className="h-32">
+                            <Typography gutterBottom variant="h5" className='font-articulat_cf text-md font-semibold leading-none tracking-tight'>
+                                {lang_name_native}
+                            </Typography>
+                            <Typography variant="h6" className='font-articulat_cf text-md font-light leading-none tracking-tight'>
+                                {lang_name_fr}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Box>
+
             </CardContent>
             <CardActions disableSpacing sx={{ mt: "auto", justifyContent: "space-between", }}>
-                <Button size="small" variant="button" href={`/theme_page/${language}?l=${language}`}>Choisir</Button>
+                {
+                    lang_is_available ? (
+                        <>
+                            <Link to={`/theme_page/${language}?l=${language}`}>
+                                <Button size="small" variant="button">Choisir</Button>
+                            </Link>
+                            <Chip label="disponible" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-green' />
+                        </>
+                    ) : (
+                        <>
+                            <Button size="small" variant="button" disabled={true}>Choisir</Button>
+                            <Chip label="prochainement" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-orange' />
+                        </>
+                    )
+                }
             </CardActions>
+
+
+
         </Card>
     );
 }

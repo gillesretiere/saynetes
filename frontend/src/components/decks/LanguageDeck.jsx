@@ -5,8 +5,22 @@ import DeckContext from "../../store/DeckContext";
 
 
 const LanguageDeck = ({ deck }) => {
-  let deckContext = useContext(DeckContext);
-
+  const ctx = useContext(DeckContext);
+  const arr = [];
+  {
+    deck && deck.map(
+      (el, index, ) => {
+        let item = {};
+        item["id"] = index;
+        item["label"] = el.lang_name_native;
+        item["enabled"] = el.lang_is_available;
+        item["url"] = `/theme_page/${el.language}?l=${el.language}`;
+        arr.push(item);
+      }
+    )
+  }
+  ctx.current_deck.navlinks = arr;
+  
   return (
     <>
       <div className={`${classes.card__list}`}>

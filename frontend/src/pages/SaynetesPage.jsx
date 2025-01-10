@@ -28,11 +28,17 @@ const SaynetesPage = () => {
     const initNavlinks = (data) => {
         const arr = [];
         {
+            let item = {};
+            item["label"] = "Home Page";
+            item["url"] = "/";
+            item["enabled"] = true;
+            arr.push(item);
             data && data.map(
                 (el) => {
                     let item = {};
                     item["label"] = el.label;
                     item["url"] = el.href;
+                    item["enabled"] = true;
                     arr.push(item);
                 }
             )

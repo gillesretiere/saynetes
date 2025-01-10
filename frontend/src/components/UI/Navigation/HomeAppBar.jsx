@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import HomeIcon from '@mui/icons-material/Home';
+import { Link } from "react-router-dom";
 
 //drawer elements used
 import Drawer from "@mui/material/Drawer";
@@ -21,6 +22,7 @@ import Button from "@mui/material/Button";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Chip from "@mui/material/Chip";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeckContext from "../../../store/DeckContext";
 
@@ -107,8 +109,8 @@ const HomeAppBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '' }}>
-      <Container maxWidth="lg" disableGutters="true">
+    <AppBar position="static" sx={{ bgcolor: '#fff' }}>
+      <Container maxWidth="xl" disableGutters="true">
         <Toolbar>
           {/* 
           <Typography>
@@ -162,7 +164,9 @@ const HomeAppBar = () => {
               }
             }}
           >
-            {search}
+            {/* 
+            {search}            
+            */}
           </Box>
 
 
@@ -175,15 +179,15 @@ const HomeAppBar = () => {
             open={open}
             //function that is called when the drawer should close
             onClose={toggleDrawer(false)}
-            //function that is called when the drawer should open
-            // onOpen={toggleDrawer(true)}
+          //function that is called when the drawer should open
+          // onOpen={toggleDrawer(true)}
           >
             {/* The inside of the drawer */}
             <Box
+              className="bg-primary-orange"
               sx={{
                 p: 2,
                 height: 1,
-                backgroundColor: "#f44336"
               }}
             >
               {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
@@ -199,7 +203,9 @@ const HomeAppBar = () => {
                */}
               </Box>
 
-              {search}
+              {/* 
+              search}            
+              */}
               <Box sx={{ mb: 2 }}>
                 {/* on itère sur les liens de navigations intrapage : ajout du lien 
                https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
@@ -207,11 +213,13 @@ const HomeAppBar = () => {
                 {deckContext.current_deck.navlinks && deckContext.current_deck.navlinks.map(
                   (item) => (
                     <>
-                      <ListItemButton key={`${item.id}`} component="a" href={`${item.url}`} >
+                      {/* on teste si href interne (#) : composant "a" sinon "Link" */}
+                      <ListItemButton key={`${item.id}`} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
                         <ListItemIcon>
                           <DescriptionIcon sx={{ color: "primary.contrastText" }} />
                         </ListItemIcon>
                         <ListItemText primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
+                        {/* <Chip label={item.enabled ? "disponible" :"prochainement"} size="small"></Chip> */}
                       </ListItemButton>
                     </>
                   ))}

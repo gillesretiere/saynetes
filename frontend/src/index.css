@@ -41,3 +41,6 @@ body {
   --serif-secondary-font : ff-nexus-mix, sans-serif;
 }
 
+.disabled-link {
+  pointer-events: none;
+}

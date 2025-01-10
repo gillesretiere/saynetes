@@ -103,14 +103,16 @@ export default function StoryCard({ card }) {
                 {
                     story_order === "1" ? (
                         <>
-                            <Button size="small" href={`/dialog_page/${story_language}?s=${story_translation_id}`} variant="button">Choisir</Button>
-                            <Chip label="disponible" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-green-800' />
+                            <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
+                                <Button size="small" variant="button">Choisir</Button>
+                            </Link>
+                            <Chip label="disponible" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-green' />
                         </>
                     ) : (
                         <>
-                        <Button size="small" href={`/dialog_page/${story_language}?s=${story_translation_id}`} variant="button">Choisir</Button>
-                        <Chip label="indisponible" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-orange-800' />
-                    </>
+                            <Button size="small" variant="button" disabled={true}>Choisir</Button>
+                            <Chip label="prochainement" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-orange' />
+                        </>
                     )
                 }
 
