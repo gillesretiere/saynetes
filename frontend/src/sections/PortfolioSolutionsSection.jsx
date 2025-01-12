@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { langdeck_projects_cartolang_smart, } from "../assets/img/index";
 import TitlebarImageList from '../components/UI/Media/TitlebarImageList';
 
-const PortfolioSolutionsSection = () => {
+const PortfolioSolutionsSection = ({ dynamicStylesTitle, }) => {
     return (
         <>
             <section id="solu" className='min-h-screen max-container'>
@@ -47,12 +47,13 @@ const PortfolioSolutionsSection = () => {
                         },
                     }}
                 >
-                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'titr', height: '5vh', }}>
-                        <Typography className={`font-articulat_cf text-xl md:text-xl xl:text-2xl font-thin`}>
-                            Solutions
+                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'titr', height: '10vh', }}>
+                        <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
+                            sx={{ ...dynamicStylesTitle }}>
+                            Portfolio
                         </Typography>
                     </Box>
-                    <Box sx={{ gridArea: 'imag', width: '100%', }}>
+                    <Box sx={{ gridArea: 'imag', width: '100%', height: 450, }}>
                         {/* <img src={langdeck_projects_cartolang_smart} className='max-h-70 xl:max-h-[540px] object-cover' /> */}
                         <TitlebarImageList />
                     </Box>

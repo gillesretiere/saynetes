@@ -18,19 +18,24 @@ const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
             gridTemplateRows: 'auto',
             gridTemplateAreas: {
               xs:
-                `"header header header ."
-                            "leftlink . . rightlink"
-                            "image image image image"
-                            `,
+                `
+                "header header header ."
+                "leftlink . . rightlink"
+                "image image image image"
+                `,
               md:
-                `"header header header ."
-                            "leftlink . . rightlink"
-                            "image image image image"
-                            `,
+                `
+                "header header header ."
+                "leftlink . . rightlink"
+                "image image image image"
+                `,
             },
           }}
         >
           <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
+            <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-2xl text-primary-orange`}>
+              Hammer &amp; Marteau
+            </Typography>
             <div className={`xs:break-normal`}>
               <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                 sx={{ ...dynamicStylesTitle }}>
@@ -44,7 +49,7 @@ const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
           </Box>
           <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
             <a href='#proj'>
-              <SmallButton label="Visite guidée" />
+              <SmallButton label="Visite guidée"/>
             </a>
           </Box>
           <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>

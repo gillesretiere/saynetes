@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import SmallButton from '../components/UI/SmallButton';
 import { Link, } from "react-router-dom";
@@ -11,8 +11,11 @@ import { saynetes_sections, } from "../assets/localData/data.js";
 
 
 const PortfolioSaynetesSection = ({dynamicStylesTitle}) => {
-    const navigate = useNavigate();
-
+    const mq_xs = useMediaQuery('(min-width:0px)');
+    const mq_sm = useMediaQuery('(min-width:600px)');
+    const mq_md = useMediaQuery('(min-width:900px)');
+    const mq_lg = useMediaQuery('(min-width:1200px)');
+    const mq_xl = useMediaQuery('(min-width:1536px)');
     return (
         <>
             <section id="sayn" className='min-h-screen max-container'>
@@ -75,7 +78,7 @@ const PortfolioSaynetesSection = ({dynamicStylesTitle}) => {
                             Les saynètes sont de petites histoires mettant en scène des personnages. Elles ont pour objectif de sensibiliser sur des thèmes comme le diabète, l'alimentation et la pratique d'exercices physiques, à l'usage des non francophones.
                         </Typography>
                     </Box>
-                    <Box className={`mx-20 my-10 p-4`} sx={{ gridArea: 'clip', }}>
+                    <Box className={`sm:mx-20 sm:mb-10 p-4`} sx={{ gridArea: 'clip', }}>
                         <Card
                             sx={{
                                 display: 'flex', marginLeft: "auto",
@@ -89,6 +92,7 @@ const PortfolioSaynetesSection = ({dynamicStylesTitle}) => {
                                 title="Les Saynètes"
                                 type='video/mp4'
                                 controls
+                                sx={{width:'100%', height:'auto', }}
                             />
                         </Card>
                     </Box>
