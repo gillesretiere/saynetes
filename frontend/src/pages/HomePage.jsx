@@ -13,7 +13,7 @@ import Box from '@mui/material/Box';
 import Layout from '../components/UI/Layout';
 import classes from "./Pages.module.css";
 // import Demo from '../components/Demo';
-import { hmrt_logo_squared } from '../assets/img/index.js';
+//import { hmrt_logo_squared } from '../assets/img/index.js';
 
 import { UserContext } from '../store/user_context.jsx';
 
@@ -52,9 +52,7 @@ const HomePage = () => {
             <Layout>
                 <Grid container maxWidth="1" spacing={2} columns={{ xs: 4, sm: 4, md: 8 }} size="grow" alignItems="center" >
                     <Grid display="flex" justifyContent="center" alignItems="center" size={4} sx={{bgcolor:'text.primary'}}>
-                        <Box sx={{ maxWidth: 345 }}>
-                        <img className={`flex mb-3 ${classes.landing_page}`} src={hmrt_logo_squared} loading="lazy"></img>
-                        </Box >
+
                     </Grid>
                     <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
                         <Grid display="flex" flexDirection="column" justifyContent="center" alignItems="center">

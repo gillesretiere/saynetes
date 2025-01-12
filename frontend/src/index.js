@@ -8,13 +8,11 @@ import './index.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
 
-import HomePage from './pages/HomePage';
 import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
 import SaynetesPage from './pages/SaynetesPage';
 import CartolangPage from './pages/CartolangPage';
-import CountryPage from './components/decks/Cartolang/CountryPage';
 import CountryLanguagesPage from './components/decks/Cartolang/CountryLanguagesPage';
 import { CountryDashboard } from './components/decks/Cartolang/CountryDashboard';
 import Home from './pages/Home';
