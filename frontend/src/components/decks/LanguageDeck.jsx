@@ -8,7 +8,7 @@ const LanguageDeck = ({ deck }) => {
   const ctx = useContext(DeckContext);
   const arr = [];
   {
-    deck && deck.map(
+    deck && deck.sort((a,b) => a.lang_is_available > b.lang_is_available ? -1 : 1).map(
       (el, index, ) => {
         let item = {};
         item["id"] = index;

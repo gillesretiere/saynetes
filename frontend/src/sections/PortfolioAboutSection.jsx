@@ -3,7 +3,7 @@ import SmallButton from '../components/UI/SmallButton';
 import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { man_blue_bg, } from '../assets/img/index.js';
+import { hmrt_logo, } from '../assets/img/index.js';
 
 const PortfolioAboutSection = ( {dynamicStylesTitle} ) => {
     return (
@@ -12,9 +12,12 @@ const PortfolioAboutSection = ( {dynamicStylesTitle} ) => {
                 <div className={`xs:break-normal`}>
                     <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                         sx={{ ...dynamicStylesTitle }}>
-                        A propos
+                        &Agrave; propos
                     </Typography>
                 </div>
+            </Box>
+            <Box sx={{ gridArea: 'image', }} className="p-4 m10">
+              <img src={hmrt_logo} className='object-cover' />
             </Box>
         </section>
     )

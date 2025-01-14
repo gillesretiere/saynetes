@@ -63,7 +63,7 @@ export default function StoryCard({ card }) {
                             </Typography>
                         </Grid>
                         <Grid size={4}>
-                            <Typography variant="h5" className='font-articulat_cf text-md font-light leading-none tracking-tight'>
+                            <Typography variant="h5" className='font-articulat_cf text-md font-light text-primary-orange leading-none tracking-tight'>
                                 {story_order}
                             </Typography>
                         </Grid>

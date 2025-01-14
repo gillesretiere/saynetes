@@ -49,7 +49,7 @@ const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
           </Box>
           <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
             <a href='#proj'>
-              <SmallButton label="Visite guidée"/>
+              <SmallButton label="Visite guidée" />
             </a>
           </Box>
           <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>

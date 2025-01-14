@@ -70,7 +70,7 @@ const Home = () => {
         deckContext.current_deck.navlinks = arr;
     }
 
-    const handleClick = () => {
+    const callbackModal = () => {
         updateNavlinks(languages);
 
         deckContext.deck = languages;
@@ -119,9 +119,12 @@ const Home = () => {
     return (
         <main>
             <Layout>
-                <PorfolioMainSection dynamicStylesTitle={dynamicStylesTitle} dynamicStylesSubTitle={dynamicStylesSubTitle} />
+                <PorfolioMainSection
+                    dynamicStylesTitle={dynamicStylesTitle}
+                    dynamicStylesSubTitle={dynamicStylesSubTitle}
+                />
                 <PortfolioSection />
-                <PortfolioSolutionsSection dynamicStylesTitle={dynamicStylesSubTitle}/>
+                <PortfolioSolutionsSection dynamicStylesTitle={dynamicStylesSubTitle} />
                 <PortfolioSaynetesSection dynamicStylesTitle={dynamicStylesTitle} />
                 <PortfolioCartolangSection></PortfolioCartolangSection>
                 <PortfolioDialangoSection></PortfolioDialangoSection>

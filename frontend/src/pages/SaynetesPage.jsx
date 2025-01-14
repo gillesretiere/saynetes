@@ -6,10 +6,16 @@ import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import ProjectImageList from "../components/UI/Media/ProjectImageList.jsx";
-import { langdeck_projects_saynetes_wide, } from '../assets/img/index.js';
-import { projects, saynetes_sections, } from "../assets/localData/data.js";
-import { SaynetesMainSection, SaynetesLanguagesSection, SaynetesStoriesSection, } from '../sections/index.js';
+import {
+    projects,
+    saynetes_sections,
+} from "../assets/localData/data.js";
+import {
+    SaynetesHomeSection,
+    SaynetesDescriptionSection,
+    SaynetesCardSystemSection,
+    SaynetesAboutSection,
+} from '../sections/index.js';
 import { useTheme } from '@mui/material';
 import DeckContext from "../store/DeckContext";
 import { json_data } from '../assets/data/index.js';
@@ -17,8 +23,7 @@ import { json_data } from '../assets/data/index.js';
 import Layout from '../components/UI/Layout';
 
 const SaynetesPage = () => {
-    const { palette } = useTheme();
-    const { typography } = useTheme();
+
     const navigate = useNavigate();
 
     const [languages, setLanguages] = useState([]);
@@ -68,9 +73,8 @@ const SaynetesPage = () => {
         deckContext.current_deck.navlinks = arr;
     }
 
-    const handleClick = () => {
+    const callbackModal = () => {
         updateNavlinks(languages);
-
         deckContext.deck = languages;
         deckContext.current_deck.language_deck = languages;
     };
@@ -116,82 +120,19 @@ const SaynetesPage = () => {
 
 
     return (
-        <Layout>
-            <main className='relative'>
-                <section id="main" className='min-h-screen max-container'>
-                    <Box
-                        sx={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(4, 1fr)',
-                            gap: 1,
-                            gridTemplateRows: 'auto',
-                            gridTemplateAreas: {
-                                xs:
-                                    `"header header header ."
-                            "leftlink . . rightlink"
-                            "image image image image"
-                            `,
-                                md:
-                                    `"header header header ."
-                            "leftlink . . rightlink"
-                            "image image image image"
-                            `,
-                            },
-                        }}
-                    >
-                        <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
-                            <div className={`xs:break-normal`}>
-                                <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                                    sx={{ ...dynamicStylesTitle }}>
-                                    {projects[0].full_description.series}
-                                </Typography>
-                            </div>
-                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
-                                sx={{ ...dynamicStylesSubTitle }}>
-                                {projects[0].full_description.title}
-                            </Typography>
-                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight`}
-                                sx={{ ...dynamicStylesSubSection }}>
-                                {projects[0].full_description.sub_title}
-                            </Typography>
-                        </Box>
+        <main>
+            <Layout>
+                <SaynetesHomeSection
+                    dynamicStylesTitle={dynamicStylesTitle}
+                    dynamicStylesSubTitle={dynamicStylesSubTitle}
+                    dynamicStylesSubSection={dynamicStylesSubSection}
+                    callbackModal={callbackModal} />
+                <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle}/>
+                <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection}/>
+                <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection}/>
+            </Layout >
+        </main>
 
-                        <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                            <a href='#desc'>
-                                <SmallButton label="Visite guidée" />
-                            </a>
-                        </Box>
-                        <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>
-                            <Link onClick={handleClick} to={{ pathname: `/language_page/` }}>
-                                <SmallButton label={projects[0].full_description.button_text} />
-                            </Link>
-                        </Box>
-                        <Box sx={{ gridArea: 'image', }}>
-                            <img src={projects[0].full_description.illustration} width="100%" className='h-full max-h-90 xl:max-h-[640px] object-cover' />
-                        </Box>
-                    </Box>
-                </section>
-                {/*
-                MAIN SECTION
-                */}
-                <SaynetesMainSection updateNavlinks={updateNavlinks}/>
-
-                <SaynetesLanguagesSection updateNavlinks={updateNavlinks}/>
-
-                <SaynetesStoriesSection />
-
-                <section id="apro" className='min-h-screen max-container'>
-                    <Box className={`mx-0 p-4`}>
-                        <div className={`xs:break-normal`}>
-                            <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
-                                sx={{ ...dynamicStylesTitle }}>
-                                A propos
-                            </Typography>
-                        </div>
-                    </Box>
-                </section>
-            </main>
-        </Layout >
     )
 }
 
