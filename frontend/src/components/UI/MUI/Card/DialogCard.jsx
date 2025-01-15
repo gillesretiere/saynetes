@@ -97,7 +97,7 @@ export default function DialogCard({ card }) {
                 <IconButton aria-label="play/pause">
                     <AudioPlayer media_url={french ? phrase_audio_url_fr : phrase_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
                 </IconButton>
-                <Button size="small" sx={{ color: 'text.secondary' }}><AutoStoriesOutlinedIcon /></Button>
+                <Button size="small" sx={{ color: 'text.secondary' }} disabled><AutoStoriesOutlinedIcon /></Button>
             </CardActions>
         </Card>
     );

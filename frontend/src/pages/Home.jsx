@@ -128,7 +128,7 @@ const Home = () => {
                 <PortfolioSaynetesSection dynamicStylesTitle={dynamicStylesTitle} />
                 <PortfolioCartolangSection></PortfolioCartolangSection>
                 <PortfolioDialangoSection></PortfolioDialangoSection>
-                <PortfolioAboutSection dynamicStylesTitle={dynamicStylesTitle} />
+                <PortfolioAboutSection dynamicStylesTitle={dynamicStylesSubTitle} />
                 {
                     /*
                     projects && projects.map((item) => (

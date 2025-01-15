@@ -44,13 +44,22 @@ export default function StoryCard({ card }) {
             flexDirection: "column",
             maxWidth: 345
         }}>
+            {story_order==="1"?(
             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
+            <CardMedia
+                sx={{ height: 140 }}
+                image={story_illustration}
+                title={story_name}
+            />
+        </Link>
+            ):(
                 <CardMedia
-                    sx={{ height: 140 }}
-                    image={story_illustration}
-                    title={story_name}
-                />
-            </Link>
+                sx={{ height: 140 }}
+                image={story_illustration}
+                title={story_name}
+            />
+            )}
+
             <CardContent>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>

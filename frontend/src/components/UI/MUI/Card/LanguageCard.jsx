@@ -15,7 +15,7 @@ export default function LanguageCard({ card }) {
     const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, lang_is_available, } = card;
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
-            <Link to={`/theme_page/${language}?l=${language}`}>
+            <Link to={lang_is_available ? `/theme_page/${language}?l=${language}` : null} >
                 <div className={`${classes.card}`}>
                     <CardMedia
                         component="img"

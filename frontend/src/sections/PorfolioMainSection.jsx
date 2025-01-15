@@ -3,7 +3,7 @@ import SmallButton from '../components/UI/SmallButton';
 import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { man_blue_bg, } from '../assets/img/index.js';
+import { man_blue_bg, hmrt_icon, } from '../assets/img/index.js';
 
 
 const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
@@ -32,10 +32,24 @@ const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
             },
           }}
         >
+
           <Box className={`mx-0 p-4`} sx={{ gridArea: 'header', height: '30vh' }}>
-            <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-2xl text-primary-orange`}>
-              Hammer &amp; Marteau
-            </Typography>
+            <Box sx={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              p: 1,
+              m: 1,
+              bgcolor: 'background.paper',
+              maxWidth: 300,
+              borderRadius: 1,
+              alignItems: 'center',
+            }}>
+              <img src={hmrt_icon} className='mr-4'></img>
+              <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-2xl text-primary-orange`}>
+                  Hammer &amp; Marteau
+                </Typography>
+            </Box>
+
             <div className={`xs:break-normal`}>
               <Typography className={`font-articulat_cf font-normal leading-none tracking-tight break-keep`}
                 sx={{ ...dynamicStylesTitle }}>

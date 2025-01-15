@@ -35,7 +35,7 @@ const SaynetesPage = () => {
         {
             let item = {};
             item["label"] = "Home Page";
-            item["url"] = "/";
+            item["url"] = "#main";
             item["enabled"] = true;
             arr.push(item);
             data && data.map(
