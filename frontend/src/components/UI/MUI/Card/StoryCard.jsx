@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../../store/user_context';
@@ -115,11 +117,23 @@ export default function StoryCard({ card }) {
                             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
                                 <Button size="small" variant="button">Choisir</Button>
                             </Link>
+                            <IconButton
+                                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                                aria-label="Traduction et voix : "
+                            >
+                                <InfoIcon />
+                            </IconButton>
                             <Chip label="disponible" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-green' />
                         </>
                     ) : (
                         <>
                             <Button size="small" variant="button" disabled={true}>Choisir</Button>
+                            <IconButton
+                                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                                aria-label="Traduction et voix : "
+                            >
+                                <InfoIcon />
+                            </IconButton>
                             <Chip label="prochainement" size="small" className='font-articulat_cf text-xs leading-none tracking-tight bg-primary-orange' />
                         </>
                     )
