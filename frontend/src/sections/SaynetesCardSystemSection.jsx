@@ -67,7 +67,7 @@ const SaynetesCardSystemSection = ( {dynamicStylesTitle} ) => {
                             Le principe
                         </Typography>
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
-                            Un évantail de cartes pour naviguer
+                            Un éventail de cartes pour naviguer
                         </Typography>
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>

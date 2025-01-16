@@ -47,6 +47,11 @@ const SaynetesPage = () => {
                     arr.push(item);
                 }
             )
+            item = {};
+            item["label"] = "Vers les saynètes";
+            item["url"] = "/language_page/";
+            item["enabled"] = true;
+            arr.push(item);
         }
         deckContext.current_deck.navlinks = arr;
     };

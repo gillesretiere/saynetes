@@ -16,8 +16,8 @@ const Footer = () => {
         alignItems: 'center',
       }}>
         <img src={hmrt_icon} className='mr-4 w-4'></img>
-        <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-sm text-primary-orange`}>
-          &copy; Hammer &amp; Marteau 2025
+        <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold text-xs text-slate-500`}>
+          Conception du site et graphisme &copy; Hammer &amp; Marteau 2025
         </Typography>
       </Box>
     </>

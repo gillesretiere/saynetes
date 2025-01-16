@@ -61,12 +61,7 @@ const itemData = [
         author: '@bkristastucchio',
         featured: true,
     },
-    {
-        img: `${hmrt_logo}`,
-        title: 'Hammer & Marteau',
-        description: 'Graphismes, conception et réalisation de la partie numérique',
-        author: 'gilles.retiere@gmail.com',
-    },
+
 
 
 ];

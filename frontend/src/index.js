@@ -44,6 +44,7 @@ root.render(
             <Route path="cartolang" element={<CartolangPage />} />
             <Route path="country_page/:id" element={<CountryDashboard />} />
             <Route path="country_languages_page/:id" element={<CountryLanguagesPage />} />
+            <Route component={SaynetesPage} />
             <Route path="*" element={
               <main style={{ padding: "1rem" }}>
                 <p>There's nothing here!</p>

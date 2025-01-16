@@ -28,6 +28,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                                     ". part part part"
                                     ". comp comp comp"
                                     "clip clip clip clip"
+                                    "cred cred cred cred"
                             `,
                             lg:
                                 `
@@ -36,6 +37,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                             "clip clip desc desc"
                             "clip clip part part"
                             "clip clip comp comp"
+                            ". . cred cred"
                             `,
                         },
 
@@ -62,7 +64,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                             Un partenariat pour un projet collaboratif
                         </Typography>
                     </Box>
-                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'part', height: 140,}}>
+                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'part', height: 140, }}>
                         <PartenairesImageList />
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
@@ -89,6 +91,17 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                                 sx={{ width: '100%', height: 'auto', }}
                             />
                         </Card>
+                    </Box>
+                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'cred', }}>
+                        <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
+                            Crédits
+                        </Typography>
+                        <Typography className={`font-articulat_cf text-sm md:text-md xl:text-xl font-black leading-tight tracking-normal`}>
+                        Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert, 
+                        Colette Le Pollotec (ASAMLA) 
+Traductions et voix des audios:  Nune Jalalyan (russe, ASAMLA), Paula Negoi&#355;a, Annamaria Locse (roumain, ASAMLA)
+Conception du site et illustrations : Gilles Retière
+                        </Typography>
                     </Box>
                 </Box>
             </section>
