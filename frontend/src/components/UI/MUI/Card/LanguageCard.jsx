@@ -13,6 +13,9 @@ import classes from "./Card.module.css";
 
 export default function LanguageCard({ card }) {
     const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, lang_is_available, } = card;
+
+    const drapeau = "https://hammer-marteau.com/assets/img/flags/" + lang_flag_icon.split('\\').pop().split('/').pop();
+
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
             <Link to={lang_is_available ? `/theme_page/${language}?l=${language}` : null} >
@@ -26,7 +29,7 @@ export default function LanguageCard({ card }) {
                             boxShadow: 3
                         }}
 
-                        image={lang_flag_icon}
+                        image={drapeau}
                         title={lang_name_fr}
                     />
                 </div>

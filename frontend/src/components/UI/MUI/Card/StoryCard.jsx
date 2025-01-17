@@ -18,7 +18,6 @@ import { UserContext } from '../../../../store/user_context';
 
 export default function StoryCard({ card }) {
 
-    console.log(card);
     const { story_order,
         story_name,
         story_translation,
@@ -31,11 +30,12 @@ export default function StoryCard({ card }) {
         story_translation_id,
         phrases } = card;
 
+    const card_img = "https://hammer-marteau.com/assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
+
 
     const ctx = useContext(UserContext);
 
     const linkHandler = (event) => {
-        console.log(card);
         ctx.decks = phrases;
     };
 
@@ -50,14 +50,14 @@ export default function StoryCard({ card }) {
             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
             <CardMedia
                 sx={{ height: 140 }}
-                image={story_illustration}
+                image={card_img}
                 title={story_name}
             />
         </Link>
             ):(
                 <CardMedia
                 sx={{ height: 140 }}
-                image={story_illustration}
+                image={card_img}
                 title={story_name}
             />
             )}

@@ -34,6 +34,9 @@ export default function DialogCard({ card }) {
         words,
     } = card;
 
+    let www_phrase_illustration = "https://hammer-marteau.com/assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop();
+    www_phrase_illustration = www_phrase_illustration.replace("jpg", "png");
+
     const [french, setFrench] = useState(true);
 
     const [wordDeck, setWordDeck] = useState([
@@ -76,7 +79,7 @@ export default function DialogCard({ card }) {
         <Card sx={{ maxWidth: 345, margin: 'auto' }}>
             <CardMedia
                 sx={{ minHeight: 340 }}
-                image={phrase_illustration}
+                image={www_phrase_illustration}
                 title={story_name}
             />
             <CardContent>
