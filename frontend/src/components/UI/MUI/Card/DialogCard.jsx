@@ -69,7 +69,6 @@ export default function DialogCard({ card }) {
     }, [card]);
 
     const languageToggler = (val) => {
-        // console.log(val);
         if (val === "FR") {
             setFrench(true);
         } else {

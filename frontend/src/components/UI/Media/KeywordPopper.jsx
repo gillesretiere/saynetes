@@ -31,7 +31,6 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
   let { word, word_translation, word_language, word_audio_url_fr, word_audio_url, word_notes, word_notes_translation, } = keyword;
 
   // tour de passe-pase pour changer l'url des audios
-
   word_audio_url = base_server_url + "assets/audio/ai/" + word_language + "/" + word_audio_url.split('\\').pop().split('/').pop();
   word_audio_url_fr = base_server_url + "assets/audio/ai/fre/" + word_audio_url_fr.split('\\').pop().split('/').pop();
 
@@ -50,7 +49,6 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
   }
 
   const closeButtonClickHandler = () => {
-    console.log("closing")
     callbackModal();
   }
 
@@ -58,8 +56,6 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
     setShowMore(!showMore);
   };
 
-
-  console.log(keyword);
   return (
     <>
       <Card sx={{ maxWidth: 315, margin: 'auto' }}>

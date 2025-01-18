@@ -2,8 +2,6 @@ import React, { useState, useEffect, } from 'react';
 import SubThemeDeck from './SubThemeDeck';
 
 const ThemeDeck = ({ deck, language }) => {
-    console.log(deck);
-
 
     return (
         <>

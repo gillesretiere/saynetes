@@ -16,7 +16,6 @@ const KeywordPlayer = ({ wordDeck, language }) => {
     const [arrowRef, setArrowRef] = useState(null);
     const [french, setFrench] = useState (language);
 
-    // console.log(wordDeck);
     const callbackModal = () => {
         setAnchorEl(null);
      }
@@ -40,7 +39,6 @@ const KeywordPlayer = ({ wordDeck, language }) => {
     const handleClick = (event) => {
         setArrowRef(event.currentTarget);
         const obj = words.find((o) => o.word_rec_id === event.target.id);
-        console.log(obj);
         setWordElement(obj);
         setAnchorEl(anchorEl ? null : event.currentTarget);
     };
