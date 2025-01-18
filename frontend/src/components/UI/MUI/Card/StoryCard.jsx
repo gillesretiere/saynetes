@@ -11,6 +11,7 @@ import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import { base_server_url, } from "../../../../assets/localData/data.js";
 
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../../store/user_context';
@@ -30,7 +31,8 @@ export default function StoryCard({ card }) {
         story_translation_id,
         phrases } = card;
 
-    const card_img = "https://hammer-marteau.com/assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
+    // tour de passe-pase pour changer l'url des illustrations
+    const card_img = base_server_url + "assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
 
 
     const ctx = useContext(UserContext);

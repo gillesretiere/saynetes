@@ -19,6 +19,7 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import AudioPlayer from './AudioPlayer';
 
+import { base_server_url, } from "../../../assets/localData/data.js";
 
 const useStyles = makeStyles(theme => ({
   rightIcon: {
@@ -27,7 +28,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function KeywordPopper({ keyword, language, callbackModal }) {
-  const { word, word_translation, word_language, word_audio_url_fr, word_audio_url, word_notes, word_notes_translation, } = keyword;
+  let { word, word_translation, word_language, word_audio_url_fr, word_audio_url, word_notes, word_notes_translation, } = keyword;
+
+  // tour de passe-pase pour changer l'url des audios
+
+  word_audio_url = base_server_url + "assets/audio/ai/" + word_language + "/" + word_audio_url.split('\\').pop().split('/').pop();
+  word_audio_url_fr = base_server_url + "assets/audio/ai/fre/" + word_audio_url_fr.split('\\').pop().split('/').pop();
+
+
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [french, setFrench] = useState(language);

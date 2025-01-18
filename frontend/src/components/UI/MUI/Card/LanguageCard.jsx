@@ -9,12 +9,14 @@ import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import { base_server_url, } from "../../../../assets/localData/data.js";
+
 import classes from "./Card.module.css";
 
 export default function LanguageCard({ card }) {
     const { language, lang_name_fr, lang_name_en, lang_name_native, lang_flag_icon, lang_alpha2, lang_is_available, } = card;
 
-    const drapeau = "https://hammer-marteau.com/assets/img/flags/" + lang_flag_icon.split('\\').pop().split('/').pop();
+    const drapeau = base_server_url + "assets/img/flags/" + lang_flag_icon.split('\\').pop().split('/').pop();
 
     return (
         <Card sx={{ maxWidth: 345, boxShadow: 3 }}>

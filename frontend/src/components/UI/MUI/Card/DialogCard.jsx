@@ -9,9 +9,10 @@ import IconButton from '@mui/material/IconButton';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 import AudioPlayer from '../../Media/AudioPlayer';
 import KeywordPlayer from '../../Media/KeywordPlayer';
+import { base_server_url, } from "../../../../assets/localData/data.js";
 
 export default function DialogCard({ card }) {
-    const { story_order,
+    let { story_order,
         story_name,
         story_translation,
         story_illustration,
@@ -34,8 +35,10 @@ export default function DialogCard({ card }) {
         words,
     } = card;
 
-    let www_phrase_illustration = "https://hammer-marteau.com/assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop();
-    www_phrase_illustration = www_phrase_illustration.replace("jpg", "png");
+    // tour de passe-pase pour changer l'url des illustrations et corriger un bug (jpg/png)
+    phrase_illustration = base_server_url +  "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
+    phrase_audio_url = base_server_url + "assets/audio/ai/" + story_language + "/" + phrase_audio_url.split('\\').pop().split('/').pop();
+    phrase_audio_url_fr = base_server_url + "assets/audio/ai/fre/" + phrase_audio_url_fr.split('\\').pop().split('/').pop();
 
     const [french, setFrench] = useState(true);
 
@@ -79,7 +82,7 @@ export default function DialogCard({ card }) {
         <Card sx={{ maxWidth: 345, margin: 'auto' }}>
             <CardMedia
                 sx={{ minHeight: 340 }}
-                image={www_phrase_illustration}
+                image={phrase_illustration}
                 title={story_name}
             />
             <CardContent>
