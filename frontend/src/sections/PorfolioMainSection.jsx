@@ -45,7 +45,7 @@ const PorfolioMainSection = ({ dynamicStylesTitle, dynamicStylesSubTitle }) => {
               alignItems: 'center',
             }}>
               <img src={hmrt_icon} className='mr-4'></img>
-              <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-2xl text-primary-orange`}>
+              <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold lg:text-2xl text-slate-800`}>
                   Hammer &amp; Marteau
                 </Typography>
             </Box>

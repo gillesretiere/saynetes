@@ -58,7 +58,7 @@ const PortfolioSolutionsSection = ({ dynamicStylesTitle, }) => {
                         <TitlebarImageList />
                     </Box>
                     <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'llnk', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                        <a href="/#sayn">
+                        <a href="/#cartolang">
                             <SmallButton label="Visite guidée" />
                         </a>
                     </Box>

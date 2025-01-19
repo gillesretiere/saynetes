@@ -125,8 +125,7 @@ const Home = () => {
                 />
                 <PortfolioSection />
                 <PortfolioSolutionsSection dynamicStylesTitle={dynamicStylesSubTitle} />
-                <PortfolioSaynetesSection dynamicStylesTitle={dynamicStylesTitle} />
-                <PortfolioCartolangSection></PortfolioCartolangSection>
+                <PortfolioCartolangSection dynamicStylesTitle={dynamicStylesSubTitle} />
                 <PortfolioDialangoSection></PortfolioDialangoSection>
                 <PortfolioAboutSection dynamicStylesTitle={dynamicStylesSubTitle} />
                 {

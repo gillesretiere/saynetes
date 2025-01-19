@@ -27,7 +27,7 @@ Penser à ajuster cette constante avant de faire un build
 - true => hammer-marteau.com (VPS2)
 - false => saynetes.fr (VPS3)
 */
-const pathHMRT = false;
+const pathHMRT = true;
 
 root.render(
 

@@ -60,7 +60,7 @@ const PortfolioSaynetesSection = ({dynamicStylesTitle}) => {
                         </Typography>
                     </Box>
                     <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'llnk', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                        <a href="#apro">
+                        <a href="#cartolang">
                             <SmallButton label="Visite guidée" />
                         </a>
                     </Box>
