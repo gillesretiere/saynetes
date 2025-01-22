@@ -21,7 +21,8 @@ class CountryMapCard extends Component {
       // ... chart code goes here ...
       let root = am5.Root.new(`chartdiv${this.props.country.country_iso2}`);
       let setUpdatedCountry = this.props.setUpdatedCountry;
-      let colorMap = am5.color(0x10403B);
+      // couleur des terres sur la carte
+      let colorMap = am5.color(0xF7F6F1);
       let {init, country } = this.state;
 
       root.setThemes([
@@ -37,7 +38,8 @@ class CountryMapCard extends Component {
       chart.set("zoomControl", am5map.ZoomControl.new(root, {}));
 
       chart.chartContainer.set("background", am5.Rectangle.new(root, {
-        fill: am5.color(0x253C59),
+        // couleur de la mer sur la carte
+        fill: am5.color(0x8DCCCB),
         fillOpacity: 0.3
       }));
 
@@ -72,7 +74,8 @@ class CountryMapCard extends Component {
       });
 
       polygonSeries.mapPolygons.template.states.create("active", {
-        fill: am5.color(0xF23D3D)
+        // couleur de la mer sur la carte
+        fill: am5.color(0x8DCCCB)
       });
       let previousPolygon;
       polygonSeries.mapPolygons.template.on("active", function (active, target) {
@@ -103,8 +106,8 @@ class CountryMapCard extends Component {
     }
   
     componentDidUpdate(oldProps) {
-
-      let colorIndexPolygon = am5.color(0xF23D3D); //0xF23D3D
+      // couleur de sélection
+      let colorIndexPolygon = am5.color(0xdbd7c0); //0xF23D3D
       let mps = null;
 
         if (oldProps.country.country_iso2 !== this.props.country.country_iso2) {
@@ -221,7 +224,7 @@ class CountryMapCard extends Component {
     render() {
       return (
         <>
-        <div className="bg-blue-100 shadow-lg p-1">  
+        <div className="bg-[#8DCCCB] shadow-lg p-0">  
           <div id={`chartdiv${this.props.country.country_iso2}`}> </div>
         </div>
         </>

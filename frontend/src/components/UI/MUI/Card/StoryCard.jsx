@@ -48,20 +48,20 @@ export default function StoryCard({ card }) {
             flexDirection: "column",
             maxWidth: 345
         }}>
-            {story_order==="1"?(
-            <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
-            <CardMedia
-                sx={{ height: 140 }}
-                image={card_img}
-                title={story_name}
-            />
-        </Link>
-            ):(
+            {story_order === "1" ? (
+                <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
+                    <CardMedia
+                        sx={{ height: 140 }}
+                        image={card_img}
+                        title={story_name}
+                    />
+                </Link>
+            ) : (
                 <CardMedia
-                sx={{ height: 140 }}
-                image={card_img}
-                title={story_name}
-            />
+                    sx={{ height: 140 }}
+                    image={card_img}
+                    title={story_name}
+                />
             )}
 
             <CardContent>

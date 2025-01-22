@@ -21,7 +21,6 @@ import classes from './card.module.css';
 
 const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
 
-    const drawerWidth = 240;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [isClosing, setIsClosing] = React.useState(false);
     const [country, setCountry] = useState([])
@@ -56,167 +55,26 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
 
     return (
         <>
-            <Box>
-                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-                    <Toolbar>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="home"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: {
-                                    xs: "block",
-                                    /* md: "none", hidden if device >= md */
-                                }
-                            }}
-                        >
-                            <HomeIcon />
-                        </IconButton>
-                        <Typography variant="h6" noWrap component="div">
-                            Cartolang
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        flexShrink: 0,
-                        [`& .MuiDrawer-paper`]: { boxSizing: 'border-box' },
-                    }}
-                >
-                    <Toolbar />
-                    <Box sx={{ overflow: 'auto' }}>
-                        <List>
-                            {deck && deck.map(
-                                (el, index) => {
-                                    return (
-                                        <span key={el.country_name_fr} id={index} onClick={handleClick}>
-
-                                            <ListItem key={`${el.country_name_fr}`} disablePadding>
-                                                <ListItemButton>
-                                                    <ListItemIcon>
-                                                        <img src={el.country_national_flag} className='pr-1 max-w-[32px] md:max-w-[32px] object-cover' />
-                                                    </ListItemIcon>
-                                                    <ListItemText primary={`${el.country_name_fr}`} />
-                                                </ListItemButton>
-                                            </ListItem>
-                                        </span>
-
-                                    )
-                                }
-                            )}
-                        </List>
-                        <Divider />
-                    </Box>
-                </Drawer>
-                <Box
-                    className='min-h-screen'
-                    sx={{
-                        display: 'grid',
-                        flexGrow: 1,
-                        gridTemplateColumns: 'repeat(5, 1fr)',
-                        gap: 1,
-                        width: { md: `calc(100% - ${drawerWidth}px)` },
-                        gridTemplateRows: 'auto',
-                        gridTemplateAreas: {
-                            xs:
-                                `
-                    ". . . cflag cflag"
-                    ". . . . cname"
-                    ". . . . cwmap"
-                    ". . . . fact1"
-                    ". . . . fact2"
-                    ". . . . fact3"
-                    ". . . . fact4"
-                    ". . . . lfreq"
-                    ". . . . cwmap"
-                    ". . . . ratio"
+            <Box
+                className='min-h-screen'
+                sx={{
+                    display: 'grid',
+                    flexGrow: 1,
+                    gridTemplateColumns: 'repeat(6, 1fr)',
+                    gap: 1,
+                    width: 1,
+                    gridTemplateRows: 'auto',
+                    gridTemplateAreas: {
+                        xs:
+                            `
+                    "cwmap cwmap cwmap cwmap cwmap cwmap"
                     `,
-                            sm:
-                                `
-                    ". . cflag cflag cflag"
-                    ". . cname cname cname"
-                    ". . cwmap cwmap cwmap"
-                    ". . fact1 fact1 fact1"
-                    ". . fact2 fact2 fact2"
-                    ". . fact3 fact3 fact3"
-                    ". . fact4 fact4 fact4"
-                    ". . lfreq lfreq lfreq"
-                    ". . ratio ratio ratio"
-                    `,
-                            lg:
-                                `
-                    ". cflag cname cname cname"
-                    ". fact1 fact1 cwmap cwmap"
-                    ". . . fact2 fact2"
-                    ". fact3 fact3 fact4 fact4"
-                    ". lfreq lfreq lfreq lfreq"
-                    ". ratio ratio ratio ratio"
-                    `,
-                        },
-                    }}>
-
-                    <Box className={`mt-20 p-4`} sx={{ gridArea: 'cflag', }}>
-                        <img src={card.country_national_flag} className='pr-1 w-64 max-w-[80px] md:max-w-[180px] object-fit' />
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cwmap', }}>
-                        <div className="card-item" sx={{ height: '50vh' }}>
-                            <CountryMapCard sx={{ height: '100%' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
-                        </div>
-                    </Box>
-                    <Box className={`mt-20 mx-0 p-4`} sx={{ gridArea: 'cname', }}>
-                        <Typography className={`font-articulat_cf font-bold text:2xl md:text-4xl xl:text-6xl leading-none tracking-tight`}>
-                            {card.country_name_fr}
-                        </Typography>
-                        <Typography className={`font-articulat_cf font-thin text:2xl md:text-4xl xl:text-6xl leading-none tracking-tight`}>
-                            {card.country_name_en}
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact1', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.country_summary}
-                            </Paper>
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact2', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.country_languages_summary}
-                            </Paper>
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact3', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.wfb_facts.Land_boundaries.border_countries}
-                            </Paper>
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'fact4', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.wfb_facts.Country_name.etymology}
-                            </Paper>
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'lfreq', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.wfb_facts.Country_name.etymology}
-                            </Paper>
-                        </Typography>
-                    </Box>
-
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'ratio', }}>
-                        <Typography className={`font-ff_nexus_mix font-normal`}>
-                            <Paper className={`mx-0 p-4`} elevation={3}>
-                                {card.wfb_facts.Country_name.etymology}
-                            </Paper>
-                        </Typography>
-                    </Box>
+                    },
+                }}>
+                <Box className={`mx-0 p-0`} sx={{ gridArea: 'cwmap', }}>
+                    <div className="card-item" sx={{ height: '50vh' }}>
+                        <CountryMapCard sx={{ height: '100%' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
+                    </div>
                 </Box>
             </Box>
         </>

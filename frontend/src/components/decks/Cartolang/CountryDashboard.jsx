@@ -1,12 +1,15 @@
 import React, { useContext, useState, useEffect, } from 'react';
-import Layout from '../../UI/Layout.jsx';
+import LayoutCartolang from '../../UI/LayoutCartolang.jsx';
 import { useSearchParams } from 'react-router-dom';
 import { langdeck_countries } from '../../../assets/data/index.js';
 import CountryDashboardCard from './CountryDashboardCard.jsx';
+import AppBarCartolang from '../../UI/Navigation/AppBarCartolang.jsx';
 import CountryCard from './CountryCard.jsx';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import classes from './card.module.css';
+import DeckContext from '../../../store/DeckContext';
+
 
 export const CountryDashboard = () => {
 
@@ -15,7 +18,7 @@ export const CountryDashboard = () => {
     const [searchParams] = useSearchParams();
     const r = searchParams.get("r");
     const vkCountry = [];
-    const index=0;
+    const index = 0;
 
     const callBackFunction = (index) => {
         console.log(country[index]);
@@ -32,13 +35,38 @@ export const CountryDashboard = () => {
         setSelectedCountry(vkCountry[index])
     }, []);
 
+    const ctx = useContext(DeckContext);
+    if (!selectedCountry) {
+        const arr = [];
+        {
+            vkCountry && vkCountry.sort((a, b) => a.country_name_en > b.country_name_en ? 1 : -1).map(
+                (el, index,) => {
+                    let item = {};
+                    item["id"] = index;
+                    item["label"] = el.country_name_fr;
+                    item["enabled"] = true;
+                    item["url"] = `/country_page/${el.country_uid}?r=${el.country_uid}`;
+                    item["country_national_flag"] = el.country_national_flag;
+                    arr.push(item);
+                }
+            )
+        }
+        ctx.current_deck.navlinks = arr;
+    }
+
+    console.log(vkCountry);
+
     return (
         <>
-            {
-                country && selectedCountry && 
-            <CountryDashboardCard deck={vkCountry} card={selectedCountry} callBackFunction={callBackFunction} ></CountryDashboardCard>
-
-            }
+            <LayoutCartolang callBackFunction={callBackFunction}>
+                {
+                    country && selectedCountry &&
+                    <>
+                        {/* <AppBarCartolang callBackFunction={callBackFunction} /> */}
+                        <CountryDashboardCard deck={vkCountry} card={selectedCountry} callBackFunction={callBackFunction} ></CountryDashboardCard>
+                    </>
+                }
+            </LayoutCartolang>
         </>
     )
 }
