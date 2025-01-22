@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect, } from 'react';
+import { useParams } from "react-router-dom"
+
 import Layout from '../../UI/Layout.jsx';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,7 +21,8 @@ import CountryMapCard from './CountryMapCard.jsx';
 import { Box } from '@mui/material';
 import classes from './card.module.css';
 
-const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
+const CountryDashboardCard = ({ deck, card, callBackFunction, callBackFunctionMapEvent, }) => {
+    let { id } = useParams()
 
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [isClosing, setIsClosing] = React.useState(false);
@@ -31,7 +34,12 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
     const [data, setdata] = useState();
 
     const setUpdatedCountry = (updatedCountry) => {
-        callBackFunction(updatedCountry);
+        {/*
+        setUid(updatedCountry);
+        id = updatedCountry;
+        console.log(updatedCountry);
+        */}
+        callBackFunctionMapEvent(updatedCountry);
     }
 
     const handleClick = (event) => {
@@ -68,13 +76,25 @@ const CountryDashboardCard = ({ deck, card, callBackFunction, }) => {
                         xs:
                             `
                     "cwmap cwmap cwmap cwmap cwmap cwmap"
+                    "ctynf ctynf . . . ."
+                    "ctynn ctynn . . . ."
                     `,
                     },
                 }}>
-                <Box className={`mx-0 p-0`} sx={{ gridArea: 'cwmap', }}>
-                    <div className="card-item" sx={{ height: '50vh' }}>
-                        <CountryMapCard sx={{ height: '100%' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
+                <Box className={`mx-0 p-0`} sx={{ gridArea: 'cwmap',  }}>
+                    <div>
+                        <CountryMapCard sx={{ height: '400px' }} country={card} setUpdatedCountry={setUpdatedCountry}></CountryMapCard>
                     </div>
+                </Box>
+                <Box className={`mx-4 p-0`} sx={{ gridArea: 'ctynf',  }}>
+                    <Typography gutterBottom variant="h5" className='font-articulat_cf text-4xl font-semibold leading-none tracking-tight'>
+                        {card.country_name_fr}
+                    </Typography>
+                </Box>
+                <Box className={`mx-4 p-0`} sx={{ gridArea: 'ctynn', }}>
+                    <Typography gutterBottom variant="h5" className='font-articulat_cf text-4xl font-semibold leading-none tracking-tight'>
+                        {card.country_name_native}
+                    </Typography>
                 </Box>
             </Box>
         </>

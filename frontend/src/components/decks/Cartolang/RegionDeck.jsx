@@ -6,7 +6,7 @@ import DeckContext from '../../../store/DeckContext';
 
 
 const RegionDeck = ({ deck }) => {
-  console.log(deck);
+  // console.log(deck);
   const ctx = useContext(DeckContext);
 
   const arr = [];

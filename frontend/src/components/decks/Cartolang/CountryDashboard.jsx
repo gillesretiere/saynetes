@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect, } from 'react';
 import LayoutCartolang from '../../UI/LayoutCartolang.jsx';
+import { useParams } from "react-router-dom"
+
 import { useSearchParams } from 'react-router-dom';
 import { langdeck_countries } from '../../../assets/data/index.js';
 import CountryDashboardCard from './CountryDashboardCard.jsx';
@@ -12,17 +14,28 @@ import DeckContext from '../../../store/DeckContext';
 
 
 export const CountryDashboard = () => {
+    let { id } = useParams()
 
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [country, setCountry] = useState([]);
+    const [uid, setUid] = useState('')
+
     const [searchParams] = useSearchParams();
     const r = searchParams.get("r");
     const vkCountry = [];
     const index = 0;
 
     const callBackFunction = (index) => {
-        console.log(country[index]);
         setSelectedCountry(country[index]);
+        console.log(index);
+    };
+
+    const callBackFunctionMapEvent = (updatedCountry) => {
+        setUid(updatedCountry);
+        id = updatedCountry;
+        setSelectedCountry (id);
+        console.log(selectedCountry);
+        console.log(updatedCountry);
     };
 
     for (var i = 0; i < langdeck_countries.length; i++) {
@@ -54,7 +67,7 @@ export const CountryDashboard = () => {
         ctx.current_deck.navlinks = arr;
     }
 
-    console.log(vkCountry);
+    // console.log(vkCountry);
 
     return (
         <>
@@ -63,7 +76,12 @@ export const CountryDashboard = () => {
                     country && selectedCountry &&
                     <>
                         {/* <AppBarCartolang callBackFunction={callBackFunction} /> */}
-                        <CountryDashboardCard deck={vkCountry} card={selectedCountry} callBackFunction={callBackFunction} ></CountryDashboardCard>
+                        <CountryDashboardCard
+                            deck={vkCountry}
+                            card={selectedCountry}
+                            callBackFunction={callBackFunction}
+                            callBackFunctionMapEvent={callBackFunctionMapEvent}>
+                        </CountryDashboardCard>
                     </>
                 }
             </LayoutCartolang>

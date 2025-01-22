@@ -24,6 +24,7 @@ class CountryMapCard extends Component {
       // couleur des terres sur la carte
       let colorMap = am5.color(0xF7F6F1);
       let {init, country } = this.state;
+      console.log (this.state);
 
       root.setThemes([
         am5themes_Animated.new(root)
@@ -70,12 +71,12 @@ class CountryMapCard extends Component {
         console.log("ONCLICK")
         console.log(init);
         console.log(country);
-        setUpdatedCountry(ev.target.dataItem._settings.id);        
+        setUpdatedCountry(ev.target);        
       });
 
       polygonSeries.mapPolygons.template.states.create("active", {
         // couleur de la mer sur la carte
-        fill: am5.color(0x8DCCCB)
+        fill: am5.color(0xdbd7c0)
       });
       let previousPolygon;
       polygonSeries.mapPolygons.template.on("active", function (active, target) {

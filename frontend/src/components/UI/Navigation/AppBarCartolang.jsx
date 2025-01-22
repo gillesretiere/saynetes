@@ -98,7 +98,6 @@ const AppBarCartolang = ({ callBackFunction }) => {
     let deckContext = useContext(DeckContext);
 
     const handleClick = (event) => {
-        console.log(event.currentTarget.id);
         callBackFunction(event.currentTarget.id);
     };
 
