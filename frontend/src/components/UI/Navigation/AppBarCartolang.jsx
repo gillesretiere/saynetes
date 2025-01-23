@@ -93,7 +93,7 @@ const search = (
 
 const AppBarCartolang = ({ callBackFunction }) => {
     //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
-    const [open, setState] = useState(false);
+    const [open, setState] = useState(true);
 
     let deckContext = useContext(DeckContext);
 

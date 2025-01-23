@@ -69,9 +69,8 @@ class CountryMapCard extends Component {
 
       polygonSeries.mapPolygons.template.events.on("click", function(ev) {
         console.log("ONCLICK")
-        console.log(init);
-        console.log(country);
-        setUpdatedCountry(ev.target);        
+        setUpdatedCountry(ev.target);      
+        country = ev.target;  
       });
 
       polygonSeries.mapPolygons.template.states.create("active", {
@@ -86,7 +85,6 @@ class CountryMapCard extends Component {
         if (target.get("active")) {
           polygonSeries.zoomToDataItem(target.dataItem );
         }
-
         previousPolygon = target;
       });
 
@@ -103,6 +101,19 @@ class CountryMapCard extends Component {
       this.chart = chart;
       this.root = root;
       this.colorMap = colorMap;
+
+      /*
+        On affiche à la première sélection (correct° bug)
+      */
+      let colorIndexPolygon = am5.color(0xdbd7c0); //0xF23D3D
+      this.polygonSeries.data.setAll([{
+        id: this.props.country.country_iso2,
+        polygonSettings: {
+          fill: colorIndexPolygon,
+          fillOpacity: 1.0,
+        }
+      }, 
+      ]);
       
     }
   
@@ -110,13 +121,15 @@ class CountryMapCard extends Component {
       // couleur de sélection
       let colorIndexPolygon = am5.color(0xdbd7c0); //0xF23D3D
       let mps = null;
+      console.log ("didUpdate");
 
-        if (oldProps.country.country_iso2 !== this.props.country.country_iso2) {
+
+        if (this.props.country.country_iso2) {
             let {init, country, stage} = this.state;
-            console.log (stage);
-
+            console.log (this.props); 
+            
             if (stage==0) {
-              //console.log("INIT")
+              console.log("INIT")
               this.setState({ init: false });
               this.setState({ country : this.props.country.country_iso2});
               this.setState({ stage : 1});
@@ -139,7 +152,7 @@ class CountryMapCard extends Component {
               */
             }
               else if (stage == 1) {
-                  //console.log("UNINIT")
+                  console.log("UNINIT")
                   this.setState({ stage : 2});
                   /*
                   console.log(init);
@@ -188,7 +201,9 @@ class CountryMapCard extends Component {
                     }
                   }, 
                   ]); 
-
+          // this.polygonSeries.zoomToDataItem(this.polygonSeries.dataItem );
+          console.log (this.polygonSeries);
+          
               
             } else {
                // mps.dispose();
@@ -211,6 +226,28 @@ class CountryMapCard extends Component {
                 }
               }, 
               ]); 
+
+              let previousPolygon;
+              console.log ("SELECTED");
+              console.log (this.polygonSeries.mapPolygons._values[0]);
+              this.polygonSeries.mapPolygons._values[0].set("active", true);
+              this.polygonSeries.zoomToDataItem(this.polygonSeries.mapPolygons._values[0]._dataItem);
+             {
+              /*
+                              this.polygonSeries.mapPolygons.template.on("active", function (active, target) {
+                if (previousPolygon && previousPolygon != target) {
+                  previousPolygon.set("active", false);
+                }
+                if (target.get("active")) {
+                  this.polygonSeries.zoomToDataItem(target.dataItem );
+                }
+        
+                previousPolygon = target;
+              });
+                */}
+
+    
+              
             }
 
         }
