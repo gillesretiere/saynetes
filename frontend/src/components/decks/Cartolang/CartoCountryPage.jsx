@@ -79,7 +79,6 @@ const CartoCountryPage = () => {
             )
         }
         ctx.current_deck.navlinks = arr;
-        console.log(ctx);
     }
 
     return (

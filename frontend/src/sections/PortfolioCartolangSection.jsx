@@ -82,16 +82,16 @@ const PorfolioCartolangSection = ({ dynamicStylesTitle }) => {
             </Typography>
           </Box>
           <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
-            <Typography className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>
-              <div>
+            <Typography component="div" className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>
+              <Typography variant="body1" className='py-2'>
                 Cartolang est une application qui permet sélectionner des pays et de connaitre quelles lagues sont parlées, avec le pourcentage de représentation.
-              </div>
-              <div>
+              </Typography>
+              <Typography variant="body1" className='py-2'>
                 L'application est riche en informations géograhique, historique, culturelle et linguistique.
-              </div>
-              <div>
+              </Typography>
+              <Typography variant="body1" className='py-2'>
                 Cette application permet ainsi d'identifier la langue parlée par un interlocuteur non francophone.
-              </div>
+              </Typography>
             </Typography>
           </Box>
         </Box>

@@ -211,14 +211,14 @@ const HomeAppBar = () => {
                https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
                */}
                 {deckContext.current_deck.navlinks && deckContext.current_deck.navlinks.map(
-                  (item) => (
+                  (item, index) => (
                     <>
                       {/* on teste si href interne (#) : composant "a" sinon "Link" */}
-                      <ListItemButton key={`${item.id}`} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
-                        <ListItemIcon>
+                      <ListItemButton key={index} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
+                        <ListItemIcon key={index}>
                           <DescriptionIcon sx={{ color: "primary.contrastText" }} />
                         </ListItemIcon>
-                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
+                        <ListItemText key={index} primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
                         {/* <Chip label={item.enabled ? "disponible" :"prochainement"} size="small"></Chip> */}
                       </ListItemButton>
                     </>
