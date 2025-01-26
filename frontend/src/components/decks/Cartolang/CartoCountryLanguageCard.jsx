@@ -7,20 +7,78 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Popper from "@mui/material/Popper";
+import CartoCountryLanguageCardPopper from './CartoCountryLanguageCardPopper';
+import LanguageMapComponent from './LanguageMapComponent';
+
 import Chart from './Chart';
 import { formHelperTextClasses } from '@mui/material';
 
-const CartoCountryLanguageCard = ({ card }) => {
+const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     let { language_name_fr, language_name_native, language_uid, popularity_as_float, } = card;
+    console.log(langDeck);
+    console.log(language_uid);
+
+    const [currentLanguage, setCurrentLanguage] = useState(null);
+
+    useEffect(() => {
+        const query = langDeck.filter(
+            e => e.language_uid === language_uid);
+        console.log (query);
+        setCurrentLanguage(query);
+    }, [langDeck]);
+
+    const [language, setLanguage] = useState(null);
+    const [arrowRef, setArrowRef] = useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const callbackModal = () => {
+        setLanguage(null);
+        setAnchorEl(null);
+    }
 
     const handleClick = (event) => {
         console.log(event.currentTarget);
         console.log(event.target.id);
+        setLanguage(event.target.id);
+        setArrowRef(event.currentTarget);
+        setAnchorEl(anchorEl ? null : event.currentTarget);
         return;
     }
+    const openPopup = Boolean(anchorEl);
+    const id = openPopup ? "simple-popper" : undefined;
+
 
     return (
         <>
+            <div>
+
+                <Popper id={id}
+                    open={openPopup}
+                    anchorEl={anchorEl}
+                    placement="right-end"
+                    disablePortal={false}
+                    modifiers={[
+                        {
+                            name: 'arrow',
+                            enabled: true,
+                            options: {
+                                element: arrowRef,
+                            }
+                        }
+                    ]}
+                >
+                    {currentLanguage &&
+                        <>
+                            <CartoCountryLanguageCardPopper language={language} langDeck={currentLanguage[0]} callbackModal={callbackModal} >
+
+                            </CartoCountryLanguageCardPopper>
+                        </>
+                    }
+
+                </Popper>
+            </div>
+
             <Card sx={{ maxWidth: 345, margin: 'auto' }}>
                 {
                     /*

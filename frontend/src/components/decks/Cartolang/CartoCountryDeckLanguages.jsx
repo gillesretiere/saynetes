@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState, } from 'react';
+
 import SmallButton from '../../UI/SmallButton.jsx';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link, } from "react-router-dom";
 import CartoCountryLanguageDeck from './CartoCountryLanguageDeck.jsx';
+import { langdeck_languages } from '../../../assets/data/index.js';
 
 
-const CartoCountryDeckLanguages = ( {deck} ) => {
+const CartoCountryDeckLanguages = ({ deck }) => {
     const {
         country_name_fr,
         country_name_native,
@@ -15,6 +17,14 @@ const CartoCountryDeckLanguages = ( {deck} ) => {
         country_languages,
         country_iso2,
         wfb_facts, } = deck;
+
+    const [languages, setLanguages] = useState ([]);
+
+    useEffect(() => {
+        // on récupère le corpus langues
+        const loadData = () => JSON.parse(JSON.stringify(langdeck_languages));
+        setLanguages(loadData);
+    }, []);
 
     return (
         <>
@@ -55,9 +65,7 @@ const CartoCountryDeckLanguages = ( {deck} ) => {
                     </Box>
                     <Box className={`mx-1 px-4`} sx={{ gridArea: 'cy_lang', }}>
                         <Box sx={{ display: 'flex', width: "100%", gap: 2 }}>
-                            <CartoCountryLanguageDeck deck={country_languages}>
-
-                            </CartoCountryLanguageDeck>
+                            <CartoCountryLanguageDeck deck={country_languages} langDeck={languages} />
                         </Box>
                     </Box>
                 </Box>

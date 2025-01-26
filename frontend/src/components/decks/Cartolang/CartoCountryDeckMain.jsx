@@ -50,7 +50,6 @@ export const CartoCountryDeckMain = ( {deck} ) => {
               display: 'flex',
               flexWrap: 'nowrap',
               p: 1,
-              bgcolor: 'background.paper',
               alignItems: 'center',
             }}>
               <Typography variant="h2" className={`font-articulat_cf leading-none tracking-tight font-semibold`}>
@@ -63,7 +62,6 @@ export const CartoCountryDeckMain = ( {deck} ) => {
               display: 'flex',
               flexWrap: 'nowrap',
               p: 1,
-              bgcolor: 'background.paper',
               maxWidth: 300,
               borderRadius: 1,
               alignItems: 'center',
@@ -83,7 +81,7 @@ export const CartoCountryDeckMain = ( {deck} ) => {
               borderRadius: 1,
               alignItems: 'center',
             }}>
-              <img src={country_national_flag} className='h-full max-h-90 xl:max-h-[640px] object-cover' />
+              <img src={country_national_flag} className='h-full max-h-90 xl:max-h-[640px] object-cover shadow-lg' />
             </Box>
           </Box>
           <Box className={`mx-0 p-4 mb-5`} sx={{ gridArea: 'cy_caption1', }}>

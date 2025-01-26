@@ -12,8 +12,7 @@ const Chart = ({data}) => {
                           styles={buildStyles({
                             strokeLinecap: "butt",
                             textSize: "1.5em",
-                            textColor: "black",
-                            pathColor: "#FA7F08",
+                            pathColor: "#f44336",
                           })}
                            />
       </div>
