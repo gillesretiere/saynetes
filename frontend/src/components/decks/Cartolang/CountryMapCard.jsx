@@ -11,7 +11,6 @@ class CountryMapCard extends Component {
   constructor(props) {
     super(props);
     // on récupère les arguments
-    console.log(props);
     this.state = {
       init: true,
       country: "",
@@ -27,7 +26,6 @@ class CountryMapCard extends Component {
     // couleur des terres sur la carte
     let colorMap = am5.color(0xF7F6F1);
     let { init, country } = this.state;
-    console.log(this.state);
 
     root.setThemes([
       am5themes_Animated.new(root)
@@ -71,7 +69,6 @@ class CountryMapCard extends Component {
     });
 
     polygonSeries.mapPolygons.template.events.on("click", function (ev) {
-      console.log("ONCLICK")
       setUpdatedCountry(ev.target);
       country = ev.target;
     });
@@ -128,7 +125,6 @@ class CountryMapCard extends Component {
     // couleur de sélection
     let colorIndexPolygon = am5.color(0xdbd7c0); //0xF23D3D
     let mps = null;
-    console.log("didUpdate");
 
     if (this.props.country.country_iso2) {
       let { init, country, stage } = this.state;
@@ -136,7 +132,6 @@ class CountryMapCard extends Component {
       this.polygonSeries.zoomToDataItem(activeDataItem);
       
       if (stage == 0) {
-        console.log("INIT")
         this.setState({ init: false });
         this.setState({ country: this.props.country.country_iso2 });
         this.setState({ stage: 1 });
@@ -159,7 +154,6 @@ class CountryMapCard extends Component {
         */
       }
       else if (stage == 1) {
-        console.log("UNINIT")
         this.setState({ stage: 2 });
         /*
         console.log(init);
@@ -209,7 +203,6 @@ class CountryMapCard extends Component {
         },
         ]);
         // this.polygonSeries.zoomToDataItem(this.polygonSeries.dataItem );
-        console.log(this.polygonSeries);
 
       } else {
         // mps.dispose();
@@ -234,8 +227,6 @@ class CountryMapCard extends Component {
         ]);
 
         let previousPolygon;
-        console.log("SELECTED");
-        console.log(this.polygonSeries.mapPolygons._values[0]);
         this.polygonSeries.mapPolygons._values[0].set("active", true);
         this.polygonSeries.zoomToDataItem(this.polygonSeries.mapPolygons._values[0]._dataItem);
         {

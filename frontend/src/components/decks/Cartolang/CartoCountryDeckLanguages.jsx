@@ -28,8 +28,7 @@ const CartoCountryDeckLanguages = ({ deck }) => {
         setLanguages(loadData);
         ctx.current_deck.language_deck = languages;
     }, []);
-    console.log (ctx);
-
+    
     return (
         <>
             <section id="carto_lang">

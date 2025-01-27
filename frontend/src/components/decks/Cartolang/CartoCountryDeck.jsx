@@ -19,8 +19,6 @@ export const CartoCountryDeck = ({ deck, callBackFunction, }) => {
         country_iso2,
         wfb_facts, } = deck;
 
-    console.log(deck);
-
     const handleClick = (event) => {
         callBackFunction(event.currentTarget.id);
     };

@@ -18,6 +18,8 @@ import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import CartoCountryLanguageCardPopperMap from './CartoCountryLanguageCardPopperMap';
+import LanguageMapComponent from './LanguageMapComponent';
+import LanguageMapCard from './LanguageMapCard';
 
 const useStyles = makeStyles(theme => ({
   rightIcon: {
@@ -28,18 +30,17 @@ const useStyles = makeStyles(theme => ({
 export default function CartoCountryLanguageCardPopper({ language, langDeck, callbackModal, }) {
 
   let ctx = useContext(DeckContext);
-  console.log(language);
-  console.log(langDeck);
-  console.log(ctx.current_deck);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const closeButtonClickHandler = () => {
     callbackModal();
   }
-
-  console.log(langDeck);
-
+  useEffect(
+    () => {
+      console.log(langDeck);
+    }, [langDeck]
+  );
   return (
     <>
       <Card sx={{ maxWidth: 315, margin: 'auto' }}>
@@ -47,7 +48,7 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
             {langDeck && langDeck.language_countries ? (
               <>
-                <CartoCountryLanguageCardPopperMap langDeck={langDeck}></CartoCountryLanguageCardPopperMap>
+                <LanguageMapCard language={langDeck}></LanguageMapCard>
                 <Typography variant="h5" sx={{
                   overflow: "hidden",
                   textOverflow: "ellipsis",
