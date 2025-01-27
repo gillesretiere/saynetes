@@ -1,4 +1,5 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState, useContext, } from 'react';
+import DeckContext from '../../../store/DeckContext';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,15 +17,14 @@ import { formHelperTextClasses } from '@mui/material';
 
 const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     let { language_name_fr, language_name_native, language_uid, popularity_as_float, } = card;
-    console.log(langDeck);
-    console.log(language_uid);
+
+    let ctx = useContext(DeckContext);
 
     const [currentLanguage, setCurrentLanguage] = useState(null);
 
     useEffect(() => {
         const query = langDeck.filter(
             e => e.language_uid === language_uid);
-        console.log (query);
         setCurrentLanguage(query);
     }, [langDeck]);
 
@@ -38,9 +38,11 @@ const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     }
 
     const handleClick = (event) => {
-        console.log(event.currentTarget);
-        console.log(event.target.id);
         setLanguage(event.target.id);
+        const query = langDeck.filter(
+            e => e.language_uid === event.target.id);
+        ctx.current_deck.language_deck = query;
+        setCurrentLanguage(query);
         setArrowRef(event.currentTarget);
         setAnchorEl(anchorEl ? null : event.currentTarget);
         return;

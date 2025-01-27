@@ -65,7 +65,7 @@ class LanguageMapComponent extends Component {
       //console.log(this.state.country_points);
     });
     this.setState({ countries: this.props.language.language_countries }, function () {
-      //console.log(this.state.countries);
+    console.log(this.state.countries);
     });
     root.setThemes([
       am5themes_Animated.new(root)
@@ -136,7 +136,7 @@ class LanguageMapComponent extends Component {
     let colorIndexPulse = colorset.getIndex(9);
     console.log (oldProps.language.language_uid);
     
-    if (oldProps.language.language_uid !== this.props.language.language_uid) {
+    if (this.props.language.language_uid) {
       let country_points = geoJson(this.props.language.language_countries);
       console.log (country_points);
       this.polygonSeries.data.setAll([{
@@ -147,9 +147,11 @@ class LanguageMapComponent extends Component {
       },
       ]);
 
+      /*
       this.setState({ country_points: country_points }, function () {
         console.log(this.state.country_points);
       });
+      */
 
       let pointSeries = this.chart.series.push(
         am5map.MapPointSeries.new(this.root, {

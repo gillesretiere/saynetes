@@ -1,5 +1,5 @@
-import React, { useEffect, useState, } from 'react';
-
+import React, { useEffect, useState, useContext, } from 'react';
+import DeckContext from '../../../store/DeckContext.jsx';
 import SmallButton from '../../UI/SmallButton.jsx';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,8 @@ import { langdeck_languages } from '../../../assets/data/index.js';
 
 
 const CartoCountryDeckLanguages = ({ deck }) => {
+
+    let ctx = useContext(DeckContext);
     const {
         country_name_fr,
         country_name_native,
@@ -24,7 +26,9 @@ const CartoCountryDeckLanguages = ({ deck }) => {
         // on récupère le corpus langues
         const loadData = () => JSON.parse(JSON.stringify(langdeck_languages));
         setLanguages(loadData);
+        ctx.current_deck.language_deck = languages;
     }, []);
+    console.log (ctx);
 
     return (
         <>

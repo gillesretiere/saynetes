@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect, useContext, } from 'react';
+import DeckContext from '../../../store/DeckContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@mui/material/Button';
 import DialogContent from '@mui/material/DialogContent';
@@ -27,8 +27,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function CartoCountryLanguageCardPopper({ language, langDeck, callbackModal, }) {
 
-
-
+  let ctx = useContext(DeckContext);
+  console.log(language);
+  console.log(langDeck);
+  console.log(ctx.current_deck);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -36,24 +38,49 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
     callbackModal();
   }
 
-  console.log (langDeck);
+  console.log(langDeck);
 
   return (
     <>
       <Card sx={{ maxWidth: 315, margin: 'auto' }}>
         <CardActionArea sx={{ flexGrow: 1, width: 290 }}>
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
-            <CartoCountryLanguageCardPopperMap langDeck={langDeck}></CartoCountryLanguageCardPopperMap>
-            <Typography gutterBottom variant="h5" component="div">
-              {langDeck && langDeck.language_name_fr &&
-                langDeck.language_name_fr
-              }
-            </Typography>
-            <Typography gutterBottom variant="body2" component="div">
-              {langDeck && langDeck.language_desc &&
-                langDeck.language_desc
-              }
-            </Typography>
+            {langDeck && langDeck.language_countries ? (
+              <>
+                <CartoCountryLanguageCardPopperMap langDeck={langDeck}></CartoCountryLanguageCardPopperMap>
+                <Typography variant="h5" sx={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: "8",
+                  WebkitBoxOrient: "vertical",
+                }}>
+                  {langDeck.language_name_fr}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                Pas d'infos
+              </Typography>
+            )}
+
+            {langDeck && langDeck.language_desc ? (
+              <>
+                <Typography variant="h5" sx={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: "8",
+                  WebkitBoxOrient: "vertical",
+                }}>
+                  {langDeck.language_name_fr}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                Pas d'infos
+              </Typography>
+            )}
           </CardContent>
           <CardActions sx={{ flexGrow: 1, width: 290 }}>
             <Button size="extrasmall" onClick={closeButtonClickHandler} sx={{ color: 'text.secondary' }}>Fermer</Button>
