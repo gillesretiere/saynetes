@@ -56,7 +56,7 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
                   WebkitLineClamp: "8",
                   WebkitBoxOrient: "vertical",
                 }}>
-                  {langDeck.language_name_fr}
+                  Répartition
                 </Typography>
               </>
             ) : (
@@ -67,14 +67,14 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
 
             {langDeck && langDeck.language_desc ? (
               <>
-                <Typography variant="h5" sx={{
+                <Typography variant="body2" sx={{
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   display: "-webkit-box",
                   WebkitLineClamp: "8",
                   WebkitBoxOrient: "vertical",
                 }}>
-                  {langDeck.language_name_fr}
+                  {langDeck.language_desc}
                 </Typography>
               </>
             ) : (
