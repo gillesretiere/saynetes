@@ -56,7 +56,7 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
                   WebkitLineClamp: "8",
                   WebkitBoxOrient: "vertical",
                 }}>
-                  Répartition
+                  Popularité
                 </Typography>
               </>
             ) : (

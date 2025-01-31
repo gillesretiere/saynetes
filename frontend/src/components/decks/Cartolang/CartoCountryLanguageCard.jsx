@@ -11,19 +11,20 @@ import IconButton from '@mui/material/IconButton';
 import Popper from "@mui/material/Popper";
 import CartoCountryLanguageCardPopper from './CartoCountryLanguageCardPopper';
 import LanguageMapComponent from './LanguageMapComponent';
+import { CartoCountryLanguageCardWithMap } from './CartoCountryLanguageCardWithMap';
 
 import Chart from './Chart';
 import { formHelperTextClasses } from '@mui/material';
 
 const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     let { language_name_fr, language_name_native, language_uid, popularity_as_float, } = card;
-
+    console.log(langDeck);
     let ctx = useContext(DeckContext);
 
-    const [currentLanguage, setCurrentLanguage] = useState(null);
+    const [currentLanguage, setCurrentLanguage] = useState([]);
 
     useEffect(() => {
-        const query = langDeck.filter(
+        let query = langDeck.filter(
             e => e.language_uid === language_uid);
         setCurrentLanguage(query);
     }, [langDeck]);
@@ -72,9 +73,12 @@ const CartoCountryLanguageCard = ({ card, langDeck, }) => {
                 >
                     {currentLanguage &&
                         <>
-                            <CartoCountryLanguageCardPopper language={language} langDeck={currentLanguage[0]} callbackModal={callbackModal} >
+                            <CartoCountryLanguageCardWithMap
+                                language={language}
+                                langDeck={currentLanguage[0]}
+                                callbackModal={callbackModal}>
 
-                            </CartoCountryLanguageCardPopper>
+                            </CartoCountryLanguageCardWithMap>
                         </>
                     }
 
