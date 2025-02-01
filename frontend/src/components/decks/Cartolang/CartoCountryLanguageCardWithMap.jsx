@@ -108,12 +108,18 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                     alignItems: 'center',
                                 }}>
                                     <Typography variant="h5" sx={{
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        display: "-webkit-box",
-                                        WebkitLineClamp: "8",
-                                        WebkitBoxOrient: "vertical",
+                                        color: 'text.secondary'
                                     }}>
+                                        {langDeck && langDeck.language_name_fr && langDeck.language_name_fr}
+                                    </Typography>
+                                </Box>
+                                <Box sx={{
+                                    display: 'flex',
+                                    flexWrap: 'nowrap',
+                                    p: 1,
+                                    alignItems: 'center',
+                                }}>
+                                    <Typography variant="h6">
                                         Popularité
                                     </Typography>
                                 </Box>

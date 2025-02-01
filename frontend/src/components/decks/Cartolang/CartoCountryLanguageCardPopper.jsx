@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CartoCountryLanguageCardPopper({ language, langDeck, callbackModal, }) {
+  console.log(language);
 
   let ctx = useContext(DeckContext);
   const classes = useStyles();
@@ -49,6 +50,15 @@ export default function CartoCountryLanguageCardPopper({ language, langDeck, cal
             {langDeck && langDeck.language_countries ? (
               <>
                 <LanguageMapCard language={langDeck}></LanguageMapCard>
+                <Typography variant="h5" sx={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  display: "-webkit-box",
+                  WebkitLineClamp: "8",
+                  WebkitBoxOrient: "vertical",
+                }}>
+                  {language}
+                </Typography>
                 <Typography variant="h5" sx={{
                   overflow: "hidden",
                   textOverflow: "ellipsis",
