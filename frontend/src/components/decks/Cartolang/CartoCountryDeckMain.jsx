@@ -3,12 +3,22 @@ import SmallButton from '../../UI/SmallButton.jsx';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link, } from "react-router-dom";
+import ReadMore from '../../UI/Media/ReadMore';
 
-export const CartoCountryDeckMain = ( {deck} ) => {
+export const CartoCountryDeckMain = ({ deck }) => {
 
   const {
     country_name_fr,
     country_name_native,
+    country_wfb_name_native,
+    country_wfb_name_native_fr,
+    country_wfb_capital_name_fr,
+    country_wfb_capital_etymology_fr,
+    country_wfb_nationality_adjective_fr,
+    country_wfb_ethnic_groups_fr,
+    country_wfb_religions_fr,
+    country_wfb_economic_overview_fr,
+    country_wfb_location_fr,
     country_national_flag,
     country_summary,
     country_languages,
@@ -81,7 +91,7 @@ export const CartoCountryDeckMain = ( {deck} ) => {
               borderRadius: 1,
               alignItems: 'center',
             }}>
-              <img src={country_national_flag} className='h-full max-h-90 xl:max-h-[640px] object-cover shadow-lg' />
+              <img src={country_national_flag} className='w-48 object-cover shadow-lg' />
             </Box>
           </Box>
           <Box className={`mx-0 p-4 mb-5`} sx={{ gridArea: 'cy_caption1', }}>
@@ -98,14 +108,14 @@ export const CartoCountryDeckMain = ( {deck} ) => {
               bgcolor: 'background.paper',
               alignItems: 'top',
             }}>
-              <Typography variant="h5" sx={{
+              <Typography sx={{
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 display: "-webkit-box",
                 WebkitLineClamp: "8",
                 WebkitBoxOrient: "vertical",
               }}>
-                {country_summary}
+                <ReadMore text={country_summary} style={{ fontSize:'x-large',  borderTop: '1px solid white' }}/>
               </Typography>
             </Box>
           </Box>
@@ -123,12 +133,12 @@ export const CartoCountryDeckMain = ( {deck} ) => {
             </Box>
             <Box className='px-4'>
               <Typography variant="h4">
-                {country_iso2}
+                {country_wfb_name_native_fr}
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="body2">
-                {wfb_facts.Country_name.conventional_long_form}
+              <Typography variant="h6">
+                {country_wfb_name_native}
               </Typography>
             </Box>
           </Box>
@@ -141,12 +151,12 @@ export const CartoCountryDeckMain = ( {deck} ) => {
             </Box>
             <Box className='px-4'>
               <Typography variant="h4">
-                {wfb_facts.Capital.name}
+                {country_wfb_capital_name_fr}
               </Typography>
             </Box>
             <Box className='px-4'>
               <Typography variant="body2">
-                {wfb_facts.Capital.etymology}
+                {country_wfb_capital_etymology_fr}
               </Typography>
             </Box>
           </Box>
@@ -154,17 +164,32 @@ export const CartoCountryDeckMain = ( {deck} ) => {
             sx={{ width: '100%', gridArea: 'cy_blocA3', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderColor: 'grey.500', }}>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
-                Nationalité / Ethnies
+                Adjectif
               </Typography>
             </Box>
             <Box className='px-4'>
               <Typography variant="h4">
-                {wfb_facts.Nationality.adjective}
+                {country_wfb_nationality_adjective_fr}
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="caption" className='text-slate-500'>
+                Ethnies
               </Typography>
             </Box>
             <Box className='px-4'>
               <Typography variant="body2">
-                {wfb_facts.Ethnic_groups}
+                {country_wfb_ethnic_groups_fr}
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="caption" className='text-slate-500'>
+                Religions
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="body2">
+                {country_wfb_religions_fr}
               </Typography>
             </Box>
           </Box>
@@ -180,8 +205,6 @@ export const CartoCountryDeckMain = ( {deck} ) => {
                 {wfb_facts.Population}
               </Typography>
             </Box>
-          </Box>
-          <Box className={`mr-2 px-2`} sx={{ width: '100%', gridArea: 'cy_blocA5', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderRight: 0, borderColor: 'grey.500', }}>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
                 Superficie
@@ -190,6 +213,28 @@ export const CartoCountryDeckMain = ( {deck} ) => {
             <Box className='px-4'>
               <Typography variant="h4">
                 {wfb_facts.Area.total}
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="caption" className='text-slate-500'>
+                Localisation
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="body2">
+                {country_wfb_location_fr}
+              </Typography>
+            </Box>
+          </Box>
+          <Box className={`mr-2 px-2`} sx={{ width: '100%', gridArea: 'cy_blocA5', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderRight: 0, borderColor: 'grey.500', }}>
+            <Box className='px-4'>
+              <Typography variant="caption" className='text-slate-500'>
+                Economie
+              </Typography>
+            </Box>
+            <Box className='px-4'>
+              <Typography>
+                <ReadMore text={country_wfb_economic_overview_fr} style={{ fontSize:'medium',  borderTop: '1px solid white' }}/>
               </Typography>
             </Box>
           </Box>

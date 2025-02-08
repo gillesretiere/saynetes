@@ -34,8 +34,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackModal, }) => {
-    console.log(langDeck);
-
     let ctx = useContext(DeckContext);
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -45,7 +43,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
     }
     useEffect(
         () => {
-            console.log(langDeck);
+            console.log("Loaded");
         }, [langDeck]
     );
 
@@ -139,7 +137,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                     p: 1,
                                     alignItems: 'center',
                                 }}>
-                                    {langDeck && langDeck.language_desc ? (
+                                    {langDeck && langDeck.language_summary ? (
                                         <>
                                             <Typography variant="body2" sx={{
                                                 overflow: "hidden",
@@ -148,12 +146,12 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                                 WebkitLineClamp: "8",
                                                 WebkitBoxOrient: "vertical",
                                             }}>
-                                                {langDeck.language_desc}
+                                                {langDeck.language_summary}
                                             </Typography>
                                         </>
                                     ) : (
                                         <Typography>
-                                            Pas d'infos
+                                            &nbsp;
                                         </Typography>
                                     )}
                                 </Box>

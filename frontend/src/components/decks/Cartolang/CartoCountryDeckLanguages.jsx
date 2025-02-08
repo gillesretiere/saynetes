@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Link, } from "react-router-dom";
 import CartoCountryLanguageDeck from './CartoCountryLanguageDeck.jsx';
 import { langdeck_languages } from '../../../assets/data/index.js';
+import ReadMore from '../../UI/Media/ReadMore.jsx';
 
 
 const CartoCountryDeckLanguages = ({ deck }) => {
@@ -18,9 +19,10 @@ const CartoCountryDeckLanguages = ({ deck }) => {
         country_summary,
         country_languages,
         country_iso2,
+        country_wfb_languages_fr,
         wfb_facts, } = deck;
 
-    const [languages, setLanguages] = useState ([]);
+    const [languages, setLanguages] = useState([]);
 
     useEffect(() => {
         // on récupère le corpus langues
@@ -28,7 +30,7 @@ const CartoCountryDeckLanguages = ({ deck }) => {
         setLanguages(loadData);
         ctx.current_deck.language_deck = languages;
     }, []);
-    
+
     return (
         <>
             <section id="carto_lang">
@@ -46,7 +48,7 @@ const CartoCountryDeckLanguages = ({ deck }) => {
                 `,
                             md:
                                 `
-                "cy_capt1 . cy_languages cy_languages cy_languages"
+                "cy_capt1 . cy_languages cy_languages ."
                 "cy_lang cy_lang cy_lang cy_lang cy_lang"
                 `,
                         },
@@ -61,8 +63,8 @@ const CartoCountryDeckLanguages = ({ deck }) => {
                     </Box>
                     <Box className={`mx-0 p-4 mb-5`} sx={{ gridArea: 'cy_languages', }}>
                         <Box sx={{ p: 1, m: 1, }}>
-                            <Typography variant="body1" className='text-slate-800'>
-                                {wfb_facts.Languages}
+                            <Typography>
+                                <ReadMore text={country_wfb_languages_fr} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
                             </Typography>
                         </Box>
                     </Box>

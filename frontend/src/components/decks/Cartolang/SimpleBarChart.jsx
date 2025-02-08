@@ -6,7 +6,6 @@ const SimpleBarChart = ({ dataset }) => {
   let pop = dataset.map(item => { return item.popularity_as_float });
   let spk = dataset.map(item => { return 1.0 - item.popularity_as_float });
   let lbl = dataset.map(item => { return item.country_name_fr });
-  console.log(pop);
 
   const uData = spk; // [4000, 3000, 2000, 2780, 1890, 2390, 3490];
   const pData = pop; // [2400, 1398, 800, 3908, 4800, 3800, 4300];

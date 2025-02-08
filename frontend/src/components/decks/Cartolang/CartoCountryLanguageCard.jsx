@@ -18,7 +18,6 @@ import { formHelperTextClasses } from '@mui/material';
 
 const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     let { language_name_fr, language_name_native, language_uid, popularity_as_float, } = card;
-    console.log(langDeck);
     let ctx = useContext(DeckContext);
 
     const [currentLanguage, setCurrentLanguage] = useState([]);
