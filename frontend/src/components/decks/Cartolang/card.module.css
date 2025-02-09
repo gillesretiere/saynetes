@@ -21,5 +21,5 @@ div[id^='chartdiv'] {
 
 div[id^='mapdiv'] {
     width: auto;
-    height: 200px;
+    height: 400px;
 }

@@ -4,6 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Box } from '@mui/material';
+import { Link, } from "react-router-dom";
+import SmallButton from '../../UI/SmallButton.jsx';
+
 import Button from '@mui/material/Button';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -25,6 +28,8 @@ import LanguageMapComponent from './LanguageMapComponent';
 import LanguageMapCard from './LanguageMapCard';
 import { CartoCountryLanguageCardPopularityByCountry } from './CartoCountryLanguageCardPopularityByCountry';
 import SimpleBarChart from './SimpleBarChart';
+import ReadMore from '../../UI/Media/ReadMore.jsx';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +48,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
     }
     useEffect(
         () => {
-            console.log("Loaded");
+            console.log(langDeck);
         }, [langDeck]
     );
 
@@ -90,9 +95,9 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                 `,
                                     sm:
                                         `
-                                "Bloc1 map map map map"
-                                "Bloc2 map map map map"
-                                "Bloc2 flag flag flag flag"
+                                "map map map map map"
+                                "Bloc1 Bloc2 Bloc2 Bloc2 Bloc2"
+                                "flag flag flag flag flag"
                                 "action action action action action"
                                 `,
                                 },
@@ -111,16 +116,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                         {langDeck && langDeck.language_name_fr && langDeck.language_name_fr}
                                     </Typography>
                                 </Box>
-                                <Box sx={{
-                                    display: 'flex',
-                                    flexWrap: 'nowrap',
-                                    p: 1,
-                                    alignItems: 'center',
-                                }}>
-                                    <Typography variant="h6">
-                                        Popularité
-                                    </Typography>
-                                </Box>
+
                             </Box>
                             {/* carte */}
                             <Box className={`mx-0 px-0`} sx={{ gridArea: 'map', }}>
@@ -138,17 +134,9 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                     alignItems: 'center',
                                 }}>
                                     {langDeck && langDeck.language_summary ? (
-                                        <>
-                                            <Typography variant="body2" sx={{
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis",
-                                                display: "-webkit-box",
-                                                WebkitLineClamp: "8",
-                                                WebkitBoxOrient: "vertical",
-                                            }}>
-                                                {langDeck.language_summary}
+                                            <Typography>
+                                                <ReadMore text={langDeck.language_summary} style={{ fontSize: 'small', borderTop: '1px solid white' }} />
                                             </Typography>
-                                        </>
                                     ) : (
                                         <Typography>
                                             &nbsp;
@@ -185,7 +173,12 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                             </Box>
                             <Box className={`mx-1 px-1`} sx={{ gridArea: 'action', }}>
                                 <CardActions sx={{ flexGrow: 1, }}>
-                                    <Button size="extrasmall" onClick={closeButtonClickHandler} sx={{ color: 'text.secondary' }}>CLOSE</Button>
+                                    <Link to={{ pathname: `/carto_language_page/${langDeck.language_uid}` }}>
+                                        <SmallButton label={`Voir page : ${langDeck.language_name_fr}`} />
+                                    </Link>
+                                    <div onClick={closeButtonClickHandler} >
+                                        <SmallButton label="Fermer" />
+                                    </div>
                                 </CardActions>
                             </Box>
                         </Box>

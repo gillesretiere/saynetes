@@ -3,7 +3,7 @@ import React, { useState, createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import { ThemeProvider, StyledEngineProvider, } from '@mui/material/styles';
-
+import { useParams } from 'react-router';
 import './index.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
@@ -15,7 +15,7 @@ import SaynetesPage from './pages/SaynetesPage';
 import CartolangPage from './pages/CartolangPage';
 import CountryLanguagesPage from './components/decks/Cartolang/CountryLanguagesPage';
 import CartoCountryPage from './components/decks/Cartolang/CartoCountryPage';
-import { CountryDashboard } from './components/decks/Cartolang/CountryDashboard';
+import CartoLanguagePage from './components/decks/Cartolang/CartoLanguagePage';
 import Home from './pages/Home';
 import App from './App';
 
@@ -29,6 +29,11 @@ Penser à ajuster cette constante avant de faire un build
 - false => saynetes.fr (VPS3)
 */
 const pathHMRT = true;
+
+function ComponentGetID() {
+  const { id } = useParams();
+  return <div>{id}</div>
+}
 
 root.render(
 
@@ -44,6 +49,7 @@ root.render(
             <Route path="dialog_page/:id" element={<DialogPage />} />
             <Route path="cartolang" element={<CartolangPage />} />
             <Route path="country_page/:id" element={<CartoCountryPage />} />
+            <Route path="carto_language_page/:id" element={<CartoLanguagePage uid={<ComponentGetID />} />} />
             <Route path="country_languages_page/:id" element={<CountryLanguagesPage />} />
             <Route component={SaynetesPage} />
             <Route path="*" element={

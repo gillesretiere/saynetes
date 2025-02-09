@@ -1,8 +1,6 @@
 import React from 'react'
-import SmallButton from '../../UI/SmallButton.jsx';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { Link, } from "react-router-dom";
 import ReadMore from '../../UI/Media/ReadMore';
 
 export const CartoCountryDeckMain = ({ deck }) => {
@@ -41,7 +39,6 @@ export const CartoCountryDeckMain = ({ deck }) => {
                 "cy_name_na cy_name_na cy_name_na . ."
                 "cy_flag . . . ."
                 "cy_caption1 . cy_summary cy_summary cy_summary"
-                ". . . . cy_button1"
                 "cy_blocA1 cy_blocA2 cy_blocA3 cy_blocA4 cy_blocA5"
                 `,
               md:
@@ -49,7 +46,6 @@ export const CartoCountryDeckMain = ({ deck }) => {
                 "cy_name_fr cy_name_fr cy_flag . ."
                 "cy_name_na cy_name_na cy_flag . ."
                 "cy_caption1 . cy_summary cy_summary cy_summary"
-                ". . . . cy_button1"
                 "cy_blocA1 cy_blocA2 cy_blocA3 cy_blocA4 cy_blocA5"
                 `,
             },
@@ -115,15 +111,13 @@ export const CartoCountryDeckMain = ({ deck }) => {
                 WebkitLineClamp: "8",
                 WebkitBoxOrient: "vertical",
               }}>
-                <ReadMore text={country_summary} style={{ fontSize:'x-large',  borderTop: '1px solid white' }}/>
+                {country_summary &&
+                  <ReadMore text={country_summary} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
+                }
               </Typography>
             </Box>
           </Box>
-          <Box className={`mx-0 px-6`} sx={{ gridArea: 'cy_button1', display: 'flex', justifyContent: 'flex-end' }}>
-            <Link to={{ pathname: `/saynetes_page/` }}>
-              <SmallButton label="Read more" />
-            </Link>
-          </Box>
+
           <Box className={`ml-2 px-2`}
             sx={{ width: '100%', height: 300, gridArea: 'cy_blocA1', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderColor: 'grey.500', }}>
             <Box className='px-4'>
@@ -234,7 +228,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
             </Box>
             <Box className='px-4'>
               <Typography>
-                <ReadMore text={country_wfb_economic_overview_fr} style={{ fontSize:'medium',  borderTop: '1px solid white' }}/>
+                {country_wfb_economic_overview_fr &&
+                  <ReadMore text={country_wfb_economic_overview_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+                }
               </Typography>
             </Box>
           </Box>

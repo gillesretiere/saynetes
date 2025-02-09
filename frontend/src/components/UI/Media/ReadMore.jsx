@@ -1,57 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, } from "react";
 import Popper from "@mui/material/Popper";
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import ReadMoreCard from "./ReadMoreCard";
-import Button from '@mui/material/Button';
 
 
 const ReadMore = ({ text, style, children }) => {
 
     const [isReadMore, setIsReadMore] = useState(true);
-    const [arrowRef, setArrowRef] = useState(null);
-    const [anchorEl, setAnchorEl] = useState(null);
-
+    const [isWorth, setIsWorth] = useState(false);
+    const maxLength = 300;
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
     };
 
-    const callbackModal = () => {
-        setAnchorEl(null);
-    }
 
-    const handleClick = (event) => {
-        setArrowRef(event.currentTarget);
-        setAnchorEl(anchorEl ? null : event.currentTarget);
-        return;
-    }
+    useEffect(
+        () => {
+            if (text.length >= maxLength) {
+                setIsWorth(true);
+                setIsReadMore(true);
 
-    const openPopup = Boolean(anchorEl);
-    const id = openPopup ? "simple-popper" : undefined;
+            } else {
+                setIsWorth(false)
+            }
+        }, [text]
+    );
 
+    console.log(text.length);
 
     return (
         <>
-            <p>
-                {isReadMore ? (
-                    <Typography style={style} sx={{
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitLineClamp: "8",
-                        WebkitBoxOrient: "vertical",
-                    }}>
-                        {text.slice(0, 300)}...
+            {isWorth ? (
+                isReadMore ? (
+                    <>
+                        <Typography style={style} sx={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            display: "-webkit-box",
+                            WebkitLineClamp: "8",
+                            WebkitBoxOrient: "vertical",
+                        }}>
+                            {text.slice(0, maxLength)}...
+
+                        </Typography>
                         <span
                             onClick={toggleReadMore}
-                            className={`font-articulat_cf text-sm text-slate-500`}
+                            className={`font-articulat_cf text-sm text-primary-orange`}
                         >
                             lire plus
                         </span>
-                    </Typography>
-
+                    </>
                 ) : (
+                    <>
+                        <Typography style={style} sx={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            display: "-webkit-box",
+                            WebkitLineClamp: "48",
+                            WebkitBoxOrient: "vertical",
+                        }}>
+                            {text}
+
+                        </Typography>
+                        <span
+                            onClick={toggleReadMore}
+                            className={`font-articulat_cf text-sm text-primary-orange`}
+                        >
+                            &nbsp;lire moins
+                        </span>
+                    </>
+                )
+            ) : (
+                <>
                     <Typography style={style} sx={{
                         overflow: "hidden",
                         textOverflow: "ellipsis",
@@ -60,20 +81,11 @@ const ReadMore = ({ text, style, children }) => {
                         WebkitBoxOrient: "vertical",
                     }}>
                         {text}
-                        <span
-                            onClick={toggleReadMore}
-                            className={`font-articulat_cf text-sm text-slate-500`}
-                        >
-                            &nbsp;lire moins
-                        </span>
-                    </Typography>
 
-                )}
-            </p>
+                    </Typography></>
+            )
+            }
 
-            {/* 
-
-            */}
 
         </>
 

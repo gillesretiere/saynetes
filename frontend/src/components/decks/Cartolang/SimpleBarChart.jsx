@@ -26,7 +26,7 @@ const SimpleBarChart = ({ dataset }) => {
     <>
       <BarChart
         width={400}
-        height={300}
+        height={250}
         series={[
           { data: pData, label: 'parlé (proportion)', id: 'pvId', stack: 'pop', color: '#F44336' },
         ]}
