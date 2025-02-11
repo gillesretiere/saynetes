@@ -144,14 +144,19 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="h4">
-                {country_wfb_capital_name_fr}
+              {country_wfb_capital_name_fr &&
+                <ReadMore text={country_wfb_capital_name_fr} style={{ fontSize: 'large', borderTop: '1px solid white' }} />
+              }
+            </Box>
+            <Box className='px-4'>
+              <Typography variant="caption" className='text-slate-500'>
+                Etymologie
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="body2">
-                {country_wfb_capital_etymology_fr}
-              </Typography>
+              {country_wfb_capital_etymology_fr &&
+                <ReadMore text={country_wfb_capital_etymology_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
           <Box className={`ml-2 px-2`}
@@ -172,9 +177,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="body2">
-                {country_wfb_ethnic_groups_fr}
-              </Typography>
+              {country_wfb_ethnic_groups_fr &&
+                <ReadMore text={country_wfb_ethnic_groups_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
@@ -182,9 +187,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="body2">
-                {country_wfb_religions_fr}
-              </Typography>
+              {country_wfb_religions_fr &&
+                <ReadMore text={country_wfb_religions_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
           <Box className={`ml-2 px-2`}
@@ -215,9 +220,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="body2">
-                {country_wfb_location_fr}
-              </Typography>
+              {country_wfb_location_fr &&
+                <ReadMore text={country_wfb_location_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
           <Box className={`mr-2 px-2`} sx={{ width: '100%', gridArea: 'cy_blocA5', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderRight: 0, borderColor: 'grey.500', }}>
@@ -227,11 +232,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography>
-                {country_wfb_economic_overview_fr &&
-                  <ReadMore text={country_wfb_economic_overview_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
-                }
-              </Typography>
+              {country_wfb_economic_overview_fr &&
+                <ReadMore text={country_wfb_economic_overview_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
         </Box>

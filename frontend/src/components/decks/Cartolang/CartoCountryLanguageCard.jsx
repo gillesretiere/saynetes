@@ -12,6 +12,8 @@ import Popper from "@mui/material/Popper";
 import CartoCountryLanguageCardPopper from './CartoCountryLanguageCardPopper';
 import LanguageMapComponent from './LanguageMapComponent';
 import { CartoCountryLanguageCardWithMap } from './CartoCountryLanguageCardWithMap';
+import { CircularProgressChart } from './CircularProgressChart';
+import { CircularChart } from './CircularChart';
 
 import Chart from './Chart';
 import { formHelperTextClasses } from '@mui/material';
@@ -19,7 +21,6 @@ import { formHelperTextClasses } from '@mui/material';
 const CartoCountryLanguageCard = ({ card, langDeck, }) => {
     let { language_name_fr, language_name_native, language_uid, popularity_as_float, } = card;
     let ctx = useContext(DeckContext);
-
     const [currentLanguage, setCurrentLanguage] = useState([]);
 
     useEffect(() => {
@@ -104,7 +105,7 @@ const CartoCountryLanguageCard = ({ card, langDeck, }) => {
                         </Typography>
                     </CardContent>
                     <CardContent>
-                        <Chart data={popularity_as_float}></Chart>
+                        <CircularProgressChart value={popularity_as_float*100} size="5rem"/>
                     </CardContent>
                 </Box>
                 <CardActions>

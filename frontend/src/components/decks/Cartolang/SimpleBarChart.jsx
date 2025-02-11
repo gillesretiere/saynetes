@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 
-const SimpleBarChart = ({ dataset }) => {
+const SimpleBarChart = ({ dataset, w, h }) => {
   dataset.sort((a,b) => b.popularity_as_float-a.popularity_as_float)
   let pop = dataset.map(item => { return item.popularity_as_float });
   let spk = dataset.map(item => { return 1.0 - item.popularity_as_float });
@@ -25,8 +25,8 @@ const SimpleBarChart = ({ dataset }) => {
   return (
     <>
       <BarChart
-        width={400}
-        height={250}
+        width={w}
+        height={h}
         series={[
           { data: pData, label: 'parlé (proportion)', id: 'pvId', stack: 'pop', color: '#F44336' },
         ]}

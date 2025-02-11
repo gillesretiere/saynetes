@@ -196,13 +196,6 @@ const HomeAppBar = () => {
               </IconButton>
 
               <Divider sx={{ mb: 2 }} />
-
-              <Box sx={{ mb: 2 }}>
-                {/* on itère sur les liens de navigations intrapage : ajout du lien 
-               https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
-               */}
-              </Box>
-
               {/* 
               search}            
               */}

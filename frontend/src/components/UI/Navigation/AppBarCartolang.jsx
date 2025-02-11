@@ -201,15 +201,6 @@ const AppBarCartolang = ({ callBackFunction }) => {
 
                             <Divider sx={{ mb: 2 }} />
 
-                            <Box sx={{ mb: 2 }}>
-                                {/* on itère sur les liens de navigations intrapage : ajout du lien 
-               https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
-               */}
-                            </Box>
-
-                            {/* 
-              search}            
-              */}
                             <Box sx={{ overflow: 'auto' }}>
                                 {/* on itère sur les liens de navigations intrapage : ajout du lien 
                https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
@@ -220,11 +211,11 @@ const AppBarCartolang = ({ callBackFunction }) => {
                                             <>
                                                 <span key={item.label} id={index} onClick={handleClick}>
                                                     {/* on teste si href interne (#) : composant "a" sinon "Link" */}
-                                                    <ListItemButton key={`${item.id}`} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
-                                                        <ListItemIcon>
+                                                    <ListItemButton key={index} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
+                                                        <ListItemIcon key={index} >
                                                             <img src={item.country_national_flag} className='pr-1 max-w-[32px] md:max-w-[32px] object-cover' />
                                                         </ListItemIcon>
-                                                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
+                                                        <ListItemText key={`${item.label}`} primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
                                                         {/* <Chip label={item.enabled ? "disponible" :"prochainement"} size="small"></Chip> */}
                                                     </ListItemButton>
                                                 </span>

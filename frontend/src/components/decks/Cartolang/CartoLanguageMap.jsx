@@ -4,8 +4,8 @@ import LanguageMapCard from './LanguageMapCard';
 
 const CartoLanguageMap = ( {langdeck} ) => {
   return (
-    <Box sx={{ marginTop:"0px" }}>
-         <LanguageMapCard  sx={{ height: '400px' }} language={langdeck}></LanguageMapCard>
+    <Box sx={{ marginTop:"-2rem"}}>
+         <LanguageMapCard language={langdeck}></LanguageMapCard>
     </Box>
   )
 }

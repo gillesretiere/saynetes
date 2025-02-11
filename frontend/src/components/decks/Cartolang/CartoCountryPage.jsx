@@ -48,7 +48,6 @@ const CartoCountryPage = () => {
     useEffect(() => {
         setCountries(vkCountry);
     }, []);
-
     /*
         la 1ère fois :
         on itère et on peuple le vecteur 'navlinks' 
@@ -69,6 +68,7 @@ const CartoCountryPage = () => {
             vkCountry && vkCountry.sort((a, b) => a.country_name_en > b.country_name_en ? 1 : -1).map(
                 (el, index,) => {
                     let item = {};
+                    item["key"] = index;
                     item["id"] = index;
                     item["label"] = el.country_name_fr;
                     item["enabled"] = true;

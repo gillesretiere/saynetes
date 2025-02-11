@@ -25,7 +25,7 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import CartoCountryLanguageCardPopperMap from './CartoCountryLanguageCardPopperMap';
 import LanguageMapComponent from './LanguageMapComponent';
-import LanguageMapCard from './LanguageMapCard';
+import LanguageSmallMapCard from './LanguageSmallMapCard';
 import { CartoCountryLanguageCardPopularityByCountry } from './CartoCountryLanguageCardPopularityByCountry';
 import SimpleBarChart from './SimpleBarChart';
 import ReadMore from '../../UI/Media/ReadMore.jsx';
@@ -54,7 +54,6 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("lg"));
-
     return (
         <>
             {/* Carte largeur selon la taille du media */}
@@ -122,8 +121,8 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                             <Box className={`mx-0 px-0`} sx={{ gridArea: 'map', }}>
                                 {/* si la langue n'est pas répertoriée: on affiche une carte neutre (xxx) */}
                                 {langDeck ?
-                                    (<LanguageMapCard language={langDeck}></LanguageMapCard>) :
-                                    (<LanguageMapCard language="xxx"></LanguageMapCard>)
+                                    (<LanguageSmallMapCard language={langDeck}></LanguageSmallMapCard>) :
+                                    (<LanguageSmallMapCard language="xxx"></LanguageSmallMapCard>)
                                 }
                             </Box>
                             <Box className={`mx-1 px-1`} sx={{ gridArea: 'Bloc2', }}>
@@ -134,9 +133,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                     alignItems: 'center',
                                 }}>
                                     {langDeck && langDeck.language_summary ? (
-                                            <Typography>
-                                                <ReadMore text={langDeck.language_summary} style={{ fontSize: 'small', borderTop: '1px solid white' }} />
-                                            </Typography>
+                                        <ReadMore text={langDeck.language_summary} style={{ fontSize: 'small', borderTop: '1px solid white' }} />
                                     ) : (
                                         <Typography>
                                             &nbsp;
@@ -165,17 +162,21 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
 
                                 }
                             </Grid>
-                                */ }
+                                 }
                                 {
                                     langDeck && langDeck.language_countries &&
-                                    <SimpleBarChart dataset={langDeck.language_countries} />
-                                }
+                                    <SimpleBarChart dataset={langDeck.language_countries}  w={400} h={400}/>
+                                */}
                             </Box>
                             <Box className={`mx-1 px-1`} sx={{ gridArea: 'action', }}>
                                 <CardActions sx={{ flexGrow: 1, }}>
-                                    <Link to={{ pathname: `/carto_language_page/${langDeck.language_uid}` }}>
-                                        <SmallButton label={`Voir page : ${langDeck.language_name_fr}`} />
-                                    </Link>
+                                    {
+                                        langDeck && langDeck.language_uid &&
+                                        <Link to={{ pathname: `/carto_language_page/${langDeck.language_uid}` }}>
+                                            <SmallButton label={`Voir page : ${langDeck.language_name_fr}`} />
+                                        </Link>
+                                    }
+
                                     <div onClick={closeButtonClickHandler} >
                                         <SmallButton label="Fermer" />
                                     </div>

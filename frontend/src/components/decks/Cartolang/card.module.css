@@ -21,5 +21,31 @@ div[id^='chartdiv'] {
 
 div[id^='mapdiv'] {
     width: auto;
-    height: 400px;
+    height: 600px;
+}
+
+div[id^='smallmapdiv'] {
+    width: auto;
+    height: 200px;
+}
+
+.background {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    svg {
+        color: var(--color_300);
+        circle {
+            stroke-dashoffset: 0px !important;
+        }
+    }
+}
+.foreground {
+    position: relative;
+    z-index: 2;
+    svg {
+        color: var(--color_050);
+        circle {
+        }
+    }
 }

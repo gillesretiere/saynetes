@@ -13,8 +13,6 @@ const ReadMore = ({ text, style, children }) => {
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
     };
-
-
     useEffect(
         () => {
             if (text.length >= maxLength) {
@@ -26,8 +24,6 @@ const ReadMore = ({ text, style, children }) => {
             }
         }, [text]
     );
-
-    console.log(text.length);
 
     return (
         <>
