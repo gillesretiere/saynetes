@@ -7,27 +7,12 @@ import { Box } from '@mui/material';
 import { Link, } from "react-router-dom";
 import SmallButton from '../../UI/SmallButton.jsx';
 
-import Button from '@mui/material/Button';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import Dialog from '@mui/material/Dialog';
-import Grid from '@material-ui/core/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-import CartoCountryLanguageCardPopperMap from './CartoCountryLanguageCardPopperMap';
-import LanguageMapComponent from './LanguageMapComponent';
 import LanguageSmallMapCard from './LanguageSmallMapCard';
-import { CartoCountryLanguageCardPopularityByCountry } from './CartoCountryLanguageCardPopularityByCountry';
-import SimpleBarChart from './SimpleBarChart';
 import ReadMore from '../../UI/Media/ReadMore.jsx';
 
 
@@ -122,7 +107,7 @@ export const CartoCountryLanguageCardWithMap = ({ language, langDeck, callbackMo
                                 {/* si la langue n'est pas répertoriée: on affiche une carte neutre (xxx) */}
                                 {langDeck ?
                                     (<LanguageSmallMapCard language={langDeck}></LanguageSmallMapCard>) :
-                                    (<LanguageSmallMapCard language="xxx"></LanguageSmallMapCard>)
+                                    (<></>)
                                 }
                             </Box>
                             <Box className={`mx-1 px-1`} sx={{ gridArea: 'Bloc2', }}>

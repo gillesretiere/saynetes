@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Navigate } from 'react-router';
+
 import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
 import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
@@ -311,11 +313,11 @@ class LanguageSmallMapCard extends Component {
           sprite: container
         });
       });
-      
+
 
       //this.chart.appear(1000, 100);
     } // endif
-    
+
   }
 
 
@@ -329,9 +331,14 @@ class LanguageSmallMapCard extends Component {
   render() {
     return (
       <>
-        <div className="bg-[#8DCCCB] shadow-lg p-0">
-          <div id={`smallmapdiv${this.props.language.language_uid}`}></div>
-        </div>
+        {this.props && this.props.language && this.props.language.language_uid ? (
+          <div className="bg-[#8DCCCB] shadow-lg p-0">
+            <div id={`smallmapdiv${this.props.language.language_uid}`}></div>
+          </div>
+        ) : (
+          <Navigate to="/cartolang/" push={true}/>
+        )}
+
       </>
     );
 

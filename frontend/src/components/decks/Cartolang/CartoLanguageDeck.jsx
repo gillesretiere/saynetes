@@ -19,88 +19,94 @@ const styles = theme => ({
 const CartoLanguageDeck = ({ langdeck }) => {
   return (
     <>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
-          gap: 0,
-          gridTemplateRows: 'auto',
-          gridTemplateAreas: {
-            xs:
-              `
-                    "lg_name_fr lg_name_fr . . ."
-                    "lg_name_na lg_name_na . . ."
-                    ". . lg_barchrt lg_barchrt lg_barchrt"
-                    "lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt"
-                    `,
-            md:
-              `
-                    "lg_name_fr lg_name_fr lg_barchrt lg_barchrt ."
-                    "lg_name_fr lg_name_fr lg_barchrt lg_barchrt ."
-                    "lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt"
-                    `,
-          },
-        }}
-      >
+      {langdeck ? (
 
-        <Box className={`mx-1 px-4`} sx={{ gridArea: 'lg_name_fr', }}>
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            p: 1,
-            alignItems: 'center',
-          }}>
-            <Typography variant="h2" className={`font-articulat_cf leading-none tracking-tight font-semibold`}>
-              {langdeck.language_name_fr}
-            </Typography>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            gap: 0,
+            gridTemplateRows: 'auto',
+            gridTemplateAreas: {
+              xs:
+                `
+            "lg_name_fr lg_name_fr . . ."
+            "lg_name_na lg_name_na . . ."
+            ". . lg_barchrt lg_barchrt lg_barchrt"
+            "lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt"
+            `,
+              md:
+                `
+            "lg_name_fr lg_name_fr lg_barchrt lg_barchrt ."
+            "lg_name_fr lg_name_fr lg_barchrt lg_barchrt ."
+            "lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt lg_rndchrt"
+            `,
+            },
+          }}
+        >
 
-          </Box>
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            p: 1,
-            alignItems: 'center',
-          }}>
-            <Typography variant="h3" className={`font-articulat_cf leading-none tracking-tight font-semibold text-slate-500`}>
-              {langdeck.language_name_native}
-            </Typography>
-          </Box>
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            p: 1,
-            alignItems: 'center',
-          }}>
-            <Typography variant="h6" className={`font-articulat_cf leading-none font-normal`}>
-              {langdeck.language_summary &&
-                <ReadMore text={langdeck.language_summary} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
-              }
-            </Typography>
-          </Box>
-        </Box>
+          <Box className={`mx-1 px-4`} sx={{ gridArea: 'lg_name_fr', }}>
+            <Box sx={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              p: 1,
+              alignItems: 'center',
+            }}>
+              <Typography variant="h2" className={`font-articulat_cf leading-none tracking-tight font-semibold`}>
+                {langdeck.language_name_fr}
+              </Typography>
 
-        <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_barchrt', }}>
-          {
-            langdeck && langdeck.language_countries &&
-            <SimpleBarChart dataset={langdeck.language_countries} w={800} h={400} />
-          }
-        </Box>
-        <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_rndchrt', }}>
-          <Grid container spacing={4}>
-            {langdeck.language_countries && langdeck.language_countries.sort((a, b) => (a.popularity_as_float > b.popularity_as_float ? -1 : 1))
-              .map(
-                (el, index) => {
-                  return (
-                    <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2}>
-                      <CartoLanguageCountryCard card={el} langdeck={langdeck}/>
-                    </Grid>
-                  )
+            </Box>
+            <Box sx={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              p: 1,
+              alignItems: 'center',
+            }}>
+              <Typography variant="h3" className={`font-articulat_cf leading-none tracking-tight font-semibold text-slate-500`}>
+                {langdeck.language_name_native}
+              </Typography>
+            </Box>
+            <Box sx={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              p: 1,
+              alignItems: 'center',
+            }}>
+              <Typography variant="h6" className={`font-articulat_cf leading-none font-normal`}>
+                {langdeck.language_summary &&
+                  <ReadMore text={langdeck.language_summary} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
                 }
-              )}
-          </Grid>
+              </Typography>
+            </Box>
+          </Box>
 
+          <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_barchrt', }}>
+            {
+              langdeck && langdeck.language_countries &&
+              <SimpleBarChart dataset={langdeck.language_countries} w={800} h={400} />
+            }
+          </Box>
+          <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_rndchrt', }}>
+            <Grid container spacing={4}>
+              {langdeck.language_countries && langdeck.language_countries.sort((a, b) => (a.popularity_as_float > b.popularity_as_float ? -1 : 1))
+                .map(
+                  (el, index) => {
+                    return (
+                      <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2}>
+                        <CartoLanguageCountryCard card={el} langdeck={langdeck} />
+                      </Grid>
+                    )
+                  }
+                )}
+            </Grid>
+
+          </Box>
         </Box>
-      </Box>
+      ) : (
+        <></>
+      )}
+
 
     </>
   )

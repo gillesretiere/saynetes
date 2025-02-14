@@ -16,6 +16,7 @@ import CartolangPage from './pages/CartolangPage';
 import CountryLanguagesPage from './components/decks/Cartolang/CountryLanguagesPage';
 import CartoCountryPage from './components/decks/Cartolang/CartoCountryPage';
 import CartoLanguagePage from './components/decks/Cartolang/CartoLanguagePage';
+import SearchCountryPage from './components/decks/Cartolang/SearchCountryPage';
 import Home from './pages/Home';
 import App from './App';
 
@@ -49,6 +50,7 @@ root.render(
             <Route path="dialog_page/:id" element={<DialogPage />} />
             <Route path="cartolang" element={<CartolangPage />} />
             <Route path="country_page/:id" element={<CartoCountryPage />} />
+            <Route path="search_country_page/:id" element={<SearchCountryPage />} />
             <Route path="carto_language_page/:id" element={<CartoLanguagePage uid={<ComponentGetID />} />} />
             <Route path="country_languages_page/:id" element={<CountryLanguagesPage />} />
             <Route component={SaynetesPage} />

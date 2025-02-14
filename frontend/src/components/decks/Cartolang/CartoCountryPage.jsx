@@ -11,6 +11,7 @@ import DeckContext from '../../../store/DeckContext';
 
 
 const CartoCountryPage = () => {
+    const params = useParams();
 
     const ctx = useContext(DeckContext);
     // la liste des pays pour la sélection
@@ -45,6 +46,7 @@ const CartoCountryPage = () => {
             vkCountry.push(langdeck_countries[i]);
         }
     }
+    console.log(params.id);
     useEffect(() => {
         setCountries(vkCountry);
     }, []);

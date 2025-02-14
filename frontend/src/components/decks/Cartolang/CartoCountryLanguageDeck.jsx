@@ -3,7 +3,6 @@ import DeckContext from '../../../store/DeckContext';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CartoCountryLanguageCard from './CartoCountryLanguageCard';
-import LanguageMapComponent from './LanguageMapComponent';
 
 const styles = theme => ({
     root: {

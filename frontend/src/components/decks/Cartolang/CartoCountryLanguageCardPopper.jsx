@@ -2,23 +2,11 @@ import React, { useState, useEffect, useContext, } from 'react';
 import DeckContext from '../../../store/DeckContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@mui/material/Button';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import Dialog from '@mui/material/Dialog';
-import Grid from '@material-ui/core/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-import CartoCountryLanguageCardPopperMap from './CartoCountryLanguageCardPopperMap';
-import LanguageMapComponent from './LanguageMapComponent';
 import LanguageMapCard from './LanguageMapCard';
 
 const useStyles = makeStyles(theme => ({

@@ -6,7 +6,7 @@ import classes from "./Layout.module.css";
 const LayoutCartolang = ({ children, callBackFunction, }) => {
   return (
     <div id="layout" className={classes.container}>
-      <HeaderCartolang callBackFunction={callBackFunction} />
+      <HeaderCartolang callBackFunction={callBackFunction}/>
       {/*<CurrentDecks />*/}
       <div>{children}</div>
       <Footer />

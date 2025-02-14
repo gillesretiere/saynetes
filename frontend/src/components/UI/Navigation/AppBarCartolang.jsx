@@ -91,12 +91,12 @@ const search = (
 );
 
 
-const AppBarCartolang = ({ callBackFunction }) => {
+const AppBarCartolang = ({ callBackFunction, }) => {
     //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
     const [open, setState] = useState(true);
 
     let deckContext = useContext(DeckContext);
-
+    
     const handleClick = (event) => {
         callBackFunction(event.currentTarget.id);
     };
@@ -211,7 +211,11 @@ const AppBarCartolang = ({ callBackFunction }) => {
                                             <>
                                                 <span key={item.label} id={index} onClick={handleClick}>
                                                     {/* on teste si href interne (#) : composant "a" sinon "Link" */}
-                                                    <ListItemButton key={index} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
+                                                    <ListItemButton key={index}
+                                                        component={item.url.startsWith('#') ? "a" : Link}
+                                                        href={`${item.url}`}
+                                                        to={`${item.url}`}
+                                                        className={!item.enabled && "disabled-link"}  >
                                                         <ListItemIcon key={index} >
                                                             <img src={item.country_national_flag} className='pr-1 max-w-[32px] md:max-w-[32px] object-cover' />
                                                         </ListItemIcon>

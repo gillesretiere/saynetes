@@ -4,16 +4,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { Box } from '@mui/material';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import Popper from "@mui/material/Popper";
-import CartoCountryLanguageCardPopper from './CartoCountryLanguageCardPopper';
-import LanguageMapComponent from './LanguageMapComponent';
 import { CartoCountryLanguageCardWithMap } from './CartoCountryLanguageCardWithMap';
 import { CircularProgressChart } from './CircularProgressChart';
-import { CircularChart } from './CircularChart';
 
 import Chart from './Chart';
 import { formHelperTextClasses } from '@mui/material';
