@@ -1,4 +1,4 @@
-import React, { useState, useContext, } from 'react';
+import React, { useState, useContext, useEffect, } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import DeckContext from '../../../store/DeckContext';
@@ -7,30 +7,79 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from "@mui/material/Autocomplete";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import SmallButton from '../../UI/SmallButton';
+import Button from '@mui/material/Button';
+import { worldmap, hmrt_icon, } from '../../../assets/img/index.js';
+
+
+
 
 export const CartoSearchPage = ({ regions, countries, languages, }) => {
 
     const navigate = useNavigate();
+    const [value, setValue] = React.useState('country');
+    const [options, setOptions] = useState([]);
+    const [vkCity, setVkCity] = useState([]);
+    const [vkLang, setVkLang] = useState([]);
+
     const [searchValue, setSearchValue] = useState('');
     const [uid, setUid] = useState('');
 
     const ctx = useContext(DeckContext);
 
-    const vkCty = [];
-    {
-        countries && countries.sort((a, b) => a.country_name_fr > b.country_name_fr ? 1 : -1).map(
-            (el, index,) => {
-                let item = {};
-                item["id"] = index;
-                item["label"] = el.country_name_fr;
-                item["country_uid"] = el.country_uid;
-                item["label_en"] = el.country_name_en;
-                vkCty.push(item);
-            }
-        )
-    }
-    ctx.current_deck.countries = countries;
+    const background = {
+        backgroundImage: `url(${worldmap})`,
+        height: "100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+    };
+
+    // Liste des options (soit Pays soit Langues)
+    useEffect(() => {
+        const vk = [];
+        {
+            countries && countries.sort((a, b) => a.country_name_fr > b.country_name_fr ? 1 : -1).map(
+                (el, index,) => {
+                    let item = {};
+                    item["id"] = index;
+                    item["label"] = el.country_name_fr;
+                    item["country_uid"] = el.country_uid;
+                    item["label_en"] = el.country_name_en;
+                    vk.push(item);
+                }
+            )
+        }
+        ctx.current_deck.countries = countries;
+        setVkCity(vk);
+        setOptions (vk);
+    }, [countries]);
+
+
+    // Liste des options (soit Pays soit Langues)
+    useEffect(() => {
+        const vk = [];
+        {
+            languages && languages.sort((a, b) => a.language_name_fr > b.language_name_fr ? 1 : -1).map(
+                (el, index,) => {
+                    let item = {};
+                    item["id"] = index;
+                    item["label"] = el.language_name_fr;
+                    item["language_uid"] = el.language_uid;
+                    item["label_en"] = el.language_name_en;
+                    vk.push(item);
+                }
+            )
+        }
+        ctx.current_deck.languages = languages;
+        setVkLang (vk);
+    }, [languages]);
+
 
     const arr = [];
     {
@@ -59,22 +108,57 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
         }
     };
 
+
+    const handleRadioChange = (event) => {
+        setValue(event.target.value);
+        if (event.target.value === 'country') {
+            setOptions(vkCity);
+        } else {
+            setOptions(vkLang);
+        }
+    };
+
     return (
         <>
-            <main>
-                <section id="search" className='min-h-screen max-container'>
-                    <Box className="m-4 p-7">
-                        <Autocomplete
-                            id="combo-box-demo"
-                            options={vkCty.map((option) => option.label)}
-                            sx={{ width: 600 }}
-                            renderInput={(params) => <TextField {...params} label="Votre recherche" />}
-                            onChange={handleChange}
-                        />
-                        <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-start' }}>
-                            <Link to={`/search_country_page/${uid}`}>
-                                <SmallButton label="GO" />
-                            </Link>
+            <main style={background} className='mt-0'>
+                <section id="search" className='min-h-screen max-container' sx={{ display: 'flex', alignItems: 'center', }}>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh', }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', }}>
+                            <Typography
+                                sx={{ display: 'flex', justifyContent: 'center', }}
+                                className={`font-articulat_cf leading-none tracking-tight font-black lg:text-8xl text-slate-800 mb-10`}>
+                                CARTOLANG
+                            </Typography>
+                            <Box sx={{ display: 'flex', flexDirection: 'row', }} className="items-center">
+                                <Autocomplete
+                                    className='bg-white'
+                                    id="combo-box-demo"
+                                    options={options.map((option) => option.label)}
+                                    sx={{ width: 600 }}
+                                    renderInput={(params) => <TextField {...params} label="Votre recherche" />}
+                                    onChange={handleChange}
+                                />
+                                <Link to={`/search_country_page/${uid}`}>
+                                    <Button className="ml-4" variant="contained" size="large" sx={{ display: 'flex', }}>
+                                        Valider
+                                    </Button>
+                                </Link>
+                            </Box>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', }} className="p-4">
+                                <FormControl>
+                                    <RadioGroup
+                                        row
+                                        aria-labelledby="demo-controlled-radio-buttons-group"
+                                        name="controlled-radio-buttons-group"
+                                        value={value}
+                                        onChange={handleRadioChange}
+                                    >
+                                        <FormControlLabel value="country" control={<Radio />} label="Pays" />
+                                        <FormControlLabel value="language" control={<Radio />} label="Langue" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </Box>
                         </Box>
                     </Box>
                 </section>

@@ -30,7 +30,7 @@ const CartolangPage = () => {
         {countries && languages &&
           <CartoSearchPage regions={regions} countries={countries} languages={languages} />
         }
-        <RegionDeck deck={regions} />
+        {/* <RegionDeck deck={regions} /> */}
       </Layout>
     </>
   )
