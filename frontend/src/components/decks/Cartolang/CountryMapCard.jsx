@@ -25,7 +25,9 @@ class CountryMapCard extends Component {
     let setUpdatedCountry = this.props.setUpdatedCountry;
     // couleur des terres sur la carte
     let colorMap = am5.color(0xF7F6F1);
-    let { init, country } = this.state;
+    let step = 0;
+
+    let { init, country, stage, } = this.state;
 
     root.setThemes([
       am5themes_Animated.new(root)
@@ -119,6 +121,14 @@ class CountryMapCard extends Component {
 
     let activeDataItem = this.polygonSeries.getDataItemById(this.props.country.country_iso2);
     this.polygonSeries.zoomToDataItem(activeDataItem);
+    console.log(stage);
+    this.polygonSeries.events.on("datavalidated", function () {
+      console.log(step);
+      if (step === 0) {
+        polygonSeries.zoomToDataItem(activeDataItem);
+        step = 1;
+      }
+    });
   }
 
   componentDidUpdate(oldProps) {
@@ -130,7 +140,7 @@ class CountryMapCard extends Component {
       let { init, country, stage } = this.state;
       let activeDataItem = this.polygonSeries.getDataItemById(this.props.country.country_iso2);
       this.polygonSeries.zoomToDataItem(activeDataItem);
-      
+
       if (stage == 0) {
         this.setState({ init: false });
         this.setState({ country: this.props.country.country_iso2 });

@@ -15,10 +15,6 @@ const SearchCountryPage = () => {
     const ctx = useContext(DeckContext);
 
     const params = useParams();
-
-    console.log (params);
-    console.log (ctx);
-
     const [countries, setCountries] = useState([]);
     // le pays qui va être sélectionné en aval par une fonction callback
     const [selectedCountry, setSelectedCountry] = useState(null);

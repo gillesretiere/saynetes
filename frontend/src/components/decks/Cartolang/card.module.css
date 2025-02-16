@@ -49,3 +49,21 @@ div[id^='smallmapdiv'] {
         }
     }
 }
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 10;
+    left: 0;
+  }
+  
+.video_background {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

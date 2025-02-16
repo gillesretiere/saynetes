@@ -14,7 +14,8 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import SmallButton from '../../UI/SmallButton';
 import Button from '@mui/material/Button';
-import { worldmap, hmrt_icon, } from '../../../assets/img/index.js';
+import { worldmap, hmrt_icon, home_video, } from '../../../assets/img/index.js';
+import classes from "./card.module.css";
 
 
 
@@ -135,9 +136,10 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
 
     return (
         <>
-            <main style={background} className='mt-0'>
-                <section id="search" className='min-h-screen max-container' sx={{ display: 'flex', alignItems: 'center', }}>
+                <video src={home_video} autoPlay loop playsinline muted></video>
 
+            <main className={`${classes.video_background} mt-0`}>
+                <section id="search" className='min-h-screen max-container' sx={{ display: 'flex', alignItems: 'center', }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh', }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', }}>
                             <Typography
