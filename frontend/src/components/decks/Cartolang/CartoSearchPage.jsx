@@ -22,10 +22,11 @@ import { worldmap, hmrt_icon, } from '../../../assets/img/index.js';
 export const CartoSearchPage = ({ regions, countries, languages, }) => {
 
     const navigate = useNavigate();
-    const [value, setValue] = React.useState('country');
+    const [searchMode, setSearchMode] = React.useState('country');
     const [options, setOptions] = useState([]);
-    const [vkCity, setVkCity] = useState([]);
+    const [vkCtry, setVkCtry] = useState([]);
     const [vkLang, setVkLang] = useState([]);
+    const [toPage, setToPage] = useState ('search_country_page');
 
     const [searchValue, setSearchValue] = useState('');
     const [uid, setUid] = useState('');
@@ -56,8 +57,8 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
             )
         }
         ctx.current_deck.countries = countries;
-        setVkCity(vk);
-        setOptions (vk);
+        setVkCtry(vk);
+        setOptions(vk);
     }, [countries]);
 
 
@@ -77,7 +78,7 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
             )
         }
         ctx.current_deck.languages = languages;
-        setVkLang (vk);
+        setVkLang(vk);
     }, [languages]);
 
 
@@ -100,19 +101,33 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
     const handleChange = (event, value) => {
         setSearchValue(value);
         let idx = 0;
-        for (var i = 0; i < countries.length; i++) {
-            if (countries[i].country_name_fr === value) {
-                idx = i;
-                setUid(countries[i].country_iso2);
+        if (searchMode == "country") {
+            for (var i = 0; i < countries.length; i++) {
+                    if (countries[i].country_name_fr === value) {
+                    idx = i;
+                    setUid(countries[i].country_iso2);
+                    setToPage ('search_country_page');
+                }
+            }
+        } else {
+            for (var i = 0; i < languages.length; i++) {
+                if (languages[i].language_name_fr === value) {
+                    idx = i;
+                    setUid(languages[i].language_uid);
+                    ctx.current_deck.language_deck = []
+                    ctx.current_deck.language_deck[0] = languages[i];
+                    setToPage ('carto_language_page');
+                }
             }
         }
+
     };
 
 
     const handleRadioChange = (event) => {
-        setValue(event.target.value);
+        setSearchMode(event.target.value);
         if (event.target.value === 'country') {
-            setOptions(vkCity);
+            setOptions(vkCtry);
         } else {
             setOptions(vkLang);
         }
@@ -127,8 +142,8 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
                         <Box sx={{ display: 'flex', flexDirection: 'column', }}>
                             <Typography
                                 sx={{ display: 'flex', justifyContent: 'center', }}
-                                className={`font-articulat_cf leading-none tracking-tight font-black lg:text-8xl text-slate-800 mb-10`}>
-                                CARTOLANG
+                                className={`font-articulat_cf leading-none tracking-tight font-black lg:text-4xl text-slate-700 mb-10`}>
+                                langdeck
                             </Typography>
                             <Box sx={{ display: 'flex', flexDirection: 'row', }} className="items-center">
                                 <Autocomplete
@@ -139,7 +154,7 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
                                     renderInput={(params) => <TextField {...params} label="Votre recherche" />}
                                     onChange={handleChange}
                                 />
-                                <Link to={`/search_country_page/${uid}`}>
+                                <Link to={`/${toPage}/${uid}`}>
                                     <Button className="ml-4" variant="contained" size="large" sx={{ display: 'flex', }}>
                                         Valider
                                     </Button>
@@ -151,7 +166,7 @@ export const CartoSearchPage = ({ regions, countries, languages, }) => {
                                         row
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={value}
+                                        value={searchMode}
                                         onChange={handleRadioChange}
                                     >
                                         <FormControlLabel value="country" control={<Radio />} label="Pays" />

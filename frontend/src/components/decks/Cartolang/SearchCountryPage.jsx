@@ -15,12 +15,17 @@ const SearchCountryPage = () => {
     const ctx = useContext(DeckContext);
 
     const params = useParams();
+
+    console.log (params);
+    console.log (ctx);
+
     const [countries, setCountries] = useState([]);
     // le pays qui va être sélectionné en aval par une fonction callback
     const [selectedCountry, setSelectedCountry] = useState(null);
 
     const getCountryIndexByUid = (uid) => {
         let idx = 0;
+        if (! countries) { return null };
         for (var i = 0; i < countries.length; i++) {
             if (countries[i].country_iso2 === uid) {
                 idx = i;
@@ -33,7 +38,7 @@ const SearchCountryPage = () => {
 
     useEffect(() => {
         setCountries(ctx.current_deck.countries);
-    }, []);
+    }, [ctx.current_deck.countries]);
 
     useEffect(() => {
         getCountryIndexByUid(params.id);
@@ -69,10 +74,8 @@ const SearchCountryPage = () => {
                             deck={selectedCountry}
                             callBackFunction={callBackFunctionMap} />
                     </>
-
-
                 }
-
+                {/* else null => navigate somewhere... */}
             </Layout>
 
         </>

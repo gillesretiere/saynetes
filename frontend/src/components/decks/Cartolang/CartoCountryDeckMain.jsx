@@ -100,21 +100,14 @@ export const CartoCountryDeckMain = ({ deck }) => {
           <Box className={`mx-0 p-4`} sx={{ gridArea: 'cy_summary', }}>
             <Box sx={{
               display: 'flex',
+              flexDirection: 'column',
               p: 1,
               bgcolor: 'background.paper',
               alignItems: 'top',
             }}>
-              <Typography sx={{
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                display: "-webkit-box",
-                WebkitLineClamp: "8",
-                WebkitBoxOrient: "vertical",
-              }}>
-                {country_summary &&
-                  <ReadMore text={country_summary} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
-                }
-              </Typography>
+              {country_summary &&
+                <ReadMore text={country_summary} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
 

@@ -10,7 +10,7 @@ import DeckContext from '../../../store/DeckContext';
 const CartoLanguagePage = ({ uid }) => {
 
   let ctx = useContext(DeckContext);
-  console.log(ctx.current_deck.language_deck[0]);
+  console.log(ctx.current_deck);
 
   return (
     <>

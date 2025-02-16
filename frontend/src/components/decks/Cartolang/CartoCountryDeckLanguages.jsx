@@ -63,11 +63,9 @@ const CartoCountryDeckLanguages = ({ deck }) => {
                     </Box>
                     <Box className={`mx-0 p-4 mb-5`} sx={{ gridArea: 'cy_languages', }}>
                         <Box sx={{ p: 1, m: 1, }}>
-                            <Typography>
-                                {country_wfb_languages_fr &&
-                                    <ReadMore text={country_wfb_languages_fr} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
-                                }
-                            </Typography>
+                            {country_wfb_languages_fr &&
+                                <ReadMore text={country_wfb_languages_fr} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
+                            }
                         </Box>
                     </Box>
                     <Box className={`mx-1 px-4`} sx={{ gridArea: 'cy_lang', }}>
