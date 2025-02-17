@@ -73,21 +73,19 @@ const CartoLanguageDeck = ({ langdeck }) => {
               p: 1,
               alignItems: 'center',
             }}>
-              <Typography variant="h6" className={`font-articulat_cf leading-none font-normal`}>
-                {langdeck.language_summary &&
-                  <ReadMore text={langdeck.language_summary} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
-                }
-              </Typography>
+              {langdeck.language_summary &&
+                <ReadMore text={langdeck.language_summary} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
           </Box>
-
-          <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_barchrt', }}>
-            {
+          <Box className={`mx-1 px-1 my-4 mb-20`} sx={{ gridArea: 'lg_barchrt', }}>
+            {/*
               langdeck && langdeck.language_countries &&
               <SimpleBarChart dataset={langdeck.language_countries} w={800} h={400} />
-            }
+            */}
           </Box>
-          <Box className={`mx-1 px-1 my-4`} sx={{ gridArea: 'lg_rndchrt', }}>
+
+          <Box className={`mx-1 px-1 my-4 mt-20 pt-6`} sx={{ gridArea: 'lg_rndchrt', border: 1, borderLeft: 0, borderBottom: 0, borderRight: 0, borderColor: 'grey.400', }}>
             <Grid container spacing={4}>
               {langdeck.language_countries && langdeck.language_countries.sort((a, b) => (a.popularity_as_float > b.popularity_as_float ? -1 : 1))
                 .map(

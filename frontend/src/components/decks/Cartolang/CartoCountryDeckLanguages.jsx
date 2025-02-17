@@ -45,11 +45,13 @@ const CartoCountryDeckLanguages = ({ deck }) => {
                                 `
                 "cy_capt1 . cy_languages cy_languages cy_languages"
                 "cy_lang cy_lang cy_lang cy_lang cy_lang"
+                "cy_goto2 . . . ."
                 `,
                             md:
                                 `
                 "cy_capt1 . cy_languages cy_languages ."
                 "cy_lang cy_lang cy_lang cy_lang cy_lang"
+                "cy_goto2 . . . ."
                 `,
                         },
                     }}
@@ -73,6 +75,12 @@ const CartoCountryDeckLanguages = ({ deck }) => {
                             <CartoCountryLanguageDeck deck={country_languages} langDeck={languages} />
                         </Box>
                     </Box>
+                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'cy_goto2', }}>
+                        <a href='#carto_main'>
+                            <SmallButton label="Retour niveau supérieur" />
+                        </a>
+                    </Box>
+
                 </Box>
             </section>
         </>

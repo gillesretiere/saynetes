@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 
 
-const ReadMore = ({ text, style, children }) => {
+const ReadMore = ({ text, style, height, children }) => {
 
     const [isReadMore, setIsReadMore] = useState(true);
     const [isWorth, setIsWorth] = useState(false);

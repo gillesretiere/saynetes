@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import ReadMore from '../../UI/Media/ReadMore';
+import SmallButton from '../../UI/SmallButton';
 
 export const CartoCountryDeckMain = ({ deck }) => {
 
@@ -39,6 +40,7 @@ export const CartoCountryDeckMain = ({ deck }) => {
                 "cy_name_na cy_name_na cy_name_na . ."
                 "cy_flag . . . ."
                 "cy_caption1 . cy_summary cy_summary cy_summary"
+                "cy_goto1 . . . ."
                 "cy_blocA1 cy_blocA2 cy_blocA3 cy_blocA4 cy_blocA5"
                 `,
               md:
@@ -46,6 +48,7 @@ export const CartoCountryDeckMain = ({ deck }) => {
                 "cy_name_fr cy_name_fr cy_flag . ."
                 "cy_name_na cy_name_na cy_flag . ."
                 "cy_caption1 . cy_summary cy_summary cy_summary"
+                "cy_goto1 . . . ."
                 "cy_blocA1 cy_blocA2 cy_blocA3 cy_blocA4 cy_blocA5"
                 `,
             },
@@ -111,6 +114,16 @@ export const CartoCountryDeckMain = ({ deck }) => {
             </Box>
           </Box>
 
+
+
+          <Box className={`mx-0 p-4`} sx={{ gridArea: 'cy_goto1', }}>
+            <a href='#carto_lang'>
+              <SmallButton label="Langues parlées" />
+            </a>
+          </Box>
+
+
+
           <Box className={`ml-2 px-2`}
             sx={{ width: '100%', height: 300, gridArea: 'cy_blocA1', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', border: 1, borderLeft: 0, borderBottom: 0, borderColor: 'grey.500', }}>
             <Box className='px-4'>
@@ -119,14 +132,14 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="h4">
-                {country_wfb_name_native_fr}
-              </Typography>
+              {country_wfb_name_native_fr &&
+                <ReadMore text={country_wfb_name_native_fr} style={{ fontSize: 'x-large', borderTop: '1px solid white' }} />
+              }
             </Box>
             <Box className='px-4'>
-              <Typography variant="h6">
-                {country_wfb_name_native}
-              </Typography>
+              {country_wfb_name_native &&
+                <ReadMore text={country_wfb_name_native} style={{ fontSize: 'large', }} />
+              }
             </Box>
           </Box>
           <Box className={`ml-2 px-2`}
@@ -160,9 +173,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="h4">
-                {country_wfb_nationality_adjective_fr}
-              </Typography>
+              {country_wfb_nationality_adjective_fr &&
+                <ReadMore text={country_wfb_nationality_adjective_fr} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
@@ -193,9 +206,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="h4">
-                {wfb_facts.Population}
-              </Typography>
+              {wfb_facts.Population &&
+                <ReadMore text={wfb_facts.Population} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
@@ -203,9 +216,9 @@ export const CartoCountryDeckMain = ({ deck }) => {
               </Typography>
             </Box>
             <Box className='px-4'>
-              <Typography variant="h4">
-                {wfb_facts.Area.total}
-              </Typography>
+              {wfb_facts.Area.total &&
+                <ReadMore text={wfb_facts.Area.total} style={{ fontSize: 'medium', borderTop: '1px solid white' }} />
+              }
             </Box>
             <Box className='px-4'>
               <Typography variant="caption" className='text-slate-500'>
