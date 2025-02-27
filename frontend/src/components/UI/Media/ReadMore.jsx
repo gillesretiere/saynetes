@@ -5,17 +5,29 @@ import Typography from '@mui/material/Typography';
 
 
 
-const ReadMore = ({ text, style, height, children }) => {
+const ReadMore = ({ text, style, limit, children }) => {
 
     const [isReadMore, setIsReadMore] = useState(true);
     const [isWorth, setIsWorth] = useState(false);
-    const maxLength = 300;
+    const [maxChars, setMaxChars] = useState(0);
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
     };
+
+    useEffect(
+        ()=> {
+            if (limit) {
+                setMaxChars (length);
+            } else {
+                setMaxChars (100);
+            }
+
+        }, [limit]
+    )
+
     useEffect(
         () => {
-            if (text.length >= maxLength) {
+            if (text.length > maxChars) {
                 setIsWorth(true);
                 setIsReadMore(true);
 
@@ -37,7 +49,7 @@ const ReadMore = ({ text, style, height, children }) => {
                             WebkitLineClamp: "8",
                             WebkitBoxOrient: "vertical",
                         }}>
-                            {text.slice(0, maxLength)}...
+                            {text.slice(0, maxChars)}...
 
                         </Typography>
                         <span

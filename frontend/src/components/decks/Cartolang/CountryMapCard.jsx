@@ -121,9 +121,7 @@ class CountryMapCard extends Component {
 
     let activeDataItem = this.polygonSeries.getDataItemById(this.props.country.country_iso2);
     this.polygonSeries.zoomToDataItem(activeDataItem);
-    console.log(stage);
     this.polygonSeries.events.on("datavalidated", function () {
-      console.log(step);
       if (step === 0) {
         polygonSeries.zoomToDataItem(activeDataItem);
         step = 1;

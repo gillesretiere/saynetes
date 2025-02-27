@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect, useContext, } from "react";
+import DeckContext from "../../../store/DeckContext";
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import ReadMore from '../../UI/Media/ReadMore';
 import SmallButton from '../../UI/SmallButton';
 
 export const CartoCountryDeckMain = ({ deck }) => {
+
+  let ctx = useContext(DeckContext);
 
   const {
     country_name_fr,
@@ -23,6 +26,16 @@ export const CartoCountryDeckMain = ({ deck }) => {
     country_languages,
     country_iso2,
     wfb_facts, } = deck;
+
+    const [hdefCountryFlag, setFdefCountryFlag] = useState('');
+
+    useEffect(
+      () => {
+        const s = country_national_flag.split('/').pop();
+        setFdefCountryFlag (ctx.public_urls.vps_prod_https + "assets/img/flags/hdef/" + s);
+      }, [country_national_flag]
+    )
+
 
   return (
     <>
@@ -90,7 +103,7 @@ export const CartoCountryDeckMain = ({ deck }) => {
               borderRadius: 1,
               alignItems: 'center',
             }}>
-              <img src={country_national_flag} className='w-48 object-cover shadow-lg' />
+              <img src={hdefCountryFlag} className='w-48 object-cover shadow-lg' />
             </Box>
           </Box>
           <Box className={`mx-0 p-4 mb-5`} sx={{ gridArea: 'cy_caption1', }}>

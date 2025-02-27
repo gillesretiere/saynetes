@@ -11,6 +11,7 @@ function App() {
       value={{
         deck: '',
         language: 'all',
+        server: 'https://hammer-marteau.com/',
         update: () => { // we added this callback
           this.setDeck((props) => ({
             deck: props,
