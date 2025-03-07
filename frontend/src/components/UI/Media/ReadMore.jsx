@@ -17,7 +17,7 @@ const ReadMore = ({ text, style, limit, children }) => {
     useEffect(
         ()=> {
             if (limit) {
-                setMaxChars (length);
+                setMaxChars (limit);
             } else {
                 setMaxChars (100);
             }
