@@ -34,7 +34,7 @@ const SaynetesPage = () => {
         const arr = [];
         {
             let item = {};
-            item["label"] = "Home Page";
+            item["label"] = "Les Saynètes";
             item["url"] = "#main";
             item["enabled"] = true;
             arr.push(item);
@@ -48,7 +48,7 @@ const SaynetesPage = () => {
                 }
             )
             item = {};
-            item["label"] = "Vers les saynètes";
+            item["label"] = "Vers les Saynètes";
             item["url"] = "/language_page/";
             item["enabled"] = true;
             arr.push(item);

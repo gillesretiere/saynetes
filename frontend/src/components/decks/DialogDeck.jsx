@@ -7,7 +7,8 @@ import DialogCard from '../UI/MUI/Card/DialogCard';
 
 const styles = theme => ({
     root: {
-        flexGrow: 1
+        flexGrow: 1,
+        margin: 8,
     },
     card: {
         margin: 'auto',
@@ -16,7 +17,7 @@ const styles = theme => ({
 
 const DialogDeck = withStyles(styles)(({ classes, justify, deck }) => (
     <div className={classes.root}>
-        <Grid container spacing={4} justifyContent={justify}>
+        <Grid container spacing={4} gap={4} justifyContent={justify}>
             {deck && deck.map(
                 (el) => {
                     return (

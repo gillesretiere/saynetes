@@ -64,15 +64,15 @@ const SaynetesCardSystemSection = ( {dynamicStylesTitle} ) => {
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'desc', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase`}>
-                            Le principe
+                            Comment ça marche
                         </Typography>
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
-                            Un éventail de cartes pour naviguer
+                            Un système de cartes pour naviguer
                         </Typography>
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
                         <Typography className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>
-                            Un système de cartes au spectre plus ou moins large permet d'aller du global (la langue) au détail (mot de vocabulaire).
+                            Les cartes permet d'aller du global (la langue) au détail (mot de vocabulaire).
                             On choisit d'abord une langue, puis une histoire dans cette langue.
                             Ensuite, les dialogues s'affichent sous forme de cartes avec texte et audio.
                             Les mots de vocabulaire à retenir sont surlignés et complétés par une mini-carte d'explications.

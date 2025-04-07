@@ -12,7 +12,7 @@ import { saynetes_fleurs, } from '../assets/img/index.js';
 
 
 
-const SaynetesDescriptionSection = ( {dynamicStylesTitle} ) => {
+const SaynetesDescriptionSection = ({ dynamicStylesTitle }) => {
     const mq_xs = useMediaQuery('(min-width:0px)');
     const mq_sm = useMediaQuery('(min-width:600px)');
     const mq_md = useMediaQuery('(min-width:900px)');
@@ -65,20 +65,20 @@ const SaynetesDescriptionSection = ( {dynamicStylesTitle} ) => {
                             <SmallButton label="Visite guidée" />
                         </a>
                     </Box>
-                    <Box sx={{gridArea: 'imag', width:'100%', }}>
-                        <img src= {saynetes_fleurs} width="100%" className='h-full max-h-64 xl:max-h-[360px] object-cover'/>
+                    <Box sx={{ gridArea: 'imag', width: '100%', }}>
+                        <img src={saynetes_fleurs} width="100%" className='h-full max-h-64 xl:max-h-[360px] object-cover' />
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'desc', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
-                            Description du projet
+                            Les saynètes c'est quoi ?
                         </Typography>
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
-                            Un projet éducatif et thérapeutique multilingue.
+                            Un projet d’éducation thérapeutique multilingue
                         </Typography>
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
                         <Typography className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>
-                            Les saynètes sont de petites histoires mettant en scène des personnages. Elles ont pour objectif de sensibiliser sur des thèmes comme le diabète, l'alimentation et la pratique d'exercices physiques, à l'usage des non francophones.
+                            Les saynètes sont de petites histoires mettant en scène des personnages. Elles ont pour objectif de sensibiliser sur des thèmes comme le diabète, l'alimentation et la pratique d'exercices physiques, à l'usage des patients non francophones et de leur entourage.
                         </Typography>
                     </Box>
                 </Box>

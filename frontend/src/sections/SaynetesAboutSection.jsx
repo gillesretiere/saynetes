@@ -55,7 +55,24 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                             <SmallButton label="Visite guidée" />
                         </a>
                     </Box>
+                    <Box className={`sm:mx-20 sm:mb-10 p-4`} sx={{ gridArea: 'clip', }}>
 
+                        <Card
+                            sx={{
+                                display: 'flex', flexDirection: 'column', marginLeft: "auto",
+                                marginRight: "auto",
+                                boxShadow: 3
+                            }}>
+                            <CardMedia
+                                component="video"
+                                image="https://hammer-marteau.com/assets/video/clip-saynetes-v1.0-2.mp4"
+                                title="Les Saynètes"
+                                type='video/mp4'
+                                controls
+                                sx={{ width: '100%', height: 'auto', position:'relative'}}
+                            />
+                        </Card>
+                    </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'desc', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
                             Le projet
@@ -74,33 +91,16 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                             Les saynètes permettent d'aborder des thèmes de santé et de société avec une approche particulière.
                         </Typography>
                     </Box>
-                    <Box className={`sm:mx-20 sm:mb-10 p-4`} sx={{ gridArea: 'clip', }}>
-                        <Card
-                            sx={{
-                                display: 'flex', marginLeft: "auto",
-                                marginRight: "auto",
-                                boxShadow: 3
-                            }}>
 
-                            <CardMedia
-                                component="video"
-                                image={saynetes_sections[saynetes_sections.findIndex(p => p.id == "hist")].illustration}
-                                title="Les Saynètes"
-                                type='video/mp4'
-                                controls
-                                sx={{ width: '100%', height: 'auto', }}
-                            />
-                        </Card>
-                    </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'cred', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
                             Crédits
                         </Typography>
                         <Typography className={`font-articulat_cf text-sm md:text-md xl:text-xl font-black leading-tight tracking-normal`}>
-                        Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert, 
-                        Colette Le Pollotec (ASAMLA) 
-Traductions et voix des audios:  Nune Dzhalalyan (russe, ASAMLA), Paula Negoi&#355;a, Annamaria Locse (roumain, ASAMLA)
-Conception du site et illustrations : Gilles Retière
+                            Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert,
+                            Colette Le Pollotec (ASAMLA)
+                            Traductions et voix des audios:  Nune Dzhalalyan (russe, ASAMLA), Paula Negoita, Annamaria Locse (roumain, ASAMLA)
+                            Conception du site et illustrations : Gilles Retière
                         </Typography>
                     </Box>
                 </Box>

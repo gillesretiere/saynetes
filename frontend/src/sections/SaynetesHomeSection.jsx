@@ -3,6 +3,8 @@ import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import SmallButton from '../components/UI/SmallButton.jsx';
+import CustomButton from '../components/UI/SmallButton.jsx';
+import Button from '@mui/material/Button';
 import { projects, } from "../assets/localData/data.js";
 
 const SaynetesHomeSection = ({ dynamicStylesTitle, dynamicStylesSubTitle, dynamicStylesSubSection, callbackModal }) => {
@@ -50,14 +52,14 @@ const SaynetesHomeSection = ({ dynamicStylesTitle, dynamicStylesSubTitle, dynami
                     </Box>
 
                     <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'leftlink', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
+                        <Link onClick={handleClick} to={{ pathname: `/language_page/` }}>
+                            <Button variant="contained">{projects[0].full_description.button_text}</Button>
+                        </Link>
+                    </Box>
+                    <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>
                         <a href='#sayndesc'>
                             <SmallButton label="Visite guidée" />
                         </a>
-                    </Box>
-                    <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'rightlink', display: 'flex', justifyContent: 'flex-end' }}>
-                        <Link onClick={handleClick} to={{ pathname: `/language_page/` }}>
-                            <SmallButton label={projects[0].full_description.button_text} />
-                        </Link>
                     </Box>
                     <Box sx={{ gridArea: 'image', }}>
                         <img src={projects[0].full_description.illustration} width="100%" className='h-full max-h-90 xl:max-h-[640px] object-cover' />

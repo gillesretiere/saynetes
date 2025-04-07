@@ -29,7 +29,7 @@ Penser à ajuster cette constante avant de faire un build
 - true => hammer-marteau.com (VPS2)
 - false => saynetes.fr (VPS3)
 */
-const pathHMRT = true;
+const pathHMRT = false;
 
 function ComponentGetID() {
   const { id } = useParams();

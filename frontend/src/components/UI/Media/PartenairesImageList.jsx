@@ -28,18 +28,7 @@ export default function PartenairesImageList() {
                             alt={item.title}
                             loading="lazy"
                         />
-                        <ImageListItemBar
-                            title={item.title}
-                            subtitle={item.description}
-                            actionIcon={
-                                <IconButton
-                                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                                    aria-label={`info about ${item.title}`}
-                                >
-                                    <InfoIcon />
-                                </IconButton>
-                            }
-                        />
+
                     </ImageListItem>
                 ))}
             </ImageList>
