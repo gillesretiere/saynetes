@@ -1,8 +1,15 @@
 # Langdeck
+
 ## Documentation
+
 ### Déploiement
-- Compilation et création d'un Build React
-Lorsque le projet est stable et sans erreurs, il est temps de le déployer sur un serveur. Pour cela, il faut d'abord générer un build du projet, c'est-à-dire une arborescence de fichiers binaires, ainsi que d'autres fichiers statiques, essentiels au projet.
+
+- Compilation et création d'un Build React Lorsque le projet est stable et sans erreurs, il est temps de le déployer sur un serveur. Pour cela, il faut d'abord générer un build du projet, c'est-à-dire une arborescence de fichiers binaires, ainsi que d'autres fichiers statiques, essentiels au projet.
 
 `npm run build`
 
+![][image1]
+
+### Développement
+
+[image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIsAAACLCAYAAABRGWr/AAAET0lEQVR4Xu3d3aqVVRTG8Qe9oD6s7iCR8hqMxDI/0IIgEpIOg65AKIgOvYeIyjqIKOsqOvDIIPpOJ4LKM5bLPddac8wxxnx+8D+R/b7vmPPdB669134XICIiIiIiIiIiIiIiIiIiD52737f3+7+j9vXtOCnqPdibPqKPIOlchb2RM7oCCetv2BsWoTaXBHAR9uZE7gLEHd+EjMlgX8Jueua+gxzcGdiNrlT7T7ns6TnYja3cS5Cd3IDdzBW6CTmy47AbuGJtH2SLX2A3beVuQzbijVKPksfw5ijb8k7Cbop6cqexMN4M9fSWo1c8+7XUKyVevOqvvFdhF6127xQK48Wq/SuJF6kOVym8OHX4SvgRdmHq8P2M5I7BLkqNK/VLal6MGl9Kn8MuRI3vUyTzIuwilF8nkAgPr/xL4Tzs4Mq/s0iAh85U8/GGf89aaF/DDpyh32Hx12TsFgLjYbO0idfTF0YXEg+ZpW3ehf36jIXDA0bvHxzN27DHZiuUS7ADRq/Hm7DHZ+otBMLDRa8XH5+xMHiwqP2HfnyOrIUQ9YlL3MrfKK2/EAAPFbVefHyFpsrySqEXH1+ly5iIh4lYLz6+WtPwINHq9S/sOao1DQ8SqV7th3R8jopNcR12kCj14uMrdw0T8BBR6tVeUvI5queOB4hQrz9gz7FC7niA2fXi41fKHQ8ws16/wZ5jpdzxALPqdRf2HKvl6g3YAWbUi49fNdc3c7dnzvMA3vW6A3uOVfsGjvji3vX6FfYcq+eGL+xZRbxGj9zwhb2qitfpkRu+sEeV8Vo9csMXHl11vF6P3PCFR7YCXrNHbvjCo6uO1+uRG76wR5XxWj1ywxf2qipep0du+MKeVcRr9MgNX9i7XvoJrs2NfjeUu/YcHTf6rXPuXoczHmBWvfR+lgl4gJn10jvlnPEAs+vFx6+UOx4gQr307n4nPECUeunvhhx8ADtElHrx8ZV7H5PwIJHqpb91HowHiVYvPUVhIB4kYr34+GpNcwV2mIj14uOrdBGT8UBR68XHV2g6Pa0yRyGeVtnwYFFb+RsmDB4ser34+IyFcQF2uOj1yP7s/jZ/KDxg9I76qSDvwB6brXB4wCxto88bGoiHzNIm+iSzwb6CHTZDVT8j0fU5LLvggTPV6NNXHZ2DHVr59xqS4MGVf2k8Czu88ut5JPMZ7CLU+D5BUrwQNb60jsEuRo3rOJL7AXZR6vDdRhG8MHX4SuHFqcNVEi9S7V9Zp2AXq3bvJBbAi1b9LaO9xOPFq6OX/iXyLngT1NNb1suwm6Ge3CsQsynKJo/hzVGPkg2+h92olfsJspV++figJV/x7OoG7Aau0E3ITp6B3czKvQDZ2xnYja1UuD8vreAL2I3O3C3IcLzpGRNn52FvQuTavBJA1Icf/wkJ6zLsDZvRJUg6V2Fv5Ig+hJR1Fg+eMsA3fVvt690/2ElEREREREREREREREREJKx7ZLEq/S1DM2sAAAAASUVORK5CYII=>
