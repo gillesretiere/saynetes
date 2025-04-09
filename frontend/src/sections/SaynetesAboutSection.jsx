@@ -75,7 +75,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'desc', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
-                            Le projet
+                            Qui sommes-nous ?
                         </Typography>
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
                             Un partenariat pour un projet collaboratif
