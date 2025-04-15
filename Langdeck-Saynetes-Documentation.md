@@ -24,7 +24,7 @@
 
 ### SaynetesPage
 
-```
+```javascript
 <main>
     <Layout>
         <SaynetesHomeSection
