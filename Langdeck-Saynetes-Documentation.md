@@ -1,6 +1,6 @@
 # Langdeck Saynetes Documentation
 ## Arborescence des pages
-```
+```javascript
 <Routes>
   <Route path="/" element={<SaynetesPage />} />
   <Route path="/saynetes_page" element={<SaynetesPage />} />
