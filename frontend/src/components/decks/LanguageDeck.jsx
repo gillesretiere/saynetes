@@ -1,5 +1,8 @@
-import React, { useContext, useEffect, useState, } from 'react';
+import React, { useContext,} from 'react';
 import LanguageCard from '../UI/MUI/Card/LanguageCard';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
 import classes from './Deck.module.css';
 import DeckContext from "../../store/DeckContext";
 import {
@@ -26,9 +29,24 @@ const LanguageDeck = ({ deck }) => {
 
   return (
     <>
-      <div>
+      <Box sx={{ position: 'relative', }}>
         <img src={choose_language} width="100%" className='w-full max-h-90 xl:max-h-[420px] object-cover' />
-      </div>
+        <Typography
+          sx={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}
+          className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-white leading-none tracking-wide uppercase text-nowrap`}
+        >Choisis une langue
+        </Typography>
+        <Typography
+          sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+          className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-main leading-none tracking-wide uppercase text-nowrap`}
+        >Выберите язык
+        </Typography>
+        <Typography
+          sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}
+          className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-light leading-none tracking-wide uppercase text-nowrap`}
+        >Alegeți limba dvs
+        </Typography>
+      </Box>
       <div className={`${classes.card__list}`}>
         {deck && deck.map(
           (el) => {

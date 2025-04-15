@@ -3,7 +3,6 @@ import { Link, } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import SmallButton from '../components/UI/SmallButton.jsx';
-import CustomButton from '../components/UI/SmallButton.jsx';
 import Button from '@mui/material/Button';
 import { projects, } from "../assets/localData/data.js";
 

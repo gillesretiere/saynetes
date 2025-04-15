@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, } from 'react';
+import React, { useContext, } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
 import { base_server_url, } from "../../../../assets/localData/data.js";
 
 import { Link } from 'react-router-dom';

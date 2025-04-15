@@ -1,22 +1,14 @@
 import React, { useState, useEffect, useContext, } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import SmallButton from '../components/UI/SmallButton';
-import { Link, } from "react-router-dom";
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {
-    projects,
-    saynetes_sections,
-} from "../assets/localData/data.js";
+import { saynetes_sections } from "../assets/localData/data.js";
 import {
     SaynetesHomeSection,
     SaynetesDescriptionSection,
     SaynetesCardSystemSection,
     SaynetesAboutSection,
 } from '../sections/index.js';
-import { useTheme } from '@mui/material';
 import DeckContext from "../store/DeckContext";
 import { json_data } from '../assets/data/index.js';
 
@@ -25,9 +17,7 @@ import Layout from '../components/UI/Layout';
 const SaynetesPage = () => {
 
     const navigate = useNavigate();
-
     const [languages, setLanguages] = useState([]);
-
     let deckContext = useContext(DeckContext);
 
     const initNavlinks = (data) => {
@@ -121,22 +111,19 @@ const SaynetesPage = () => {
         ...mq_xl && { typography: "h4", variant: "h4", height: 100, bgcolor: "none", },
     }
 
-    const minMediaSize = useMediaQuery('(max-width:600px)');
-
-
     return (
-        <main>
-            <Layout>
-                <SaynetesHomeSection
-                    dynamicStylesTitle={dynamicStylesTitle}
-                    dynamicStylesSubTitle={dynamicStylesSubTitle}
-                    dynamicStylesSubSection={dynamicStylesSubSection}
-                    callbackModal={callbackModal} />
-                <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle}/>
-                <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection}/>
-                <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection}/>
-            </Layout >
-        </main>
+<main>
+    <Layout>
+        <SaynetesHomeSection
+            dynamicStylesTitle={dynamicStylesTitle}
+            dynamicStylesSubTitle={dynamicStylesSubTitle}
+            dynamicStylesSubSection={dynamicStylesSubSection}
+            callbackModal={callbackModal} />
+        <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle}/>
+        <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection}/>
+        <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection}/>
+    </Layout >
+</main>
 
     )
 }
