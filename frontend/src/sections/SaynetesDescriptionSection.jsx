@@ -20,7 +20,7 @@ const SaynetesDescriptionSection = ({ dynamicStylesTitle }) => {
     const mq_xl = useMediaQuery('(min-width:1536px)');
     return (
         <>
-            <section id="sayndesc" className='min-h-screen max-container'>
+            <section id="sayndesc" className='max-container'>
                 <Box
                     sx={{
                         display: 'grid',
@@ -30,53 +30,28 @@ const SaynetesDescriptionSection = ({ dynamicStylesTitle }) => {
                         gridTemplateAreas: {
                             xs:
                                 `
-                                    "titr titr titr titr"
-                                    "llnk . . ."
                                     "imag imag imag imag"
-                                    ". desc desc desc"
-                                    ". comp comp comp"
+                                    "desc desc desc desc"
                             `,
                             sm:
                                 `
-                                    "titr titr titr titr"
-                                    "llnk . . ."
                                     "imag imag desc desc"
-                                    "imag imag comp comp"
-                            `,
-                            lg:
-                                `
-                            "titr titr titr titr"
-                            "llnk . . ."
-                            "imag desc comp comp"
+                                    "imag imag desc desc"
                             `,
                         },
 
                     }}
                 >
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'titr', height: '30vh', }}>
-                        <Typography
-                            sx={{ ...dynamicStylesTitle }}
-                            className={`font-articulat_cf font-thin`}>
-                            Les Saynètes
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'llnk', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
-                        <a href="#cardsyst">
-                            <SmallButton label="Visite guidée" />
-                        </a>
-                    </Box>
-                    <Box sx={{ gridArea: 'imag', width: '100%', }}>
+                    <Box className={`my-10 px-4`} sx={{ gridArea: 'imag', width: '100%', }}>
                         <img src={saynetes_fleurs} width="100%" className='h-full max-h-64 xl:max-h-[360px] object-cover' />
                     </Box>
-                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'desc', }}>
+                    <Box className={`my-10 mx-4 px-4`} sx={{ gridArea: 'desc', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
                             Les saynètes c'est quoi ?
                         </Typography>
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
                             Un projet d’éducation thérapeutique multilingue
                         </Typography>
-                    </Box>
-                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
                         <Typography className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>
                             Les saynètes sont de petites histoires mettant en scène des personnages. Elles ont pour objectif de sensibiliser sur des thèmes comme le diabète, l'alimentation et la pratique d'exercices physiques, à l'usage des patients non francophones et de leur entourage.
                         </Typography>

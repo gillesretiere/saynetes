@@ -32,18 +32,29 @@ const StoryDeck = ({ deck, language }) => {
         <Typography
           sx={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}
           className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-white leading-none tracking-wide uppercase text-nowrap`}
-        >Choisis une saynète
+        >Choisissez une saynète
         </Typography>
-        <Typography
-          sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-          className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-main leading-none tracking-wide uppercase text-nowrap`}
-        >Выберите сцену
-        </Typography>
-        <Typography
-          sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}
-          className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-light leading-none tracking-wide uppercase text-nowrap`}
-        >Alegeți o scenă
-        </Typography>
+
+        {language && language === "rus" ? (
+          <Typography
+            sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}
+            className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-light leading-none tracking-wide uppercase text-nowrap`}
+          >
+            Выберите сцену
+          </Typography>
+        ) : (
+          language==="rom" ? (
+            <Typography
+            sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }}
+            className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-secondary-light leading-none tracking-wide uppercase text-nowrap`}
+          >Alegeți o scenă
+          </Typography>
+          ) : (
+            <></>
+          )
+
+        )}
+
       </Box>
       <div className={`${classes.card__list}`}>
         {deck && deck.sort((a, b) => a.story_order > b.story_order ? 1 : -1).map(

@@ -34,7 +34,7 @@ const LanguageDeck = ({ deck }) => {
         <Typography
           sx={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}
           className={`font-articulat_cf text-xl md:text-3xl xl:text-5xl font-bold text-white leading-none tracking-wide uppercase text-nowrap`}
-        >Choisis une langue
+        >Choisissez une langue
         </Typography>
         <Typography
           sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}

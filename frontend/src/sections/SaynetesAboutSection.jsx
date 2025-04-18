@@ -12,7 +12,7 @@ import PartenairesImageList from '../components/UI/Media/PartenairesImageList.js
 export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
     return (
         <>
-            <section id="about" className='min-h-screen max-container'>
+            <section id="about" className='max-container'>
                 <Box
                     sx={{
                         display: 'grid',
@@ -22,37 +22,29 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                         gridTemplateAreas: {
                             xs:
                                 `
-                                    "titr titr titr titr"
-                                    "llnk . . ."
                                     ". desc desc desc"
                                     ". part part part"
                                     ". comp comp comp"
                                     "clip clip clip clip"
                                     "cred cred cred cred"
+                                    "llnk . . ."
                             `,
                             lg:
                                 `
-                            "titr titr titr titr"
-                            "llnk . . ."
                             "clip clip desc desc"
                             "clip clip part part"
                             "clip clip comp comp"
-                            ". . cred cred"
+                            "cred cred . ."
+                            "llnk . . ."
                             `,
                         },
 
                     }}
                 >
-                    <Box className={`mx-0 p-4`} sx={{ gridArea: 'titr', height: '30vh', }}>
-                        <Typography
-                            sx={{ ...dynamicStylesTitle }}
-                            className={`font-articulat_cf font-thin`}>
-                            &Agrave; propos
-                        </Typography>
-                    </Box>
-                    <Box className={`mx-0 mt-3 px-4`} sx={{ gridArea: 'llnk', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
+
+                    <Box className={`mx-10 mt-3 px-4`} sx={{ gridArea: 'llnk', display: 'flex', justifyContent: 'flex-start', height: '5vh' }}>
                         <a href="#main">
-                            <SmallButton label="Visite guidée" />
+                            <SmallButton label="Menu principal" />
                         </a>
                     </Box>
                     <Box className={`sm:mx-20 sm:mb-10 p-4`} sx={{ gridArea: 'clip', }}>
@@ -94,13 +86,13 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
 
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'cred', }}>
                         <Typography className={`font-articulat_cf text-lg md:text-xl xl:text-2xl font-thin text-primary-orange leading-none tracking-wide uppercase text-nowrap`}>
-                            Crédits
+                            Team Saynètes
                         </Typography>
-                        <Typography className={`font-articulat_cf text-sm md:text-md xl:text-xl font-black leading-tight tracking-normal`}>
+                        <Typography className={`font-articulat_cf text-sm md:text-md`}>
                             Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert,
                             Colette Le Pollotec (ASAMLA)
                             Traductions et voix des audios:  Nune Dzhalalyan (russe, ASAMLA), Paula Negoita, Annamaria Locse (roumain, ASAMLA)
-                            Conception du site et illustrations : Gilles Retière
+                            Conception du site et illustrations : Gilles Retière (Hammer & Marteau)
                         </Typography>
                     </Box>
                 </Box>

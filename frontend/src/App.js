@@ -1,6 +1,7 @@
 import React, { useState, } from 'react';
 import { UserContext } from './store/user_context';
 import DeckContext from './store/DeckContext';
+import logo from "./logo.png";
 
 function App() {
 
