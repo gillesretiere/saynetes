@@ -70,16 +70,16 @@ npx kill-port 3000
 ![][image1]
 
 ### Mise à jour de la webapp sur Linux
-La webapp est déployée dans le répertoire '''/var/www/html'''.
-Ce répertoire est attribué à l'utilisateur '''www-data'''.
+La webapp est déployée dans le répertoire '/var/www/html'.
+Ce répertoire est attribué à l'utilisateur 'www-data'.
 Pour pouvoir transférer les fichiers depuis Filezilla, qui n'accepte pas les commandes sudo, il faut changer les accès : 
-```bash
+```console
 sudo chgrp gre /var/www/html
 sudo chown gre /var/www/html
 sudo chmod -R 755 /var/www/html
 ```
 Une fois les transferts effectués, penser à rétablir les droits initiaux : 
-```bash
+```zsh
 sudo chgrp www-data /var/www/html
 sudo chown www-data /var/www/html
 ```
