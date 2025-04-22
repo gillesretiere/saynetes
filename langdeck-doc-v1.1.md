@@ -59,16 +59,18 @@ En cas de processus zombie persistant sur le port 3000 :
 npx kill-port 3000
 ```
 
-
-
-## Déploiement
-
+## Compilation
 - Compilation et création d'un Build React Lorsque le projet est stable et sans erreurs, il est temps de le déployer sur un serveur. Pour cela, il faut d'abord générer un build du projet, c'est-à-dire une arborescence de fichiers binaires, ainsi que d'autres fichiers statiques, essentiels au projet.
 
 `npm run build`
 
 ![][image1]
 
+## Déploiement VPS d'intégration (Debian 11)
+Ce VPS héberge hammer-marteau.com
+```console
+ssh -Y gre@vps-993f2b9f.vps.ovh.net
+```
 ### Mise à jour de la webapp sur Linux
 La webapp est déployée dans le répertoire '/var/www/html'.
 Ce répertoire est attribué à l'utilisateur 'www-data'.
@@ -83,6 +85,36 @@ Une fois les transferts effectués, penser à rétablir les droits initiaux :
 sudo chgrp www-data /var/www/html
 sudo chown www-data /var/www/html
 ```
+### Transfert des fichiers par SFTP
+- Protocole : SFTP
+- Hôte : 51.91.8.112
+- Type d'authentification : normale
+- Utilisateur : gre
+
+## Déploiement VPS de PROD (Debian 12)
+Ce VPS héberge saynetes.fr
+```console
+ssh -Y langdeck@vps-347cc0b1.vps.ovh.net
+```
+### Mise à jour de la webapp sur Linux
+La webapp est déployée dans le répertoire '/var/www/html'.
+Ce répertoire est attribué à l'utilisateur 'www-data'.
+Pour pouvoir transférer les fichiers depuis Filezilla, qui n'accepte pas les commandes sudo, il faut changer les accès : 
+```console
+sudo chgrp langdeck /var/www/html
+sudo chown langdeck /var/www/html
+sudo chmod -R 755 /var/www/html
+```
+Une fois les transferts effectués, penser à rétablir les droits initiaux : 
+```zsh
+sudo chgrp www-data /var/www/html
+sudo chown www-data /var/www/html
+```
+### Transfert des fichiers par SFTP
+- Protocole : SFTP
+- Hôte : 51.195.103.17
+- Type d'authentification : normale
+- Utilisateur : langdeck
 
 
 ## Développement
