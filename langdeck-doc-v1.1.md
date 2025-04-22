@@ -30,7 +30,8 @@ npm i
 Se connecter au VPS 2 et aller dans le dossier src du projet.
 Par défaut, le port 3000 est utilisé. Si jamais il est nécessaire d'utiliser un autre port, il est probable que le port en question n'est pas ouvert par le système. Pour déclarer au système l'ouverture d'un port (par exemple le port 3001) : 
 ```
-sudo afw allow 3001
+sudo ufw status
+sudo ufw allow 3001
 
 ```
 - Lancement de npm sur un autre port 
