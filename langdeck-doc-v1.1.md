@@ -145,12 +145,12 @@ sudo chown www-data /var/www/html
 #### Configuration
 ##### Paramétrage DNS Zone dans OVH
 La configuration des diverses entrées du domaine hammer-marteau.com doit être adaptée pour une autoriser Resend à envoyer des emails.
-Ces 3 entrées doivent être créées : 
+Ces 3 entrées doivent être créées (SPF TXT, SPF MX, DKIM TXT) : 
 
 ```console
 send.hammer-marteau.com. 0	TXT	"v=spf1 include:amazonses.com ~all"
 send.hammer-marteau.com. 0	MX	10 feedback-smtp.eu-west-1.amazonses.com.
-resend._domainkey.hammer-marteau.com. 0	TXT	"p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjvIecFrfUOOzyHWOb3S93U7w94rGYYA+hDD1j17H2UkVmAKXFOtxRLC/bjgHiSd3/PHay+plzKKgmruCvOB2Rm8TwVGt6M82nZvyyrT3U+wg8FDxZGfyBwqY37/8MNCbv3SeSjqisjlKCikRWaAT/v4to9zJHzOf+jYg93WmehQIDAQAB"
+resend._domainkey.hammer-marteau.com. 0	TXT	"p=MIG...QAB"
 ```
 Ensuite, il faire une vérification dans Resend pour s'assurer que les entrées sont valides et opérationnelles.
 https://resend.com/domains/e5b8398c-ff9f-430b-b27d-1f958931b4f5
