@@ -38,18 +38,19 @@ export default function PartenairesImageList() {
 
 const itemData = [
     {
-        img: `${logo_dac}`,
-        title: 'DAC44',
-        description: 'Rédaction des contenus, supervision, portage du projet',
-        author: '@helloimnik',
-    },
-    {
         img: `${logo_asamla}`,
         title: 'ASAMLA',
         description: 'Traductions, voix des audios ,supervision, accompagnement du projet',
         author: '@bkristastucchio',
         featured: true,
     },
+    {
+        img: `${logo_dac}`,
+        title: 'DAC44',
+        description: 'Rédaction des contenus, supervision, portage du projet',
+        author: '@helloimnik',
+    },
+
 
 
 

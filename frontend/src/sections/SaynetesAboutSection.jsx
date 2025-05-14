@@ -90,7 +90,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                         </Typography>
                         <Typography className={`font-articulat_cf text-sm md:text-md`}>
                             Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert,
-                            Colette Le Pollotec (ASAMLA)
+                            Colette Le Pollotec, Annamaria Locse (ASAMLA)
                             Traductions et voix des audios:  Nune Dzhalalyan (russe, ASAMLA), Paula Negoita, Annamaria Locse (roumain, ASAMLA)
                             Conception du site et illustrations : Gilles Retière (Hammer & Marteau)
                         </Typography>
