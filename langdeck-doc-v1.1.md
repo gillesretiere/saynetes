@@ -105,6 +105,10 @@ Pour pouvoir transférer les fichiers depuis Filezilla, qui n'accepte pas les co
 sudo chgrp langdeck /var/www/html
 sudo chown langdeck /var/www/html
 sudo chmod -R 755 /var/www/html
+
+### Transfert des fichiers
+Utiliser Filezilla
+Copier le contenu du dossier build (sauf favicon.ico) dans /var/www/html
 ```
 Une fois les transferts effectués, penser à rétablir les droits initiaux : 
 ```zsh
