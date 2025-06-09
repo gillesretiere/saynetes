@@ -13,7 +13,6 @@ import { base_server_url, } from "../../../../assets/localData/data.js";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../../store/user_context';
 
-
 export default function StoryCard({ card }) {
 
     const { story_order,
@@ -30,7 +29,6 @@ export default function StoryCard({ card }) {
 
     // tour de passe-pase pour changer l'url des illustrations
     const card_img = base_server_url + "assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
-
 
     const ctx = useContext(UserContext);
 
@@ -116,12 +114,11 @@ export default function StoryCard({ card }) {
                             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
                                 <Button size="small" variant="button">Choisir</Button>
                             </Link>
-                            <Chip label="disponible" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-primary-green' />
                         </>
                     ) : (
                         <>
                             <Button size="small" variant="button" disabled={true}>Choisir</Button>
-                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-primary-orange' />
+                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
                         </>
                     )
                 }

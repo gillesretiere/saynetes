@@ -58,12 +58,15 @@ export default function LanguageCard({ card }) {
                             <Link to={`/theme_page/${language}?l=${language}`}>
                                 <Button size="small" variant="button">Choisir</Button>
                             </Link>
-                            <Chip label="disponible" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-primary-green' />
+                            {/* 
+                                                        <Chip label="disponible" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
+                            */}
+
                         </>
                     ) : (
                         <>
                             <Button size="small" variant="button" disabled={true}>Choisir</Button>
-                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-primary-orange' />
+                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
                         </>
                     )
                 }
