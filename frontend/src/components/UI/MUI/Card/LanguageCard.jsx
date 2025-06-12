@@ -56,7 +56,7 @@ export default function LanguageCard({ card }) {
                     lang_is_available ? (
                         <>
                             <Link to={`/theme_page/${language}?l=${language}`}>
-                                <Button size="small" variant="button">Choisir</Button>
+                                <Button size="small" variant="outlined" className='text-primary-main bg-white dark:bg-zinc-800'>Choisir</Button>
                             </Link>
                             {/* 
                                                         <Chip label="disponible" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
@@ -65,7 +65,7 @@ export default function LanguageCard({ card }) {
                         </>
                     ) : (
                         <>
-                            <Button size="small" variant="button" disabled={true}>Choisir</Button>
+                            <Button size="small" variant="outlined" disabled={true}>Choisir</Button>
                             <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
                         </>
                     )

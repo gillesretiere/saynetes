@@ -28,10 +28,10 @@ const StoryDeck = ({ deck, language }) => {
   return (
     <>
       <Box sx={{ position: 'relative', }}>
-        <img src={choose_language} width="100%" className='w-full max-h-90 xl:max-h-[420px] object-cover' />
+        <img src={choose_saynete} width="100%" className='w-full max-h-90 xl:max-h-[420px] object-cover' />
         <Typography
           sx={{ position: 'absolute', top: '80%', left: '1rem',  }}
-          className={`font-articulat_cf text-2xl md:text-3xl xl:text-6xl font-base text-zinc-700 leading-none tracking-wide  text-nowrap text-left`}
+          className={`font-articulat_cf text-2xl md:text-3xl xl:text-6xl font-base text-zinc-100 leading-none tracking-wide  text-nowrap text-left`}
         >Choisissez une saynète
         </Typography>
 
