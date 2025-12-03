@@ -109,7 +109,7 @@ export default function StoryCard({ card }) {
 
             <CardActions disableSpacing sx={{ mt: "auto", justifyContent: "space-between", }}>
                 {
-                    story_order === "1" ? (
+                    ctx.matrix.indexOf (story_translation_id) >=0 ? (
                         <>
                             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
                                 <Button size="small" variant="outlined" className='text-primary-main bg-white dark:bg-zinc-800'>Choisir</Button>

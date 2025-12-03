@@ -35,6 +35,7 @@ export default function DialogCard({ card }) {
         words,
     } = card;
 
+
     // tour de passe-pase pour changer l'url des illustrations et corriger un bug (jpg/png)
     phrase_illustration = base_server_url +  "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
     phrase_audio_url = base_server_url + "assets/audio/ai/" + story_language + "/" + phrase_audio_url.split('\\').pop().split('/').pop();
