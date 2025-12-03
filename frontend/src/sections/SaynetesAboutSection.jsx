@@ -92,7 +92,7 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                             Texte en français : Véronique Guernier, Hélène Guibert (DAC44), Françoise Oheix, Hélène Lambert,
                             Colette Le Pollotec, Annamaria Locse (ASAMLA)
                             Traductions et voix des audios:  Nune (russe, ASAMLA), Paula Negoita, Annamaria Locse (roumain, ASAMLA)
-                            Conception du site et illustrations : Gilles Retière (Hammer & Marteau)
+                            Conception du site et illustrations : Gilles Retière (Expression Numérique)
                         </Typography>
                     </Box>
                 </Box>
