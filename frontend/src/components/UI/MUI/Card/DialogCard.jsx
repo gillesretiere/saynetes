@@ -37,12 +37,12 @@ export default function DialogCard({ card }) {
 
 
     // tour de passe-pase pour changer l'url des illustrations et corriger un bug (jpg/png)
-    phrase_illustration = base_server_url +  "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
+    phrase_illustration = base_server_url + "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
     phrase_audio_url = base_server_url + "assets/audio/ai/" + story_language + "/" + phrase_audio_url.split('\\').pop().split('/').pop();
     phrase_audio_url_fr = base_server_url + "assets/audio/ai/fre/" + phrase_audio_url_fr.split('\\').pop().split('/').pop();
 
     const [french, setFrench] = useState(true);
-
+    const [direction, setDirection] = useState('ltr');
     const [wordDeck, setWordDeck] = useState([
         {
             phrase: '',
@@ -74,7 +74,11 @@ export default function DialogCard({ card }) {
             setFrench(true);
         } else {
             setFrench(false);
+            if (val === "ams") {
+                setDirection('rtl');
+            }
         }
+
     }
 
 
@@ -86,20 +90,22 @@ export default function DialogCard({ card }) {
                 title={story_name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" className="font-frutiger font-bold text-2xl text-orange-300">
                     {phrase_position}
                 </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                <Typography variant="body2" sx={{ color: 'text.primary' }} className="font-normal text-lg leading-normal">
                     {french ? <>
                         <KeywordPlayer wordDeck={wordDeck} language={french}></KeywordPlayer>
                     </> : <>
-                        {phrase_translation}
+                        <div dir={direction}>
+                            {phrase_translation}
+                        </div>
                     </>}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
-                <Button size="small" onClick={() => languageToggler('TR')} sx={{ color: 'text.secondary' }}>{story_language}</Button>
+                <Button size="small" onClick={() => languageToggler(story_language)} sx={{ color: 'text.secondary' }}>{story_language}</Button>
                 <IconButton aria-label="play/pause">
                     <AudioPlayer media_url={french ? phrase_audio_url_fr : phrase_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
                 </IconButton>

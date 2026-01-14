@@ -9,6 +9,7 @@ module.exports = {
         ff_nexus_mix: ["ff-nexus-mix, sans-serif"],
         neue_haas_grotesk_display: ["neue-haas-grotesk-display, sans-serif"],
         articulat_cf: ["articulat-cf, sans-serif"],
+        frutiger: ["neue-frutiger-world, sans-serif"],
         artifex_cf: ["artifex-cf, serif"],
         primary_font: ["articulat-cf, sans-serif"],
         secondary_font: ["artifex-cf, serif"],
