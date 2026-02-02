@@ -39,12 +39,17 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
   const [open, setOpen] = useState(false);
   const [french, setFrench] = useState(language);
   const [showMore, setShowMore] = useState(false);
+  const [direction, setDirection] = useState('ltr');
+
 
   const languageToggler = (val) => {
     if (val === "FR") {
       setFrench(true);
     } else {
       setFrench(false);
+      if (val === "ams") {
+        setDirection('rtl');
+      }
     }
   }
 
@@ -58,17 +63,26 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
 
   return (
     <>
-      <Card sx={{ maxWidth: 315, margin: 'auto' }}>
+      <Card className="shadow-md shadow-[#000000]" sx={{ maxWidth: 315, margin: 'auto' }}>
         <CardActionArea sx={{ flexGrow: 1, width: 290 }}>
 
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
-            <Typography gutterBottom variant="h5" component="div">
-              {french ? word : word_translation}
+            <Typography className='bg-[#e7f436] p-1' gutterBottom variant="h5" component="div">
+              {french ? word :
+                <div dir={direction}>
+                  {word_translation}
+                </div>
+              }
             </Typography>
             {showMore ?
               <>
                 <Typography gutterBottom variant="p" component="div">
-                  {french ? word_notes : word_notes_translation}
+                  {french ?
+                    word_notes :
+                    <div dir={direction}>
+                      {word_notes_translation}
+                    </div>
+                  }
                 </Typography>
               </> : <></>
             }
@@ -90,7 +104,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
             </>}
             <Button size="extrasmall" onClick={() => closeButtonClickHandler()} sx={{ color: 'text.secondary' }}><CloseIcon /></Button>
             <Button size="extrasmall" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
-            <Button size="extrasmall" onClick={() => languageToggler('TR')} sx={{ color: 'text.secondary' }}>{word_language}</Button>
+            <Button size="extrasmall" onClick={() => languageToggler(word_language)} sx={{ color: 'text.secondary' }}>{word_language}</Button>
           </CardActions>
         </CardActionArea>
       </Card>

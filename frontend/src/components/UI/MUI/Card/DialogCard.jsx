@@ -104,8 +104,8 @@ export default function DialogCard({ card }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
-                <Button size="small" onClick={() => languageToggler(story_language)} sx={{ color: 'text.secondary' }}>{story_language}</Button>
+                <Button size="small" onClick={() => languageToggler('FR')} className="hover:text-primary-orange" sx={{ color: 'text.secondary' }}>fre</Button>
+                <Button size="small" onClick={() => languageToggler(story_language)} className="hover:text-primary-orange" sx={{ color: 'text.secondary' }}>{story_language}</Button>
                 <IconButton aria-label="play/pause">
                     <AudioPlayer media_url={french ? phrase_audio_url_fr : phrase_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
                 </IconButton>

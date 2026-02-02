@@ -29,13 +29,12 @@ const StoryDeck = ({ deck, language }) => {
     <>
       <Box sx={{ position: 'relative', }}>
         <img src={choose_saynete} width="100%" className='w-full max-h-90 xl:max-h-[420px] object-cover' />
-        <Typography
-          sx={{ position: 'absolute', top: '80%', left: '1rem',  }}
-          className={`font-articulat_cf text-2xl md:text-3xl xl:text-6xl font-base text-zinc-100 leading-none tracking-wide  text-nowrap text-left`}
-        >Choisissez une saynète
-        </Typography>
-
       </Box>
+            <Typography
+              sx={{ marginLeft: '1rem', marginTop: '1rem', }}
+              className={`font-articulat_cf text-xl xl:text-2xl font-semibold text-primary-orange leading-none tracking-wide text-nowrap text-left`}
+            >Choisissez une saynète
+            </Typography>
       <div className={`${classes.card__list}`}>
         {deck && deck.sort((a, b) => a.story_order > b.story_order ? 1 : -1).map(
           (el) => {

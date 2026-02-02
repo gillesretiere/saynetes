@@ -23,7 +23,7 @@ const AudioPlayer = ({ media_url, language, }) => {
     return (
         <>
             {isReady &&
-                <PlayCircleOutlineIcon sx={{ height: 38, width: 38 }} onClick={togglePlay}></PlayCircleOutlineIcon>
+                <PlayCircleOutlineIcon className="hover:text-primary-orange" sx={{ height: 38, width: 38, }} onClick={togglePlay}></PlayCircleOutlineIcon>
             }
         </>
     )
