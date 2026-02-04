@@ -93,7 +93,7 @@ export default function DialogCard({ card }) {
                 <Typography gutterBottom variant="h5" component="div" className="font-frutiger font-bold text-2xl text-orange-300">
                     {phrase_position}
                 </Typography>
-                <Typography variant="body2" sx={{ color: 'text.primary' }} className="font-normal text-lg leading-normal">
+                <Typography variant="body2" sx={{ color: 'text.primary' }} className="font-frutiger font-normal text-xl leading-normal">
                     {french ? <>
                         <KeywordPlayer wordDeck={wordDeck} language={french}></KeywordPlayer>
                     </> : <>

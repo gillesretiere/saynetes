@@ -1,4 +1,4 @@
-import React, { useContext, } from 'react';
+import React, { useContext, useEffect, useState, } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -32,9 +32,17 @@ export default function StoryCard({ card }) {
 
     const ctx = useContext(UserContext);
 
+    const [direction, setDirection] = useState('ltr');
+
     const linkHandler = (event) => {
         ctx.decks = phrases;
     };
+
+    useEffect(() => {
+        if (story_language === "ams") {
+            setDirection('rtl');
+        }
+    }, card);
 
     return (
         <Card sx={{
@@ -63,28 +71,32 @@ export default function StoryCard({ card }) {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         <Grid size={12} className="h-32">
-                            <Typography gutterBottom variant="h5" className='font-articulat_cf text-md font-semibold leading-none tracking-tight'>
-                                {story_translation}
-                            </Typography>
-                            <Typography variant="h6" className='font-articulat_cf text-md font-light leading-none tracking-tight'>
+                            <div dir={direction}>
+                                <Typography gutterBottom variant="h5" className='font-frutiger text-md font-normal leading-none tracking-tight'>
+                                    {story_translation}
+                                </Typography>
+                            </div>
+                            <Typography variant="h6" className='font-frutiger text-md font-light leading-none tracking-tight'>
                                 {story_name}
                             </Typography>
                         </Grid>
                         <Grid size={4}>
-                            <Typography variant="h5" className='font-articulat_cf text-md font-light text-primary-orange leading-none tracking-tight'>
+                            <Typography variant="h5" className='font-frutiger text-lg font-semibold text-primary-orange leading-none tracking-tight'>
                                 {story_order}
                             </Typography>
                         </Grid>
                         <Grid size={8}>
-                            <Typography variant="body2" className='font-articulat_cf text-md font-semibold leading-none tracking-tight'>
-                                {story_desc_translation}
-                            </Typography>
+                            <div dir={direction}>
+                                <Typography variant="body2" className='font-frutiger text-lg font-normal leading-none tracking-tight'>
+                                    {story_desc_translation}
+                                </Typography>
+                            </div>
                         </Grid>
                         <Grid size={4}>
                             &nbsp;
                         </Grid>
                         <Grid size={8}>
-                            <Typography variant="body1" className='font-articulat_cf text-xs leading-none tracking-tight'>
+                            <Typography variant="body1" className='font-frutiger text-xs leading-none tracking-tight'>
                                 {story_desc}
                             </Typography>
                         </Grid>
@@ -109,7 +121,7 @@ export default function StoryCard({ card }) {
 
             <CardActions disableSpacing sx={{ mt: "auto", justifyContent: "space-between", }}>
                 {
-                    ctx.matrix.indexOf (story_translation_id) >=0 ? (
+                    ctx.matrix.indexOf(story_translation_id) >= 0 ? (
                         <>
                             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
                                 <Button size="small" variant="outlined" className='text-primary-main bg-white dark:bg-zinc-800'>Choisir</Button>

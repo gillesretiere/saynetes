@@ -40,10 +40,10 @@ export default function LanguageCard({ card }) {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         <Grid size={12} className="h-32">
-                            <Typography gutterBottom variant="h5" className='font-articulat_cf text-md font-semibold leading-none tracking-tight'>
+                            <Typography gutterBottom variant="h5" className='font-frutiger text-md font-semibold leading-none tracking-tight'>
                                 {lang_name_native}
                             </Typography>
-                            <Typography variant="h6" className='font-articulat_cf text-md font-light leading-none tracking-tight'>
+                            <Typography variant="h6" className='font-frutiger text-md font-light leading-none tracking-tight'>
                                 {lang_name_fr}
                             </Typography>
                         </Grid>

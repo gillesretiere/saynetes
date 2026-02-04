@@ -8,7 +8,7 @@ const AudioPlayer = ({ media_url, language, }) => {
     const [isReady, setIsReady] = useState(false);
     const [audio, setAudio] = useState(null);
 
-    console.log (media_url);
+    // console.log (media_url);
     useEffect(() => {
         setIsReady(true);
         setAudio(new Audio(

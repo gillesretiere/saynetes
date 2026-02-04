@@ -95,7 +95,7 @@ const HomeAppBar = () => {
   const [open, setState] = useState(false);
 
   let deckContext = useContext(DeckContext);
-
+  // console.log(deckContext.current_deck.navlinks);
   //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
   const toggleDrawer = (open) => (event) => {
     if (

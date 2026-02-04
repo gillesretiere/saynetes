@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext, } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import DeckContext from "../../store/DeckContext";
+import { UserContext } from "../../store/user_context";
+
 import StoryCard from '../UI/MUI/Card/StoryCard';
 import classes from "./Deck.module.css";
 import {
@@ -11,13 +13,19 @@ import {
 const StoryDeck = ({ deck, language }) => {
 
   const ctx = useContext(DeckContext);
+  const userctx = useContext(UserContext);
   const arr = [];
   {
     deck && deck.sort((a, b) => a.story_order > b.story_order ? 1 : -1).map(
       (el) => {
         let item = {};
         item["label"] = el.story_translation;
-        item["enabled"] = el.story_order === "1" ? true : false;
+        /*
+        BUG !! la story doit être dispo selon la présence dans la matrice de userContext
+        REMOVE => item["enabled"] = el.story_order === "1" ? true : false;
+        REPLACE BY => userctx.matrix.indexOf(el.story_translation_id) > -1
+        */
+        item["enabled"] = userctx.matrix.indexOf(el.story_translation_id) > -1;
         item["url"] = `/dialog_page/${el.story_language}?s=${el.story_translation_id}`;
         arr.push(item);
       }

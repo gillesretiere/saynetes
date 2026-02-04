@@ -38,7 +38,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [french, setFrench] = useState(language);
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(true);
   const [direction, setDirection] = useState('ltr');
 
 
@@ -67,7 +67,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
         <CardActionArea sx={{ flexGrow: 1, width: 290 }}>
 
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
-            <Typography className='bg-[#e7f436] p-1' gutterBottom variant="h5" component="div">
+            <Typography className='font-frutiger bg-[#e7f436] dark:text-slate-800 p-1' gutterBottom variant="h5" component="div">
               {french ? word :
                 <div dir={direction}>
                   {word_translation}
@@ -76,7 +76,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
             </Typography>
             {showMore ?
               <>
-                <Typography gutterBottom variant="p" component="div">
+                <Typography className='font-frutiger' gutterBottom variant="p" component="div">
                   {french ?
                     word_notes :
                     <div dir={direction}>
