@@ -54,7 +54,7 @@ const LanguageDeck = ({ deck }) => {
       </Box>
       <Typography
         sx={{ marginLeft: '1rem', marginTop: '1rem', }}
-        className={`font-articulat_cf text-xl xl:text-2xl font-semibold text-primary-orange leading-none tracking-wide text-nowrap text-left`}
+        className={`font-articulat_cf text-xl xl:text-2xl font-semibold text-primary-main leading-none tracking-wide text-nowrap text-left`}
       >Choisissez une langue
       </Typography>
       <div className={`${classes.card__list}`}>

@@ -45,7 +45,9 @@ export default function StoryCard({ card }) {
     }, card);
 
     return (
-        <Card sx={{
+        <Card 
+            className={`bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300`}
+            sx={{
             height: "100%",
             display: "flex",
             flexDirection: "column",
@@ -81,7 +83,7 @@ export default function StoryCard({ card }) {
                             </Typography>
                         </Grid>
                         <Grid size={4}>
-                            <Typography variant="h5" className='font-frutiger text-lg font-semibold text-primary-orange leading-none tracking-tight'>
+                            <Typography variant="h5" className='font-frutiger text-lg font-semibold leading-none tracking-tight'>
                                 {story_order}
                             </Typography>
                         </Grid>
@@ -124,13 +126,13 @@ export default function StoryCard({ card }) {
                     ctx.matrix.indexOf(story_translation_id) >= 0 ? (
                         <>
                             <Link to={`/dialog_page/${story_language}?s=${story_translation_id}`}>
-                                <Button size="small" variant="outlined" className='text-primary-main bg-white dark:bg-zinc-800'>Choisir</Button>
+                                <Button size="small" variant="outlined" className='text-primary-main'>Choisir</Button>
                             </Link>
                         </>
                     ) : (
                         <>
                             <Button size="small" variant="outlined" disabled={true}>Choisir</Button>
-                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
+                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-primary-main text-xs leading-none tracking-tight' />
                         </>
                     )
                 }

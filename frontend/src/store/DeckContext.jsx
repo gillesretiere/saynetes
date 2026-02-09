@@ -10,6 +10,8 @@ const DeckContext = React.createContext({
     url_paths : {'availableLanguages':'langdeck', 'availableThemes':'themesdeck', 'availableStories':'storydeck'},
     drawer_navlinks : [],
     live_deck: {},
+    current_foreign_language: '',
+
 });
 
 export default DeckContext;

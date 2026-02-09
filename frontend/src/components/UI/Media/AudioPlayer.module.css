@@ -1,0 +1,21 @@
+
+@keyframes wave-animation {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+.animate-wave {
+  animation: wave-animation 0.6s ease-in-out infinite;
+}
+
+/* Optionnel : varier légèrement les hauteurs maximales pour un look organique */
+.wave-bar:nth-child(even) {
+  animation-duration: 0.8s;
+}
+.wave-bar:nth-child(3n) {
+  animation-duration: 0.5s;
+}

@@ -25,6 +25,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Chip from "@mui/material/Chip";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeckContext from "../../../store/DeckContext";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 // import { navLinks, currentVersion, } from "../../../assets/constants/index.js";
 
@@ -109,7 +110,7 @@ const HomeAppBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '#fff' }}>
+    <AppBar position="static" className={`bg-card-bg`}>
       <Container maxWidth="xl" disableGutters="true">
         <Toolbar>
           {/* 
@@ -184,7 +185,7 @@ const HomeAppBar = () => {
           >
             {/* The inside of the drawer */}
             <Box
-              className="bg-primary-orange"
+              className="bg-card-bg"
               sx={{
                 p: 2,
                 height: 1,
@@ -220,6 +221,7 @@ const HomeAppBar = () => {
 
             </Box>
           </Drawer>
+          <ThemeSwitcher />
         </Toolbar>
       </Container>
     </AppBar>

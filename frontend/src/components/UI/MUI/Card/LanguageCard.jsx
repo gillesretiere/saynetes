@@ -19,7 +19,7 @@ export default function LanguageCard({ card }) {
     const drapeau = base_server_url + "assets/img/flags/" + lang_flag_icon.split('\\').pop().split('/').pop();
 
     return (
-        <Card sx={{ maxWidth: 345, boxShadow: 3 }}>
+        <Card className="bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300"  sx={{ maxWidth: 345, boxShadow: 3 }}>
             <Link to={lang_is_available ? `/theme_page/${language}?l=${language}` : null} >
                 <div className={`${classes.card}`}>
                     <CardMedia
@@ -56,7 +56,7 @@ export default function LanguageCard({ card }) {
                     lang_is_available ? (
                         <>
                             <Link to={`/theme_page/${language}?l=${language}`}>
-                                <Button size="small" variant="outlined" className='text-primary-main bg-white dark:bg-zinc-800'>Choisir</Button>
+                                <Button size="small" variant="outlined" className='text-primary-main'>Choisir</Button>
                             </Link>
                             {/* 
                                                         <Chip label="disponible" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
@@ -66,7 +66,7 @@ export default function LanguageCard({ card }) {
                     ) : (
                         <>
                             <Button size="small" variant="outlined" disabled={true}>Choisir</Button>
-                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight bg-[#a5bfbf]' />
+                            <Chip label="prochainement" size="small" className='mr-2 font-articulat_cf text-xs leading-none tracking-tight' />
                         </>
                     )
                 }

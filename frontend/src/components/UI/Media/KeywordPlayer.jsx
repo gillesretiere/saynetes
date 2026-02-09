@@ -72,7 +72,7 @@ const KeywordPlayer = ({ wordDeck, language }) => {
                     phraseKeywordID.map((elem) =>
                         wordsId.indexOf(elem) !== -1 && elem.length > 1 ? (
                             <span key={elem} id={elem} onClick={handleClick}>
-                                <mark className={classes.marked__item} id={elem}>{get_kw_by_rec_id({ elem })}</mark>
+                                <mark className={`${classes['marked__item']} bg-special-green`} id={elem}>{get_kw_by_rec_id({ elem })}</mark>
                             </span>
                         ) : (
                             <span key={elem}>{elem}</span>

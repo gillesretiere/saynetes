@@ -11,7 +11,6 @@ const Footer = () => {
         flexWrap: 'nowrap',
         p: 1,
         m: 1,
-        bgcolor: 'background.paper',
         maxHeight: 100,
         alignItems: 'center',
       }}>

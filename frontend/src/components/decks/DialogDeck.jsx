@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useContext, } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -15,7 +14,8 @@ const styles = theme => ({
     }
 });
 
-const DialogDeck = withStyles(styles)(({ classes, justify, deck }) => (
+const DialogDeck = withStyles(styles)(({ classes, justify, deck, lang, }) => (
+
     <div className={classes.root}>
         <Grid container spacing={4} gap={4} justifyContent={justify}>
             {deck && deck.map(
@@ -23,7 +23,7 @@ const DialogDeck = withStyles(styles)(({ classes, justify, deck }) => (
                     return (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
                             <div className={classes.card}>
-                                <DialogCard className={classes.card} card={el} alignItems={justify}></DialogCard>
+                                <DialogCard className={classes.card} card={el} lang={lang} alignItems={justify}></DialogCard>
                             </div>
                         </Grid>
                     )

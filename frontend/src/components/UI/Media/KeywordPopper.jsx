@@ -18,6 +18,9 @@ import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import AudioPlayer from './AudioPlayer';
+import AudioPlayerWaveAnimation from './AudioPlayerWaveAnimation.jsx';
+import css from "./AudioPlayer.module.css";
+
 
 import { base_server_url, } from "../../../assets/localData/data.js";
 
@@ -40,6 +43,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
   const [french, setFrench] = useState(language);
   const [showMore, setShowMore] = useState(true);
   const [direction, setDirection] = useState('ltr');
+  const [audioWave, setAudioWave] = useState(false);
 
 
   const languageToggler = (val) => {
@@ -61,13 +65,19 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
     setShowMore(!showMore);
   };
 
+  const callbackAudio = (isPlaying) => {
+    // setAudioWave(isPlaying);
+    setAudioWave(isPlaying);
+  }
+
+
   return (
     <>
-      <Card className="shadow-md shadow-[#000000]" sx={{ maxWidth: 315, margin: 'auto' }}>
+      <Card className={`bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300`} sx={{ maxWidth: 315, margin: 'auto' }}>
         <CardActionArea sx={{ flexGrow: 1, width: 290 }}>
 
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
-            <Typography className='font-frutiger bg-[#e7f436] dark:text-slate-800 p-1' gutterBottom variant="h5" component="div">
+            <Typography className='font-frutiger p-1' gutterBottom variant="h5" component="div">
               {french ? word :
                 <div dir={direction}>
                   {word_translation}
@@ -87,24 +97,41 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
               </> : <></>
             }
 
+            {audioWave ?
+              <div className={`${css['wave-bar']} flex items-center justify-center gap-[3px] h-[30px] ${!audioWave ? 'opacity-0' : 'opacity-100'}`}>
+                {[...Array(13)].map((_, i) => (
+                  <span
+                    key={i}
+                    className={`${css['wave-bar']} bg-[#FF2D55] w-[3px] rounded-full ${css['animate-wave']}`}
+                    style={{
+                      animationDelay: `${i * 0.1}s`,
+                      height: '30%' // Hauteur initiale
+                    }}
+                  ></span>
+                ))}
+              </div> : <></>}
 
           </CardContent>
+          <div className={`flex items-center justify-center`}>
+            <AudioPlayerWaveAnimation media_url={french ? word_audio_url_fr : word_audio_url} language={french ? 'fr' : 'tr'} callbackAudio={callbackAudio}></AudioPlayerWaveAnimation>
+          </div>
           <CardActions sx={{ flexGrow: 1, }}>
             <IconButton aria-label="play/pause" sx={{ margin: 'auto' }}>
-              <AudioPlayer media_url={french ? word_audio_url_fr : word_audio_url} language={french ? 'fr' : 'tr'}></AudioPlayer>
+
             </IconButton>
+
           </CardActions>
 
 
           <CardActions sx={{ flexGrow: 1, width: 290 }}>
             {showMore ? <>
-              <Button size="extrasmall" onClick={() => showMoreClickHandler()} sx={{ color: 'text.secondary' }}><CheckOutlinedIcon /></Button>
+              <Button size="extrasmall" onClick={() => showMoreClickHandler()} ><CheckOutlinedIcon /></Button>
             </> : <>
-              <Button size="extrasmall" onClick={() => showMoreClickHandler()} sx={{ color: 'text.secondary' }}><LiveHelpOutlinedIcon /></Button>
+              <Button size="extrasmall" onClick={() => showMoreClickHandler()} ><LiveHelpOutlinedIcon /></Button>
             </>}
-            <Button size="extrasmall" onClick={() => closeButtonClickHandler()} sx={{ color: 'text.secondary' }}><CloseIcon /></Button>
-            <Button size="extrasmall" onClick={() => languageToggler('FR')} sx={{ color: 'text.secondary' }}>fre</Button>
-            <Button size="extrasmall" onClick={() => languageToggler(word_language)} sx={{ color: 'text.secondary' }}>{word_language}</Button>
+            <Button size="extrasmall" onClick={() => closeButtonClickHandler()} ><CloseIcon /></Button>
+            <Button size="extrasmall" onClick={() => languageToggler('FR')} >fre</Button>
+            <Button size="extrasmall" onClick={() => languageToggler(word_language)} >{word_language}</Button>
           </CardActions>
         </CardActionArea>
       </Card>

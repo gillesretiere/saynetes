@@ -7,6 +7,8 @@
 /* mui fonts */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+
+
 /*
 The box-sizing CSS property sets how the total width and height of an element is calculated.
 https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
@@ -19,27 +21,59 @@ here padding is included in box-sizing but not margin which is extra-sizing
   scroll-behavior: smooth;
 }
 
-:root{
-  font-family: articulat-cf, sans-serif;
+@layer base {
+  :root {
+    /* Couleurs de base (Format R G B) */
+    --color-primary: 244 67 54;
+    /* #f44336 */
+    --color-secondary: 0 210 233;
+    /* #00D2E9 */
+    --color-orange: 255 45 85;
+    /* #FF2D55 */
+    --color-blue: 0 0 255;
+
+    /* Surfaces et Texte */
+    --color-bg-card: 255 255 255;
+    --color-text-main: 31 32 35;
+    --color-special-green: 251 113 133;
+    /* #619257 */
+  }
+
+  /* Mode Sombre (soit via .dark, soit via préférence système) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-primary: 239 154 154;
+      --color-orange: 251 146 60; /* Orange plus doux pour dark mode */
+      /* Mode Clair */
+      --color-bg-main: 250 250 250;   /* Fond d'écran très clair */
+      --color-bg-card: 255 255 255;   /* Cartes blanches */
+      --color-bg-pills: 243 244 246;  /* Gris clair pour les pills (gray-100) */
+      --color-text-main: 240 240 240;
+      /* Ombre subtile et portée vers le bas pour le mode clair */
+      --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  /* Si vous utilisez un switch manuel avec la classe .dark */
+  .dark {
+    --color-primary: 239 154 154;
+    --color-orange: 251 146 60;
+    --color-text-main: 240 240 240;
+    /* Mode Sombre - Stratégie d'élévation */
+    --color-bg-main: 18 18 18;      /* Fond d'écran presque noir */
+    --color-bg-card: 30 30 30;      /* Cartes légèrement plus claires (gris anthracite) */
+    --color-bg-pills: 45 45 45;     /* Pills encore un peu plus claires pour se détacher */
+    /* Ombre plus large et très diffuse pour marquer l'élévation sur fond noir */
+    /* On utilise une opacité plus forte (0.5) car le fond est sombre */
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  }
 }
 
-html {
-  font-family: articulat-cf, sans-serif;
-}
 
 body {
-  --color-background: #fafafa;
-  --color-foreground: #1f2023;
-  /*
-  --primary-font : neue-haas-grotesk-display,sans-serif;
-  --secondary-font : neue-haas-grotesk-text, sans-serif;
-  */
-  --primary-font : articulat-cf, sans-serif;
-  --secondary-font : artifex-cf, serif;
-  --tertiary-font : neue-frutiger-world, sans-serif;
-
-  --serif-primary-font : artifex-cf, serif;
-  --serif-secondary-font : ff-nexus-mix, sans-serif;
+  background-color: rgb(var(--color-bg-main));
+  color: rgb(var(--color-text-main));
+  font-family: articulat-cf, sans-serif;
 }
 
 .disabled-link {
