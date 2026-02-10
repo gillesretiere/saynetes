@@ -71,7 +71,7 @@ export default function DialogCard({ card, lang, }) {
                 phrase_html_kw: phrase_html_kw,
                 phrase_words_rec_id: phrase_words_rec_id,
                 phrase_words: words,
-                language : lang,
+                language: lang,
             }
         ];
         setWordDeck(updateWordDeck);
@@ -86,11 +86,12 @@ export default function DialogCard({ card, lang, }) {
     const changeLanguage = (vlang) => {
         setCurrentLang(vlang);
         setIsChanging(true);
+        console.log(vlang);
         if (vlang === 'fre') {
             setFrench(true);
         } else {
             setFrench(false);
-            if (vlang === "ams") {
+            if (vlang === "عربي") {
                 setDirection('rtl');
             }
         }
@@ -111,7 +112,7 @@ export default function DialogCard({ card, lang, }) {
                     {french ? <>
                         <KeywordPlayer wordDeck={wordDeck} language={french}></KeywordPlayer>
                     </> : <>
-                        <div dir={direction}>
+                        <div dir={direction} className={direction === 'ltr' ? 'flex justify-left' : 'flex justify-right'}>
                             {phrase_translation}
                         </div>
                     </>}

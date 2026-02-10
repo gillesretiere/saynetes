@@ -35,19 +35,16 @@ const StoryDeck = ({ deck, language }) => {
 
   return (
     <>
-      <header className="header-minimalist">
-        <div className="minimalist-shapes"></div>
-        <div className="flex items-center justify-center h-full relative z-10">
-          <h1 className="text-3xl font-bold text-primary-orange">
-            Choisissez une saynète
-          </h1>
-        </div>
+      {/* Header avec gradient natif Tailwind */}
+      <header className="relative w-full h-52 flex items-center justify-center overflow-hidden bg-main-bg border-b border-primary-orange/10">
+
+        {/* Couche de gradient statique */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary-main/20 via-primary-orange/10 to-main-bg"></div>
+
+        {/* Titre */}
+        <h1 className="relative z-10 text-3xl md:text-4xl font-primary font-bold text-primary-orange drop-shadow-sm">
+        </h1>
       </header>
-      <Typography
-        sx={{ marginLeft: '1rem', marginTop: '1rem', }}
-        className={`font-articulat_cf text-xl xl:text-2xl font-semibold text-primary-main leading-none tracking-wide text-nowrap text-left`}
-      >Choisissez une saynète
-      </Typography>
       <div className={`${classes.card__list}`}>
         {deck && deck.sort((a, b) => a.story_order > b.story_order ? 1 : -1).map(
           (el) => {
