@@ -19,7 +19,7 @@ export default function LanguageCard({ card }) {
     const drapeau = base_server_url + "assets/img/flags/" + lang_flag_icon.split('\\').pop().split('/').pop();
 
     return (
-        <Card className="bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300"  sx={{ maxWidth: 345, boxShadow: 3 }}>
+        <Card className="bg-card-bg text-primary-main shadow-custom-card border border-gray-200/50 dark:border-white/5 rounded-2xl transition-all duration-300"  sx={{ maxWidth: 345, boxShadow: 3 }}>
             <Link to={lang_is_available ? `/theme_page/${language}?l=${language}` : null} >
                 <div className={`${classes.card}`}>
                     <CardMedia
@@ -43,7 +43,7 @@ export default function LanguageCard({ card }) {
                             <Typography gutterBottom variant="h5" className='font-frutiger text-md font-semibold leading-none tracking-tight'>
                                 {lang_name_native}
                             </Typography>
-                            <Typography variant="h6" className='font-frutiger text-md font-light leading-none tracking-tight'>
+                            <Typography variant="h6" className='text-body-text font-frutiger text-md font-light leading-none tracking-tight'>
                                 {lang_name_fr}
                             </Typography>
                         </Grid>

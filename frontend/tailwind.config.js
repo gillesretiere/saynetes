@@ -14,6 +14,7 @@ module.exports = {
         'primary-blue': 'rgb(var(--color-blue) / <alpha-value>)',
         'secondary-main': 'rgb(var(--color-secondary) / <alpha-value>)',
         'special-green': 'rgb(var(--color-special-green) / <alpha-value>)',
+        'body-text': 'rgb(var(--color-text-body) / <alpha-value>)',
         'main-bg': 'rgb(var(--color-bg-main) / <alpha-value>)',
         'card-bg': 'rgb(var(--color-bg-card) / <alpha-value>)',
         'pills-bg': 'rgb(var(--color-bg-pills) / <alpha-value>)',

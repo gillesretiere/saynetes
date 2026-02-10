@@ -73,7 +73,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
 
   return (
     <>
-      <Card className={`bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300`} sx={{ maxWidth: 315, margin: 'auto' }}>
+      <Card className={`bg-card-bg text-primary-main shadow-custom-card border border-gray-200/50 dark:border-white/5 rounded-2xl transition-all duration-300`} sx={{ maxWidth: 315, margin: 'auto' }}>
         <CardActionArea sx={{ flexGrow: 1, width: 290 }}>
 
           <CardContent sx={{ maxWidth: 290, margin: 'auto' }}>
@@ -86,7 +86,7 @@ export default function KeywordPopper({ keyword, language, callbackModal }) {
             </Typography>
             {showMore ?
               <>
-                <Typography className='font-frutiger' gutterBottom variant="p" component="div">
+                <Typography className='text-body-text font-frutiger' gutterBottom variant="p" component="div">
                   {french ?
                     word_notes :
                     <div dir={direction}>

@@ -46,7 +46,7 @@ export default function StoryCard({ card }) {
 
     return (
         <Card 
-            className={`bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300`}
+            className={`bg-card-bg text-primary-main shadow-custom-card border border-gray-200/50 dark:border-white/5 rounded-2xl transition-all duration-300`}
             sx={{
             height: "100%",
             display: "flex",
@@ -78,7 +78,7 @@ export default function StoryCard({ card }) {
                                     {story_translation}
                                 </Typography>
                             </div>
-                            <Typography variant="h6" className='font-frutiger text-md font-light leading-none tracking-tight'>
+                            <Typography variant="h6" className='text-body-text font-frutiger text-md font-light leading-none tracking-tight'>
                                 {story_name}
                             </Typography>
                         </Grid>
@@ -89,7 +89,7 @@ export default function StoryCard({ card }) {
                         </Grid>
                         <Grid size={8}>
                             <div dir={direction}>
-                                <Typography variant="body2" className='font-frutiger text-lg font-normal leading-none tracking-tight'>
+                                <Typography variant="body2" className='text-body-text font-frutiger text-lg font-normal leading-none tracking-tight'>
                                     {story_desc_translation}
                                 </Typography>
                             </div>
@@ -98,7 +98,7 @@ export default function StoryCard({ card }) {
                             &nbsp;
                         </Grid>
                         <Grid size={8}>
-                            <Typography variant="body1" className='font-frutiger text-xs leading-none tracking-tight'>
+                            <Typography variant="body1" className='text-body-text font-frutiger text-xs leading-none tracking-tight'>
                                 {story_desc}
                             </Typography>
                         </Grid>

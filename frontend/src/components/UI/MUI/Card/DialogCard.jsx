@@ -96,7 +96,7 @@ export default function DialogCard({ card, lang, }) {
         }
     }
     return (
-        <Card className="bg-card-bg text-primary-main shadow-custom-card border border-transparent dark:border-white/5 rounded-2xl transition-all duration-300" sx={{ maxWidth: 345, margin: 'auto' }}>
+        <Card className="bg-card-bg text-primary-main shadow-custom-card border border-gray-200/50 dark:border-white/5 rounded-2xl transition-all duration-300" sx={{ maxWidth: 345, margin: 'auto' }}>
             <CardMedia
                 sx={{ minHeight: 340 }}
                 image={phrase_illustration}
@@ -107,7 +107,7 @@ export default function DialogCard({ card, lang, }) {
                     {phrase_position}
                 </Typography>
                 <LanguageSelector currentLang={currentLang} onChange={changeLanguage} />
-                <Typography variant="body2" className="font-frutiger font-normal text-xl leading-normal">
+                <Typography variant="body2" className="font-frutiger font-normal text-long-content text-xl">
                     {french ? <>
                         <KeywordPlayer wordDeck={wordDeck} language={french}></KeywordPlayer>
                     </> : <>
