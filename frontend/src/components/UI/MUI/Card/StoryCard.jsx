@@ -28,8 +28,9 @@ export default function StoryCard({ card }) {
         phrases } = card;
 
     // tour de passe-pase pour changer l'url des illustrations
-    const card_img = base_server_url + "assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
-
+    let card_img = base_server_url + "assets/img/saynetes/" + story_illustration.split('\\').pop().split('/').pop();
+    card_img = base_server_url + "assets/img/saynetes/jpg/" + card_img.split('/').pop().split('.').shift() + ".jpg";
+    
     const ctx = useContext(UserContext);
 
     const [direction, setDirection] = useState('ltr');

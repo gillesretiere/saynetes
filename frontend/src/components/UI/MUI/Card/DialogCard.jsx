@@ -42,7 +42,9 @@ export default function DialogCard({ card, lang, }) {
     } = card;
 
     // tour de passe-pase pour changer l'url des illustrations et corriger un bug (jpg/png)
-    phrase_illustration = base_server_url + "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
+    //phrase_illustration = base_server_url + "assets/img/saynetes/" + phrase_illustration.split('\\').pop().split('/').pop().replace("jpg", "png");
+    phrase_illustration = base_server_url + "assets/img/saynetes/jpg/" + phrase_illustration.split('\\').pop().split('/').pop().split('.').shift() + ".jpg";
+    // phrase_illustration = base_server_url + "assets/img/saynetes/jpg/" + card_img.split('/').pop().split('.').shift() + ".jpg";
     phrase_audio_url = base_server_url + "assets/audio/ai/" + story_language + "/" + phrase_audio_url.split('\\').pop().split('/').pop();
     phrase_audio_url_fr = base_server_url + "assets/audio/ai/fre/" + phrase_audio_url_fr.split('\\').pop().split('/').pop();
 
