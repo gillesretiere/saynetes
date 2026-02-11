@@ -6,6 +6,7 @@ import { SaynetesAboutSection } from "./SaynetesAboutSection";
 import SaynetesLanguagesSection from "./SaynetesLanguagesSection";
 import { SaynetesMainSection } from "./SaynetesMainSection";
 import SaynetesStoriesSection from "./SaynetesStoriesSection";
+import HeroSection from "./HeroSection";
 export {
     ProjectSection,
     SaynetesHomeSection,
@@ -15,4 +16,5 @@ export {
     SaynetesMainSection,
     SaynetesLanguagesSection,
     SaynetesStoriesSection,
+    HeroSection,
 };

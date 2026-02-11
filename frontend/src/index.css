@@ -55,7 +55,7 @@ here padding is included in box-sizing but not margin which is extra-sizing
       --color-primary: 239 154 154;
       --color-orange: 251 146 60; /* Orange plus doux pour dark mode */
       --color-text-main: 240 240 240;
-      --color-special-green: 251 113 133;
+      --color-special-green: 217 255 0;
 
       /* Lisibilité du contenu (Mode Sombre) */
       --color-text-body: 229 231 235; /* Gris perle (Tailwind gray-200) */
@@ -76,7 +76,7 @@ here padding is included in box-sizing but not margin which is extra-sizing
     --color-primary: 239 154 154;
     --color-orange: 251 146 60;
     --color-text-main: 240 240 240;
-    --color-special-green: 251 113 133;
+    --color-special-green: 217 255 0;
 
     /* Lisibilité du contenu (Mode Sombre) */
     --color-text-body: 229 231 235; /* Gris perle (Tailwind gray-200) */

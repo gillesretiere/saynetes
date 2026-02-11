@@ -8,6 +8,7 @@ import {
     SaynetesDescriptionSection,
     SaynetesCardSystemSection,
     SaynetesAboutSection,
+    HeroSection,
 } from '../sections/index.js';
 import DeckContext from "../store/DeckContext";
 import { json_data } from '../assets/data/index.js';
@@ -112,19 +113,19 @@ const SaynetesPage = () => {
     }
 
     return (
-<main>
-    <Layout>
-        <SaynetesHomeSection
-            dynamicStylesTitle={dynamicStylesTitle}
-            dynamicStylesSubTitle={dynamicStylesSubTitle}
-            dynamicStylesSubSection={dynamicStylesSubSection}
-            callbackModal={callbackModal} />
-        <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle}/>
-        <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection}/>
-        <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection}/>
-    </Layout >
-</main>
-
+        <main>
+            <Layout>
+                <HeroSection />
+                <SaynetesHomeSection
+                    dynamicStylesTitle={dynamicStylesTitle}
+                    dynamicStylesSubTitle={dynamicStylesSubTitle}
+                    dynamicStylesSubSection={dynamicStylesSubSection}
+                    callbackModal={callbackModal} />
+                <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle} />
+                <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection} />
+                <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection} />
+            </Layout >
+        </main>
     )
 }
 
