@@ -210,9 +210,9 @@ const HomeAppBar = () => {
                       {/* on teste si href interne (#) : composant "a" sinon "Link" */}
                       <ListItemButton key={index} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
                         <ListItemIcon>
-                          <DescriptionIcon sx={{ color: "primary.contrastText" }} />
+                          <DescriptionIcon sx={{ color: "primary.main" }} />
                         </ListItemIcon>
-                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.contrastText" }} />
+                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.main" }}/>
                         {/* <Chip label={item.enabled ? "disponible" :"prochainement"} size="small"></Chip> */}
                       </ListItemButton>
                     </>

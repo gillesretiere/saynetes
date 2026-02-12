@@ -1,4 +1,5 @@
 import React from 'react';
+import { medic_woman_1, hero_section_img_2, hero_section_img_3, } from "../assets/img/index.js";
 
 const HeroSection = () => {
   return (
@@ -27,7 +28,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4">
               {/* Bouton Orange/Corail menant à l'application */}
               <a 
-                href="https://app.saynetes.fr" 
+                href="./language_page/" 
                 className="px-10 py-4 bg-[rgb(var(--color-primary))] text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform text-center"
               >
                 Accéder à l'application
@@ -40,7 +41,7 @@ const HeroSection = () => {
             {/* Grande image verticale (Centrale dans le croquis) */}
             <div className="w-2/3 h-[400px] lg:h-[500px] rounded-[40px] overflow-hidden shadow-xl border-8 border-white">
               <img 
-                src="/img/consultation-illustration.jpg" 
+                src={medic_woman_1}
                 alt="Interaction soignant patient" 
                 className="w-full h-full object-cover"
               />
@@ -49,10 +50,10 @@ const HeroSection = () => {
             {/* Colonne de petites images (Droite dans le croquis) */}
             <div className="w-1/3 flex flex-col gap-4">
               <div className="h-[190px] lg:h-[240px] rounded-[30px] overflow-hidden shadow-lg border-4 border-white">
-                <img src="/img/app-preview-1.jpg" alt="Interface Saynètes" className="w-full h-full object-cover" />
+                <img src={hero_section_img_2} alt="Interface Saynètes" className="w-full h-full object-cover" />
               </div>
               <div className="h-[190px] lg:h-[240px] rounded-[30px] overflow-hidden shadow-lg border-4 border-white">
-                <img src="/img/app-preview-2.jpg" alt="Multilingue" className="w-full h-full object-cover" />
+                <img src={hero_section_img_3} alt="Multilingue" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

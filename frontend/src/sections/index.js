@@ -7,6 +7,14 @@ import SaynetesLanguagesSection from "./SaynetesLanguagesSection";
 import { SaynetesMainSection } from "./SaynetesMainSection";
 import SaynetesStoriesSection from "./SaynetesStoriesSection";
 import HeroSection from "./HeroSection";
+import ProblemSection from "./ProblemSection";
+import SolutionSection from './SolutionSection';
+import PractitionerGuide from './PractitionerGuide';
+import ImpactSection from './ImpactSection';
+import AppShowcase from './AppShowcase';
+import FooterSection from './FooterSection';
+import TeamSection from './TeamSection';
+
 export {
     ProjectSection,
     SaynetesHomeSection,
@@ -17,4 +25,11 @@ export {
     SaynetesLanguagesSection,
     SaynetesStoriesSection,
     HeroSection,
+    ProblemSection,
+    SolutionSection,
+    PractitionerGuide,
+    ImpactSection,
+    AppShowcase,
+    FooterSection,
+    TeamSection,
 };

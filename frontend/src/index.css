@@ -28,6 +28,7 @@ here padding is included in box-sizing but not margin which is extra-sizing
     --color-primary: 244 67 54;
     /* #f44336 */
     --color-secondary: 0 210 233;
+    /*0 210 233;*/
     /* #00D2E9 */
     --color-orange: 255 45 85;
     /* #FF2D55 */
@@ -35,17 +36,22 @@ here padding is included in box-sizing but not margin which is extra-sizing
     --color-special-green: 217 255 0;
 
     /* Lisibilité du contenu (Mode Clair) */
-    --color-text-body: 31 41 55;   /* Gris très foncé (Tailwind gray-800) */
+    --color-text-body: 31 41 55;
+    /* Gris très foncé (Tailwind gray-800) */
 
     /* Surfaces et Texte */
-    --color-bg-main: 243 244 246;   /* Fond d'écran très clair */
+    --color-bg-main: 252 250 247;
+    /* Fond d'écran très clair */
     --color-bg-card: 255 255 255;
-        /* Mode Clair */
-    --color-bg-pills: 243 244 246;  /* Gris clair pour les pills (gray-100) */
+    /* Mode Clair */
+    --color-bg-pills: 243 244 246;
+    /* Gris clair pour les pills (gray-100) */
 
     --color-text-main: 31 32 35;
     --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05);
 
+    /* Rayons de bordure très arrondis pour le style "Kids Place" */
+    --radius-lg: 24px;
     /* #619257 */
   }
 
@@ -53,17 +59,22 @@ here padding is included in box-sizing but not margin which is extra-sizing
   @media (prefers-color-scheme: dark) {
     :root {
       --color-primary: 239 154 154;
-      --color-orange: 251 146 60; /* Orange plus doux pour dark mode */
+      --color-orange: 251 146 60;
+      /* Orange plus doux pour dark mode */
       --color-text-main: 240 240 240;
       --color-special-green: 217 255 0;
 
       /* Lisibilité du contenu (Mode Sombre) */
-      --color-text-body: 229 231 235; /* Gris perle (Tailwind gray-200) */
+      --color-text-body: 229 231 235;
+      /* Gris perle (Tailwind gray-200) */
 
       /* Mode Sombre - Stratégie d'élévation */
-      --color-bg-main: 18 18 18;      /* Fond d'écran presque noir */
-      --color-bg-card: 30 30 30;      /* Cartes légèrement plus claires (gris anthracite) */
-      --color-bg-pills: 45 45 45;     /* Pills encore un peu plus claires pour se détacher */
+      --color-bg-main: 18 18 18;
+      /* Fond d'écran presque noir */
+      --color-bg-card: 30 30 30;
+      /* Cartes légèrement plus claires (gris anthracite) */
+      --color-bg-pills: 45 45 45;
+      /* Pills encore un peu plus claires pour se détacher */
       /* Ombre plus large et très diffuse pour marquer l'élévation sur fond noir */
       /* On utilise une opacité plus forte (0.5) car le fond est sombre */
       --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
@@ -79,12 +90,16 @@ here padding is included in box-sizing but not margin which is extra-sizing
     --color-special-green: 217 255 0;
 
     /* Lisibilité du contenu (Mode Sombre) */
-    --color-text-body: 229 231 235; /* Gris perle (Tailwind gray-200) */
+    --color-text-body: 229 231 235;
+    /* Gris perle (Tailwind gray-200) */
 
     /* Mode Sombre - Stratégie d'élévation */
-    --color-bg-main: 18 18 18;      /* Fond d'écran presque noir */
-    --color-bg-card: 30 30 30;      /* Cartes légèrement plus claires (gris anthracite) */
-    --color-bg-pills: 45 45 45;     /* Pills encore un peu plus claires pour se détacher */
+    --color-bg-main: 18 18 18;
+    /* Fond d'écran presque noir */
+    --color-bg-card: 30 30 30;
+    /* Cartes légèrement plus claires (gris anthracite) */
+    --color-bg-pills: 45 45 45;
+    /* Pills encore un peu plus claires pour se détacher */
     /* Ombre plus large et très diffuse pour marquer l'élévation sur fond noir */
     /* On utilise une opacité plus forte (0.5) car le fond est sombre */
     --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
@@ -96,13 +111,15 @@ body {
   background-color: rgb(var(--color-bg-main));
   color: rgb(var(--color-text-main));
   font-family: articulat-cf, sans-serif;
-  
+
 }
 
 .text-long-content {
-  line-height: 1.625; /* leading-relaxed */
+  line-height: 1.625;
+  /* leading-relaxed */
   letter-spacing: 0.01em;
-  color: rgb(var(--color-text-body)); /* La variable neutre créée précédemment */
+  color: rgb(var(--color-text-body));
+  /* La variable neutre créée précédemment */
 }
 
 .disabled-link {

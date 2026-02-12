@@ -12,6 +12,7 @@ import LanguagePage from './pages/LanguagePage';
 import ThemePage from './pages/ThemePage';
 import DialogPage from './pages/DialogPage';
 import SaynetesPage from './pages/SaynetesPage';
+import LandingPage from './pages/LandingPage';
 import App from './App';
 
 // import reportWebVitals from './reportWebVitals';
@@ -38,6 +39,7 @@ root.render(
         <Routes>
           <Route path="/" element={<SaynetesPage />} />
           <Route path="/saynetes_page" element={<SaynetesPage />} />
+          <Route path="/landing_page" element={<LandingPage />} />
           <Route path="/language_page" element={<LanguagePage />} />
           <Route path="theme_page/:id" element={<ThemePage />} />
           <Route path="dialog_page/:id" element={<DialogPage />} />
