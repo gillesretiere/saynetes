@@ -14,12 +14,12 @@ const Navbar = () => {
   }, [isDark]);
 
   const menuItems = [
-    { name: "Problème", id: "probleme" },
-    { name: "Solution", id: "solution" },
-    { name: "L'App", id: "app" },
-    { name: "Guide", id: "guide" },
-    { name: "Impact", id: "impact" },
-    { name: "Équipe", id: "equipe" },
+    { name: "Problème", id: "problem_section" },
+    { name: "Solution", id: "solution_section" },
+    { name: "L'App", id: "app_section" },
+    { name: "Guide", id: "guide_section" },
+    { name: "Impact", id: "impact_section" },
+    { name: "Équipe", id: "equipe_section" },
   ];
 
   return (
@@ -32,7 +32,8 @@ const Navbar = () => {
           className="flex items-center gap-2 font-bold text-[rgb(var(--color-text-main))] hover:text-[rgb(var(--color-primary))] transition-colors"
         >
           <span className="text-xl">🏠</span>
-          <span className="hidden sm:inline">Saynètes</span>
+          <span className="hidden sm:inline">Les Saynètes</span>
+          
         </button>
 
         <div className="flex items-center gap-4">

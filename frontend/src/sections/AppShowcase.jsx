@@ -1,8 +1,9 @@
 import React from 'react';
+import { saynetes_mockup_3, mobileinhand, } from "../assets/img/index.js";
 
 const AppShowcase = () => {
   return (
-    <section className="py-24 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="app_section" className="py-24 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         {/* En-tête de section */}
@@ -33,7 +34,7 @@ const AppShowcase = () => {
             {/* Image Carrée 1 (Mockup 3 formats) */}
             <div className="aspect-square rounded-[48px] overflow-hidden bg-white dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6">
               <img 
-                src="/img/saynetes_mockup_3-C.jpg" 
+                src={mobileinhand}
                 alt="Mockup multi-supports" 
                 className="w-full h-full object-contain rounded-[32px]"
               />
@@ -45,7 +46,7 @@ const AppShowcase = () => {
             {/* Image Carrée 2 (Main tenant le mobile) */}
             <div className="aspect-square rounded-[48px] overflow-hidden bg-white dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6 group">
               <img 
-                src="/img/iphone_mockup_saynete1_1ru.jpg" 
+                src={saynetes_mockup_3}
                 alt="Usage smartphone" 
                 className="w-full h-full object-cover rounded-[32px] transition-transform duration-700 group-hover:scale-105"
               />

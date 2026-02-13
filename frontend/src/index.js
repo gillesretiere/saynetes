@@ -37,9 +37,7 @@ root.render(
       <BrowserRouter>
         <CssBaseline />
         <Routes>
-          <Route path="/" element={<SaynetesPage />} />
-          <Route path="/saynetes_page" element={<SaynetesPage />} />
-          <Route path="/landing_page" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/language_page" element={<LanguagePage />} />
           <Route path="theme_page/:id" element={<ThemePage />} />
           <Route path="dialog_page/:id" element={<DialogPage />} />

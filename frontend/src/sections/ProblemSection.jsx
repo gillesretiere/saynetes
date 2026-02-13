@@ -1,8 +1,9 @@
 import React from 'react';
+import { landing_page_01, } from "../assets/img/index.js";
 
 const ProblemSection = () => {
   return (
-    <section className="py-20 bg-white dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="problem_section" className="py-20 bg-white dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         {/* En-tête de section */}
@@ -59,7 +60,7 @@ const ProblemSection = () => {
           <div className="relative group">
             <div className="rounded-[40px] overflow-hidden border-4 border-white dark:border-[rgb(var(--color-bg-card))] shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
               <img 
-                src="/img/barriere-linguistique-concept.jpg" 
+                src={landing_page_01}
                 alt="Défi linguistique" 
                 className="w-full h-auto" 
               />

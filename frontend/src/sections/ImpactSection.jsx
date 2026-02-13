@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImpactSection = () => {
   return (
-    <section className="py-24 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] overflow-hidden transition-colors duration-300">
+    <section id="impact_section" className="py-24 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         <div className="flex flex-col lg:flex-row items-center gap-16">

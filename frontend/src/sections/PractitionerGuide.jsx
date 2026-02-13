@@ -2,7 +2,7 @@ import React from 'react';
 
 const PractitionerGuide = () => {
   return (
-    <section className="py-20 bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="guide_section" className="py-20 bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
 
         {/* En-tête avec badge */}

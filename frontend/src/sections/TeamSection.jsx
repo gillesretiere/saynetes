@@ -19,7 +19,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="equipe_section" className="py-24 bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         <div className="flex flex-col lg:flex-row items-center gap-12">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SolutionSection = () => {
   return (
-    <section className="py-20 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="solution_section" className="py-20 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         {/* En-tête de section */}
