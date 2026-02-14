@@ -50,9 +50,9 @@ return (
             <>
                 <div onClick={togglePlay} className="cursor-pointer">
                     {isPlaying ? (
-                        <PauseCircleOutlineIcon className="text-primary-main" sx={{ height: 76, width: 76 }} />
+                        <PauseCircleOutlineIcon className="text-primary-main" sx={{ height: 70, width: 70 }} />
                     ) : (
-                        <PlayCircleOutlineIcon className="text-gray-500 hover:text-[#FF2D55]" sx={{ height: 76, width: 76 }} />
+                        <PlayCircleOutlineIcon className="text-gray-500 hover:text-[#FF2D55]" sx={{ height: 70, width: 70 }} />
                     )}
                 </div>
             </>
