@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, } from 'react';
 import LanguageDeck from '../components/decks/LanguageDeck.jsx';
+import LanguagePageNew from '../components/decks/LanguagePageNew.jsx';
 import GoTopOfPage from './GoTopOfPage.jsx';
 import Layout from '../components/UI/Layout.jsx';
 import { json_data } from '../assets/data/index.js';
@@ -12,7 +13,7 @@ const LanguagePage = () => {
     const [languages, setLanguages] = useState([]);
 
     const ctx = useContext(UserContext);
-    
+
     useEffect(() => {
         const loadData = () => JSON.parse(JSON.stringify(json_data));
         setLanguages(loadData);
@@ -22,8 +23,17 @@ const LanguagePage = () => {
         <>
             <Layout>
                 <GoTopOfPage />
+                <LanguagePageNew languages={languages} />
+
+            </Layout>
+
+            {/*
+            <Layout>
+                <GoTopOfPage />
+                <LanguagePageNew />
                 <LanguageDeck deck={languages} />
             </Layout>
+                */}
         </>
     )
 }
