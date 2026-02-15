@@ -7,23 +7,12 @@ import classes from "../UI/Media/AudioPlayer.module.css";
 
 
 const SingleCardCarousel = ({ card, index, lang, }) => {
-    let { story_order,
-        story_name,
-        story_translation,
-        story_illustration,
-        story_desc,
-        story_desc_translation,
-        story_synopsis,
-        story_synopsis_translation,
-        story_language,
-        story_translation_id,
+    let {
         phrase,
         phrase_translation,
-        phrase_audio,
         phrase_audio_url,
         phrase_audio_url_fr,
         phrase_illustration,
-        phrase_position,
         phrase_html_rec_id,
         phrase_html_kw,
         phrase_words_rec_id,
@@ -46,7 +35,6 @@ const SingleCardCarousel = ({ card, index, lang, }) => {
     const [audioWave, setAudioWave] = useState(false);
 
     useEffect(() => {
-        const vkUrl = phrase_audio.split('/');
         const updateWordDeck = [
             {
                 phrase: phrase,
@@ -61,23 +49,13 @@ const SingleCardCarousel = ({ card, index, lang, }) => {
 
     }, [card, lang,]);
 
-    const callbackAudio = (isPlaying) => {
-        setAudioWave(isPlaying);
-        // setAudioWave(false);
-    }
+    const callbackAudio = (isPlaying) => setAudioWave(isPlaying);
 
     const changeLanguage = (vlang) => {
         setCurrentLang(vlang);
-        setIsChanging(true);
-        console.log(vlang);
-        if (vlang === 'fre') {
-            setFrench(true);
-        } else {
-            setFrench(false);
-            if (vlang === "عربي") {
-                setDirection('rtl');
-            }
-        }
+        setFrench(vlang === 'fre');
+        if (vlang === "عربي") setDirection('rtl');
+        else setDirection('ltr');
     }
 
     return (
@@ -85,7 +63,7 @@ const SingleCardCarousel = ({ card, index, lang, }) => {
             <div key={index} className="w-full h-full flex-shrink-0 flex flex-col">
                 {/* Image : on réduit sa part à 40% de la carte pour laisser de la place au texte */}
                 <div className="h-[60%] w-full overflow-hidden bg-gray-50">
-                    <img src={card.phrase_illustration} className="w-full h-full object-cover" alt="" />
+                    <img src={phrase_illustration} className="w-full h-full object-cover" alt="" />
                 </div>
 
                 {/* Texte et Audio : 60% de la carte */}

@@ -1,6 +1,7 @@
 import React, { useContext, } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Layout from '../components/UI/Layout';
+import SayneteNavbar from '../components/decks/SayneteNavbar.jsx';
 import DialogDeck from '../components/decks/DialogDeck';
 import SayneteCardCarousel from '../components/decks/SayneteCardCarousel.jsx';
 import { json_data } from '../assets/data/index.js';
@@ -41,10 +42,8 @@ const DialogPage = () => {
 
     return (
         <>
-            <Layout>
-                <SayneteCardCarousel cards={cards} lang={dialog[0].current_language}/>
-                {/* <DialogDeck deck={dialog[0].phrases} lang={dialog[0].current_language}></DialogDeck> */}
-            </Layout>
+            <SayneteCardCarousel cards={cards} lang={dialog[0].current_language} />
+            {/* <DialogDeck deck={dialog[0].phrases} lang={dialog[0].current_language}></DialogDeck> */}
         </>
     )
 }
