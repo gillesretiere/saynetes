@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, } from 'react';
 import LanguageDeck from '../components/decks/LanguageDeck.jsx';
-import LanguagePageNew from '../components/decks/LanguagePageNew.jsx';
 import GoTopOfPage from './GoTopOfPage.jsx';
 import Layout from '../components/UI/Layout.jsx';
 import { json_data } from '../assets/data/index.js';
@@ -18,13 +17,12 @@ const LanguagePage = () => {
         const loadData = () => JSON.parse(JSON.stringify(json_data));
         setLanguages(loadData);
     }, []);
-
     return (
         <>
             <Layout>
                 <GoTopOfPage />
-                <LanguagePageNew languages={languages} />
-
+                {/* EXCLUSION du français */}
+                <LanguageDeck languages={languages.filter(a => a.lang_id != "fre")} />
             </Layout>
 
             {/*
