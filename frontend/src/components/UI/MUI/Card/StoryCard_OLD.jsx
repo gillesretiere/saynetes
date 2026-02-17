@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import { base_server_url, } from "../../../../assets/localData/data.js";
 
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../../store/user_context';
+import { UserContext } from '../../../../store/user_context.jsx';
 
 export default function StoryCard({ card }) {
 

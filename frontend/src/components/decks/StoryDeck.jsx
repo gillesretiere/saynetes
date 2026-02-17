@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useContext, } from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import React, { useContext, } from 'react';
 import DeckContext from "../../store/DeckContext";
 import { UserContext } from "../../store/user_context";
-
-import StoryCard from '../UI/MUI/Card/StoryCard';
-import classes from "./Deck.module.css";
-import {
-  choose_saynete, choose_language,
-} from "../../assets/img/index.js";
+import StoryCard from './StoryCard.jsx';
+import SectionDivider from './SectionDivider.jsx';
 
 const StoryDeck = ({ deck, language }) => {
 
+  // deck = deck.slice(0, 3);
   const ctx = useContext(DeckContext);
   const userctx = useContext(UserContext);
   const arr = [];
@@ -35,20 +30,12 @@ const StoryDeck = ({ deck, language }) => {
 
   return (
     <>
-      {/* Header avec gradient natif Tailwind */}
-      <header className="relative w-full h-52 flex items-center justify-center overflow-hidden bg-main-bg border-b border-primary-orange/10">
-
-        {/* Couche de gradient statique */}
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary-main/20 via-primary-orange/10 to-main-bg"></div>
-
-        {/* Titre */}
-        <h1 className="relative z-10 text-3xl md:text-4xl font-primary font-bold text-primary-orange drop-shadow-sm">
-        </h1>
-      </header>
-      <div className={`${classes.card__list}`}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 mt-6">
         {deck && deck.sort((a, b) => a.story_order > b.story_order ? 1 : -1).map(
           (el) => {
-            return (<StoryCard key={el._id} card={el} />)
+            return (
+              <StoryCard key={el._id} card={el} />
+            )
           }
         )}
       </div>
