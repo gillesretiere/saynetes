@@ -1,4 +1,6 @@
 import React from 'react';
+import { hand_barcode, } from "../assets/img/index.js";
+
 
 const PractitionerGuide = () => {
   return (
@@ -78,15 +80,17 @@ const PractitionerGuide = () => {
               </li>
             </ul>
             <button className="px-8 py-4 bg-[rgb(var(--color-primary))] text-white rounded-full font-bold hover:shadow-xl transition-all">
-              Générer mon kit soignant
+              Je me connecte
             </button>
+
           </div>
-          <div className="lg:w-1/2 flex justify-center">
+          <div className="lg:w-2/3 flex justify-center">
             {/* Ici on imagine une illustration d'un smartphone affichant un QR code */}
-            <div className="w-64 h-64 bg-gray-100 dark:bg-gray-800 rounded-3xl flex items-center justify-center border-4 border-dashed border-gray-300 dark:border-gray-600">
-              <span className="text-6xl">{"📱+ 🔳"}</span>
-            </div>
+            <img src={hand_barcode} />
           </div>
+                      <h3 className="text-xl font-bold my-6 text-[rgb(var(--color-primary))]">
+              https://saynetes.fr
+            </h3>
         </div>
 
       </div>

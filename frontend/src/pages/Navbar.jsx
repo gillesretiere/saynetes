@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, } from 'react';
+import DeckContext from '../store/DeckContext';
 
-const Navbar = () => {
+const Navbar = ({ context }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [navbarItems, setNavbarItems] = useState([]);
+
+  useEffect(() => {
+    setNavbarItems(context.current_deck.navlinks);
+  }, [context.current_deck.navlinks]);
 
   // Synchronisation du mode sombre avec la classe .dark sur le body
   useEffect(() => {
@@ -13,32 +19,23 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  const menuItems = [
-    { name: "Problème", id: "problem_section" },
-    { name: "Solution", id: "solution_section" },
-    { name: "L'App", id: "app_section" },
-    { name: "Guide", id: "guide_section" },
-    { name: "Impact", id: "impact_section" },
-    { name: "Équipe", id: "equipe_section" },
-  ];
-
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl rounded-full">
       <div className="bg-white/80 dark:bg-[rgb(var(--color-bg-card))/0.8] backdrop-blur-lg border border-gray-200 dark:border-gray-800 rounded-full px-6 py-3 shadow-2xl flex items-center justify-between">
-        
+
         {/* Bouton Home / Logo */}
-        <button 
+        <button
           onClick={() => window.scrollTo(0, 0)}
           className="flex items-center gap-2 font-bold text-[rgb(var(--color-text-main))] hover:text-[rgb(var(--color-primary))] transition-colors"
         >
           <span className="text-xl">🏠</span>
           <span className="hidden sm:inline">Les Saynètes</span>
-          
+
         </button>
 
         <div className="flex items-center gap-4">
           {/* Switch Mode Sombre */}
-          <button 
+          <button
             onClick={() => setIsDark(!isDark)}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:scale-110 transition-transform"
             aria-label="Toggle Dark Mode"
@@ -47,7 +44,7 @@ const Navbar = () => {
           </button>
 
           {/* Bouton Hamburger */}
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-[rgb(var(--color-text-main))] hover:text-[rgb(var(--color-primary))]"
           >
@@ -61,17 +58,23 @@ const Navbar = () => {
       </div>
 
       {/* Menu dépliant (Hamburger) */}
-      <div className={`absolute top-full mt-4 left-0 right-0 overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`absolute top-full mt-4 left-0 right-0 rounded-[32px]  overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="bg-white dark:bg-[rgb(var(--color-bg-card))] border border-gray-200 dark:border-gray-800 rounded-[32px] p-6 shadow-2xl grid grid-cols-2 gap-4">
-          {menuItems.map((item) => (
-            <a 
-              key={item.id}
-              href={`#${item.id}`}
+          {navbarItems && navbarItems.map((item) => (
+            item.active ? (<a
+              key={item.index}
+              href={`${item.url}`}
               onClick={() => setIsOpen(false)}
               className="p-4 rounded-2xl bg-gray-50 dark:bg-white/5 text-center font-bold text-[rgb(var(--color-text-main))] hover:bg-[rgb(var(--color-primary))] hover:text-white transition-all"
             >
-              {item.name}
-            </a>
+              {item.label}
+            </a>) : (<a
+              key={item.index}
+              className="p-4 rounded-2xl bg-gray-50 dark:bg-white/5 text-center font-bold text-[rgb(var(--color-text-main))] hover:bg-gray-400 hover:text-white transition-all"
+            >
+              {item.label}
+            </a>)
+
           ))}
         </div>
       </div>

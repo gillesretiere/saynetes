@@ -6,7 +6,6 @@ import { saynetes_sections } from "../assets/localData/data.js";
 import {
     SaynetesHomeSection,
     SaynetesDescriptionSection,
-    SaynetesCardSystemSection,
     SaynetesAboutSection,
     HeroSection,
     ProblemSection,

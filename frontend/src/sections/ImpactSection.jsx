@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImpactSection = () => {
   return (
-    <section id="impact_section" className="py-24 bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] overflow-hidden transition-colors duration-300">
+    <section id="impact_section" className="py-24 bg-[rgb(var(--color-orange)/0.15)] dark:bg-[rgb(var(--color-bg-main))] overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -49,7 +49,7 @@ const ImpactSection = () => {
               </div>
 
               {/* Bulle Témoignage 2 */}
-              <div className="p-6 rounded-[32px] rounded-br-none bg-[rgb(var(--color-primary))] text-white shadow-xl translate-x-4 lg:translate-x-8 transform rotate-1">
+              <div className="p-6 rounded-[32px] rounded-br-none bg-[rgb(var(--color-orange)/0.75)] text-white shadow-xl translate-x-4 lg:translate-x-8 transform rotate-1">
                 <p className="italic mb-4 opacity-95">
                   "Ici, un témoignage sur l'autonomie retrouvée par les patients à leur domicile grâce aux vidéos."
                 </p>
@@ -65,7 +65,7 @@ const ImpactSection = () => {
         </div>
 
         {/* Section Vision / Futur */}
-        <div className="mt-24 p-8 lg:p-12 rounded-[48px] bg-gradient-to-br from-[rgb(var(--color-secondary))] to-[rgb(var(--color-orange))] text-white text-center">
+        <div className="mt-24 p-8 lg:p-12 rounded-[48px] bg-gradient-to-br from-[rgb(var(--color-orange))] to-[rgb(var(--color-orange-bright))] text-white text-center">
           <h3 className="text-2xl lg:text-4xl font-bold mb-6">Notre Vision : Étendre l'accessibilité</h3>
           <p className="text-lg opacity-90 max-w-2xl mx-auto mb-8">
             Demain, nous souhaitons adapter ce catalogue de saynètes à d'autres pathologies chroniques pour continuer à briser les barrières linguistiques de la santé.

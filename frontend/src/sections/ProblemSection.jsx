@@ -3,7 +3,7 @@ import { landing_page_01, } from "../assets/img/index.js";
 
 const ProblemSection = () => {
   return (
-    <section id="problem_section" className="py-20 bg-white dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
+    <section id="problem_section" className="py-20 bg-[rgb(var(--color-orange)/0.15)] dark:bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
         
         {/* En-tête de section */}
@@ -20,7 +20,7 @@ const ProblemSection = () => {
           
           <div className="space-y-8">
             {/* Carte Soignants - Fond gris clair adaptatif */}
-            <div className="p-8 rounded-[32px] bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-card))] border border-gray-200 dark:border-gray-800 shadow-[var(--card-shadow)]">
+            <div className="p-8 rounded-[32px] bg-[rgb(var(--color-orange)/0.15)] dark:bg-[rgb(var(--color-bg-card))] border border-gray-200 dark:border-gray-800 shadow-[var(--card-shadow)] dark:border-l-8 dark:border-l-[rgb(var(--color-orange))]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="p-3 bg-white dark:bg-[rgb(var(--color-bg-main))] rounded-2xl shadow-sm text-2xl">🩺</span>
                 <h3 className="text-2xl font-bold text-[rgb(var(--color-text-main))]">Côté Soignants</h3>

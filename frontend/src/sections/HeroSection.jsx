@@ -2,7 +2,10 @@ import React from 'react';
 import { medic_woman_1, hero_section_img_2, hero_section_img_3, } from "../assets/img/index.js";
 import TitleSection from './TitleSection.jsx';
 
-const HeroSection = () => {
+const HeroSection = ({callbackModal}) => {
+    const handleClick = () => {
+        callbackModal();
+    };
   return (
     <section className="relative overflow-hidden bg-[rgb(var(--color-bg-main))] pt-16 pb-24">
       {/* 1. La Vague de Header (inspirée du croquis et de l'image) */}
@@ -31,6 +34,7 @@ const HeroSection = () => {
               {/* Bouton Orange/Corail menant à l'application */}
               <a
                 href="./language_page/"
+                onClick={handleClick}
                 className="px-10 py-4 bg-[rgb(var(--color-primary))] text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform text-center"
               >
                 Accéder à l'application
