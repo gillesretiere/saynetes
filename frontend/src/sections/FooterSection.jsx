@@ -15,7 +15,7 @@ const FooterSection = () => {
               className="h-16 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
             />
             <h3 className="text-2xl font-bold text-[rgb(var(--color-text-main))] tracking-tight">
-              Saynètes<span className="text-[rgb(var(--color-primary))]">.fr</span>
+              www.saynetes<span className="text-[rgb(var(--color-primary))]">.fr</span>
             </h3>
           </div>
 
@@ -42,10 +42,10 @@ const FooterSection = () => {
             <img 
               src={hmrt_logo} 
               alt="Logo Saynètes" 
-              className="h-16 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
+              className="h-8 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
             />
           {/* Crédits et Mentions Légales */}
-          <div className="text-sm text-gray-400 dark:text-gray-500 space-y-2">
+          <div className="text-sm text-gray-800 dark:text-gray-500 space-y-2">
             <p>Conception du site et graphisme © Hammer & Marteau 2026</p>
             <p className="opacity-75">
               Projet validé par des professionnels de santé. Textes et audios traduits par des interprètes diplômés.

@@ -36,6 +36,8 @@ const LanguagePage = () => {
                     item["label"] = el.lang_name_native + ' | ' + el.lang_name_fr;
                     item["url"] = `/theme_page/${el.language}?l=${el.language}`;
                     item["active"] = el.lang_is_available;
+                    item["enabled"] = el.lang_is_available;
+                    item["img"] = el.lang_flag_icon;
                     arr.push(item);
                 }
             )
@@ -47,7 +49,6 @@ const LanguagePage = () => {
     return (
         <>
             <Layout>
-                <Navbar context={deckContext} />
                 <GoTopOfPage />
                 {/* EXCLUSION du français */}
                 <LanguageDeck languages={languages.filter(a => a.lang_id != "fre")} />
@@ -55,6 +56,7 @@ const LanguagePage = () => {
 
             {/*
             <Layout>
+                <Navbar context={deckContext} />
                 <GoTopOfPage />
                 <LanguagePageNew />
                 <LanguageDeck deck={languages} />

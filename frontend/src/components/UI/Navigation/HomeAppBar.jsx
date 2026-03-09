@@ -96,7 +96,6 @@ const HomeAppBar = () => {
   const [open, setState] = useState(false);
 
   let deckContext = useContext(DeckContext);
-  // console.log(deckContext.current_deck.navlinks);
   //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
   const toggleDrawer = (open) => (event) => {
     if (
@@ -185,7 +184,7 @@ const HomeAppBar = () => {
           >
             {/* The inside of the drawer */}
             <Box
-              className="bg-card-bg"
+              className="bg-[rgb(var(--color-primary))]"
               sx={{
                 p: 2,
                 height: 1,
@@ -200,7 +199,7 @@ const HomeAppBar = () => {
               {/* 
               search}            
               */}
-              <Box sx={{ mb: 2 }}>
+              <Box sx={{ mb: 2 }} className="bg-[rgb(var(--color-primary))]">
                 {/* on itère sur les liens de navigations intrapage : ajout du lien 
                https://stackoverflow.com/questions/47206639/how-to-add-a-link-to-a-list-in-material-ui-1-0
                */}
@@ -209,10 +208,24 @@ const HomeAppBar = () => {
                     <>
                       {/* on teste si href interne (#) : composant "a" sinon "Link" */}
                       <ListItemButton key={index} component={item.url.startsWith('#') ? "a" : Link} href={`${item.url}`} to={`${item.url}`} className={!item.enabled && "disabled-link"}  >
-                        <ListItemIcon>
-                          <DescriptionIcon sx={{ color: "primary.main" }} />
-                        </ListItemIcon>
-                        <ListItemText primary={`${item.label}`} sx={{ color: "primary.main" }}/>
+                        {item.img ? (
+                          <div className="w-6 h-6 rounded-xl bg-[rgb(var(--color-bg-pills))] flex items-center justify-center overflow-hidden group-hover:bg-[rgb(var(--color-primary))] transition-colors shrink-0 gap-4">
+
+                          <img
+                            src={item.img}
+                            alt={`Drapeau ${item.img}`}
+                            className={`w-full h-full object-cover transition-transform ${item.enabled ? 'group-hover:scale-110' : 'grayscale'}`}
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.parentNode.innerHTML = '🌐';
+                            }}
+                          />
+                          </div>
+
+                        ) : (
+                          <span className="text-2xl">&#127822;</span>
+                        )}
+                        <ListItemText primary={`${item.label}`} className="ml-4 font-bold text-white dark:text-gray-800" />
                         {/* <Chip label={item.enabled ? "disponible" :"prochainement"} size="small"></Chip> */}
                       </ListItemButton>
                     </>

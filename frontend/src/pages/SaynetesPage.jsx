@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { saynetes_sections } from "../assets/localData/data.js";
 import {
-    SaynetesHomeSection,
     SaynetesDescriptionSection,
     SaynetesAboutSection,
     HeroSection,
