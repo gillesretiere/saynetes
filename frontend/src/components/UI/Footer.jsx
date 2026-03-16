@@ -14,7 +14,7 @@ const Footer = () => {
         maxHeight: 100,
         alignItems: 'center',
       }}>
-        <img src={logo_600x600_NB_SVG} className='mr-4 w-12'></img>
+        <img src={logo_600x600_NB_SVG} className='mr-1 w-6'></img>
         <Typography className={`font-articulat_cf leading-none tracking-tight font-semibold text-xs text-slate-500`}>
           <a href="https://www.hammer-marteau.com/" target="_blank">Conception du site et graphisme &copy; Hammer &amp; Marteau 2026</a>
         </Typography>

@@ -2,7 +2,8 @@ import React, { useState, createContext } from 'react';
 
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
-import { ThemeProvider, StyledEngineProvider, } from '@mui/material/styles';
+import { StyledEngineProvider, } from '@mui/material/styles';
+import { ThemeProvider } from './store/ThemeContext';
 import { useParams } from 'react-router';
 import './index.css';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -33,7 +34,7 @@ function ComponentGetID() {
 root.render(
 
   <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={theme} defaultMode="dark">
+    <ThemeProvider>
       <BrowserRouter>
         <CssBaseline />
         <Routes>

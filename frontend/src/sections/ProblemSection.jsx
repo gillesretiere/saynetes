@@ -1,5 +1,5 @@
 import React from 'react';
-import { landing_page_01, } from "../assets/img/index.js";
+import { landing_page_01, barrieredelalangue, } from "../assets/img/index.js";
 
 const ProblemSection = () => {
   return (
@@ -60,7 +60,7 @@ const ProblemSection = () => {
           <div className="relative group">
             <div className="rounded-[40px] overflow-hidden border-4 border-white dark:border-[rgb(var(--color-bg-card))] shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
               <img 
-                src={landing_page_01}
+                src={barrieredelalangue}
                 alt="Défi linguistique" 
                 className="w-full h-auto" 
               />

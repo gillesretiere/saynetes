@@ -1,11 +1,24 @@
-import React from 'react';
-import { medic_woman_1, hero_section_img_2, hero_section_img_3, } from "../assets/img/index.js";
+import React, { useState, useEffect } from 'react';
+
+import { medic_woman_1, hero_section_img_2, hero_section_img_3, interpretes, dietician, diabetic, nurse, coach, } from "../assets/img/index.js";
 import TitleSection from './TitleSection.jsx';
 
-const HeroSection = ({callbackModal}) => {
-    const handleClick = () => {
-        callbackModal();
-    };
+const HeroSection = ({ callbackModal }) => {
+  const handleClick = () => {
+    callbackModal();
+  };
+
+  const vk = [medic_woman_1, dietician, diabetic, nurse, coach, interpretes, ]; // Ajoutez vos imports ici
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % vk.length);
+    }, 5000);
+
+    return () => clearInterval(timer); // Nettoyage important pour éviter les fuites de mémoire
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-[rgb(var(--color-bg-main))] pt-16 pb-24">
       {/* 1. La Vague de Header (inspirée du croquis et de l'image) */}
@@ -44,13 +57,17 @@ const HeroSection = ({callbackModal}) => {
 
           {/* 3. Colonne de Droite : Grille d'images (Croquis & Inspiration) */}
           <div className="lg:w-1/2 flex items-center justify-center gap-4">
-            {/* Grande image verticale (Centrale dans le croquis) */}
-            <div className="w-2/3 h-[400px] lg:h-[500px] rounded-[40px] overflow-hidden shadow-xl border-8 border-white">
-              <img
-                src={medic_woman_1}
-                alt="Interaction soignant patient"
-                className="w-full h-full object-cover"
-              />
+            {/* Grande image verticale avec transition de carousel */}
+            <div className="w-2/3 h-[400px] lg:h-[500px] rounded-[40px] overflow-hidden shadow-xl border-8 border-white bg-white relative">
+              {vk.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Slide ${index}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                />
+              ))}
             </div>
 
             {/* Colonne de petites images (Droite dans le croquis) */}
@@ -63,7 +80,6 @@ const HeroSection = ({callbackModal}) => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

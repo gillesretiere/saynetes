@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext, } from 'react';
 import DeckContext from '../store/DeckContext';
+import { useTheme } from '../store/ThemeContext';
 
 const Navbar = ({ context }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
   const [navbarItems, setNavbarItems] = useState([]);
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const Navbar = ({ context }) => {
         <div className="flex items-center gap-4">
           {/* Switch Mode Sombre */}
           <button
-            onClick={() => setIsDark(!isDark)}
+            onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:scale-110 transition-transform"
             aria-label="Toggle Dark Mode"
           >

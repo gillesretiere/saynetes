@@ -57,18 +57,18 @@ const SolutionSection = () => {
         <div className="mt-20 p-10 rounded-[50px] bg-white dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] overflow-hidden relative">
           <div className="relative z-10">
             <h3 className="text-2xl lg:text-3xl font-bold mb-8 text-center text-[rgb(var(--color-text-main))]">
-              Plus de <span className="text-[rgb(var(--color-secondary))]">10 langues</span> disponibles
+              Déjà <span className="text-[rgb(var(--color-secondary))]">7 langues</span> disponibles
             </h3>
             
             {/* Simulation d'un ruban de langues (Marquee ou Flex wrap) */}
             <div className="flex flex-wrap justify-center gap-4">
-              {['Français', 'Anglais', 'Arabe', 'Espagnol', 'Russe', 'Roumain', 'Portugais', 'Turc', 'Soussou', 'Malinké'].map((lang) => (
+              {['Français', 'Anglais', 'Arabe', 'Espagnol', 'Russe', 'Roumain', 'Portugais', ].map((lang) => (
                 <span key={lang} className="px-6 py-3 rounded-full bg-[rgb(var(--color-bg-pills))] dark:bg-[rgb(var(--color-bg-main))] text-[rgb(var(--color-text-main))] font-medium shadow-sm hover:scale-105 transition-transform cursor-default">
                   {lang}
                 </span>
               ))}
               <span className="px-6 py-3 rounded-full bg-[rgb(var(--color-secondary)/0.1)] text-[rgb(var(--color-secondary))] font-bold italic">
-                Et bien d'autres...
+                Et bien d'autres en prévision...
               </span>
             </div>
           </div>

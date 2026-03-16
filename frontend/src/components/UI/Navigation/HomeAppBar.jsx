@@ -1,6 +1,6 @@
 // https://codesandbox.io/p/sandbox/material-ui-5-hamburger-menu-navigation-fms85m
 
-import React, { useState, useContext, } from "react";
+import React, { useState, useContext, useEffect, } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -26,6 +26,8 @@ import Chip from "@mui/material/Chip";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeckContext from "../../../store/DeckContext";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { useTheme } from '../../../store/ThemeContext';
+
 
 // import { navLinks, currentVersion, } from "../../../assets/constants/index.js";
 
@@ -94,8 +96,10 @@ const search = (
 const HomeAppBar = () => {
   //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
   const [open, setState] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   let deckContext = useContext(DeckContext);
+
   //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
   const toggleDrawer = (open) => (event) => {
     if (
@@ -109,7 +113,7 @@ const HomeAppBar = () => {
   };
 
   return (
-    <AppBar position="static" className={`bg-card-bg`}>
+    <AppBar position="static" className={`bg-card-bg text-[rgb(var(--color-primary))]`}>
       <Container maxWidth="xl" disableGutters="true">
         <Toolbar>
           {/* 
@@ -211,15 +215,15 @@ const HomeAppBar = () => {
                         {item.img ? (
                           <div className="w-6 h-6 rounded-xl bg-[rgb(var(--color-bg-pills))] flex items-center justify-center overflow-hidden group-hover:bg-[rgb(var(--color-primary))] transition-colors shrink-0 gap-4">
 
-                          <img
-                            src={item.img}
-                            alt={`Drapeau ${item.img}`}
-                            className={`w-full h-full object-cover transition-transform ${item.enabled ? 'group-hover:scale-110' : 'grayscale'}`}
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.parentNode.innerHTML = '🌐';
-                            }}
-                          />
+                            <img
+                              src={item.img}
+                              alt={`Drapeau ${item.img}`}
+                              className={`w-full h-full object-cover transition-transform ${item.enabled ? 'group-hover:scale-110' : 'grayscale'}`}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.parentNode.innerHTML = '🌐';
+                              }}
+                            />
                           </div>
 
                         ) : (
@@ -234,7 +238,13 @@ const HomeAppBar = () => {
 
             </Box>
           </Drawer>
-          <ThemeSwitcher />
+          {/* Switch Mode Sombre */}
+          {isDark ?
+            <button onClick={toggleTheme} className="mt-2 hover:scale-110 transition-transform">☀️</button>
+            :
+            <button onClick={toggleTheme} className="mt-2 hover:scale-110 transition-transform">🌙</button>
+          }
+
         </Toolbar>
       </Container>
     </AppBar>

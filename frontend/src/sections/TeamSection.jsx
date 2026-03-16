@@ -77,8 +77,8 @@ const TeamSection = () => {
               alt="Usage smartphone"
               className="w-90 object-cover rounded-[32px] transition-transform duration-700 group-hover:scale-105"
             />
-            <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(var(--color-text-main))]">
-              Nous parlons <span className="text-[rgb(var(--color-primary))]">votre langue</span>
+            <h2 className="flex my-3 justify-center text-3xl lg:text-4xl font-bold text-[rgb(var(--color-text-main))]">
+              Nous parlons&nbsp;<span className="text-[rgb(var(--color-primary))]">votre langue</span>
             </h2>
           </div>
         </div>

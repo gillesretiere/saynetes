@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SingleCardCarousel from './SingleCardCarousel.jsx';
+import { useTheme } from '../../store/ThemeContext';
+
 
 const SayneteCardCarousel = ({ cards, lang }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showThumbnails, setShowThumbnails] = useState(false);
+    const { isDark, toggleTheme } = useTheme();
+
     const navigate = useNavigate();
 
     const nextCard = () => {
@@ -23,12 +27,12 @@ const SayneteCardCarousel = ({ cards, lang }) => {
 
     return (
         <div className="flex flex-col items-center justify-between w-full max-w-lg mx-auto h-[95vh] max-h-[850px] p-2 sm:p-4 relative">
-            
+
             {/* BARRE SUPÉRIEURE (Inspirée du croquis) */}
             <div className="w-full flex items-center justify-between mb-2">
                 {/* Bouton Fermer (X) */}
-                <button 
-                    onClick={() => navigate(-1)} 
+                <button
+                    onClick={() => navigate(-1)}
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-xl font-bold"
                 >
                     ✕
@@ -37,10 +41,14 @@ const SayneteCardCarousel = ({ cards, lang }) => {
                 {/* Groupe Navigation Minimale */}
                 <div className="flex items-center gap-2 px-4 py-1 border border-gray-300 dark:border-gray-600 rounded-full bg-white/50 dark:bg-black/20 backdrop-blur-sm">
                     <button onClick={() => navigate('/')} className="p-2 hover:scale-110 transition-transform">🏠</button>
-                    <button onClick={toggleDarkMode} className="p-2 hover:scale-110 transition-transform">☀️</button>
+                    {isDark ?
+                        <button onClick={toggleTheme} className="p-2 hover:scale-110 transition-transform">☀️</button>
+                        :
+                        <button onClick={toggleTheme} className="p-2 hover:scale-110 transition-transform">🌙</button>
+                    }
                     <button onClick={() => setShowThumbnails(!showThumbnails)} className="p-2 hover:scale-110 transition-transform">☰</button>
                 </div>
-                
+
                 {/* Placeholder pour l'équilibre visuel */}
                 <div className="w-10"></div>
             </div>
@@ -55,13 +63,13 @@ const SayneteCardCarousel = ({ cards, lang }) => {
 
             {/* 2. Le Carousel ou la Mosaïque */}
             <div className="relative w-full flex-1 my-4 overflow-hidden rounded-[32px] shadow-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[rgb(var(--color-bg-card))]">
-                
+
                 {/* Vue Mosaïque (Thumbnails) déclenchée par le hamburger */}
                 {showThumbnails ? (
                     <div className="absolute inset-0 z-10 bg-white dark:bg-gray-900 p-4 overflow-y-auto grid grid-cols-3 gap-2 animate-in fade-in zoom-in duration-300">
                         {cards.map((card, idx) => (
-                            <button 
-                                key={idx} 
+                            <button
+                                key={idx}
                                 onClick={() => { setCurrentIndex(idx); setShowThumbnails(false); }}
                                 className={`aspect-square rounded-lg overflow-hidden border-2 ${currentIndex === idx ? 'border-[rgb(var(--color-primary))] scale-95' : 'border-transparent opacity-70'}`}
                             >
@@ -77,7 +85,7 @@ const SayneteCardCarousel = ({ cards, lang }) => {
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                     {cards.map((card, index) => (
-                        <SingleCardCarousel key={index} card={card} index={index} lang={lang}/>
+                        <SingleCardCarousel key={index} card={card} index={index} lang={lang} />
                     ))}
                 </div>
             </div>

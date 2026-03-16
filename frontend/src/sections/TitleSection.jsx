@@ -1,4 +1,6 @@
 import React from 'react'
+import { logo_asamla, } from "../assets/img/index.js";
+
 
 const TitleSection = () => {
     return (
