@@ -1,5 +1,5 @@
 import React from 'react';
-import { saynetes_mockup_3, mobileinhand, } from "../assets/img/index.js";
+import { multiformat, multiformat2, } from "../assets/img/index.js";
 
 const AppShowcase = () => {
   return (
@@ -24,19 +24,19 @@ const AppShowcase = () => {
             {/* Bloc Texte 1 */}
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-">
-                Une approche créative et simple <span className="text-[rgb(var(--color-primary))]">pour une meilleure expérience.</span>
+                Une approche créative directe <span className="text-[rgb(var(--color-primary))]">pour une meilleure expérience.</span>
               </h3>
               <p className="text-lg text-long-content">
-                L'utilisateur choisit d'abord sa langue, puis une histoire. Les dialogues s'affichent sous forme de <strong>cartes avec texte et audio synchronisé</strong>.
+                L'utilisateur choisit d'abord sa langue, puis une histoire. Les dialogues s'affichent sous forme de <strong>cartes avec texte et audio.</strong>.
               </p>
             </div>
 
             {/* Image Carrée 1 (Mockup 3 formats) */}
-            <div className="aspect-square rounded-[48px] overflow-hidden bg-[rgb(var(--color-orange)/0.15)] dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6">
+            <div className="rounded-[48px] overflow-hidden bg-[rgb(var(--color-orange)/0.15)] dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6 group">
               <img 
-                src={mobileinhand}
+                src={multiformat}
                 alt="Mockup multi-supports" 
-                className="w-full h-full object-contain rounded-[32px]"
+                className="w-90 object-cover rounded-[32px] transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </div>
@@ -44,9 +44,9 @@ const AppShowcase = () => {
           {/* COLONNE 2 */}
           <div className="space-y-12 lg:mt-32">
             {/* Image Carrée 2 (Main tenant le mobile) */}
-            <div className="aspect-square rounded-[48px] overflow-hidden bg-[rgb(var(--color-secondary)/0.15)] dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6 group">
+            <div className="rounded-[48px] overflow-hidden bg-[rgb(var(--color-secondary)/0.15)] dark:bg-[rgb(var(--color-bg-card))] shadow-[var(--card-shadow)] p-6 group">
               <img 
-                src={saynetes_mockup_3}
+                src={multiformat2}
                 alt="Usage smartphone" 
                 className="w-90 object-cover rounded-[32px] transition-transform duration-700 group-hover:scale-105"
               />
@@ -55,10 +55,10 @@ const AppShowcase = () => {
             {/* Bloc Texte 2 */}
             <div className="space-y-6">
               <h3 className="text-3xl font-bold">
-                Des cartes illustrées <span className="text-[rgb(var(--color-primary))]">pour lire et écouter.</span>
+                Des cartes illustrées <span className="text-[rgb(var(--color-primary))]">à lire et écouter.</span>
               </h3>
               <p className="text-lg text-long-content">
-                Les cartes permettent d'aller du global au détail. Les mots de vocabulaire à retenir sont surlignés et complétés par une mini-carte d'explications.
+                Les cartes permettent d'aller du global au détail. Les mots de vocabulaire à retenir sont surlignés et complétés par une mini-carte explicative.
               </p>
               <ul className="space-y-4 text-long-content">
                 <li className="flex items-center gap-3">
@@ -67,7 +67,7 @@ const AppShowcase = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-[rgb(var(--color-primary))] font-bold text-xl">👁️</span>
-                  Contrastes élevés pour l'inclusivité et l'accessibilité.
+                  Disponibles également sous formes de livrets au format A5.
                 </li>
               </ul>
             </div>

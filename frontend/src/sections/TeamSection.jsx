@@ -4,18 +4,14 @@ import { interpretes, } from "../assets/img/index.js";
 const TeamSection = () => {
   // Simulation d'une liste d'interprètes (à remplir avec vos photos réelles)
   const interpreters = [
-    { name: "Amira", lang: "Arabe", img: "/img/team/amira.jpg" },
-    { name: "Stefan", lang: "Roumain", img: "/img/team/stefan.jpg" },
-    { name: "Elena", lang: "Russe", img: "/img/team/elena.jpg" },
-    { name: "Yusuf", lang: "Turc", img: "/img/team/yusuf.jpg" },
-    { name: "Maria", lang: "Espagnol", img: "/img/team/maria.jpg" },
-    { name: "Lamine", lang: "Malinké", img: "/img/team/lamine.jpg" },
-    { name: "Amira", lang: "Arabe", img: "/img/team/amira.jpg" },
-    { name: "Stefan", lang: "Roumain", img: "/img/team/stefan.jpg" },
-    { name: "Elena", lang: "Russe", img: "/img/team/elena.jpg" },
-    { name: "Yusuf", lang: "Turc", img: "/img/team/yusuf.jpg" },
-    { name: "Maria", lang: "Espagnol", img: "/img/team/maria.jpg" },
-    { name: "Lamine", lang: "Malinké", img: "/img/team/lamine.jpg" },
+    { name: "Paula", lang: "Roumain", img: "/img/team/stefan.jpg" },
+    { name: "Nune", lang: "Russe", img: "/img/team/elena.jpg" },
+    { name: "Mariama", lang: "Portugais", img: "/img/team/yusuf.jpg" },
+    { name: "Sonia", lang: "Espagnol", img: "/img/team/maria.jpg" },
+    { name: "Alysone", lang: "Anglais", img: "/img/team/lamine.jpg" },
+    { name: "Mohamed", lang: "Arabe", img: "/img/team/amira.jpg" },
+    { name: "Françoise", lang: "Médecin", img: "/img/team/amira.jpg" },
+    { name: "Annamaria", lang: "Roumain, Français", img: "/img/team/amira.jpg" },
     // Ajoutez autant d'entrées que nécessaire...
   ];
 
@@ -31,7 +27,7 @@ const TeamSection = () => {
               Les voix de <span className="text-[rgb(var(--color-primary))]">l'inclusivité</span>
             </h2>
             <p className="text-long-content">
-              Nos contenus sont traduits et enregistrés par des interprètes professionnels diplômés, garantissant une fidélité médicale absolue dans chaque langue.
+              Nos contenus sont rédigés par des professionnels de santé, puis traduits et enregistrés par des interprètes professionnels diplômés, garantissant une fidélité médicale absolue dans chaque langue.
             </p>
             <div className="flex gap-2">
               <span className="px-4 py-1 bg-[rgb(var(--color-secondary)/0.1)] text-[rgb(var(--color-secondary))] rounded-full text-sm font-bold">
