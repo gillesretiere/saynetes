@@ -11,7 +11,7 @@ const SolutionSection = () => {
             Une approche <span className="text-[rgb(var(--color-primary))]">visuelle et inclusive</span>
           </h2>
           <p className="text-xl text-long-content">
-            Saynètes transforme l'éducation thérapeutique en une expérience universelle, combinant rigueur médicale et accessibilité totale.
+            Les Saynètes transforment l'éducation thérapeutique en une expérience nouvelle, combinant rigueur médicale et accessibilité totale.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ const SolutionSection = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--color-text-main))]">Zéro Barrière</h3>
             <p className="text-long-content">
-              Aucun compte à créer, aucune installation requise. Une navigation intuitive par icônes.
+              Aucun compte à créer, aucune installation requise. Une navigation intuitive.
             </p>
           </div>
 

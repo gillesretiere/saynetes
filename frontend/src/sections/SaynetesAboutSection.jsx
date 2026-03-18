@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { saynetes_sections, } from "../assets/localData/data.js";
-import PartenairesImageList from '../components/UI/Media/PartenairesImageList.jsx';
 
 export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
     return (
@@ -72,9 +71,6 @@ export const SaynetesAboutSection = ({ dynamicStylesTitle }) => {
                         <Typography className={`font-articulat_cf text-xl md:text2-xl xl:text-4xl font-black leading-tight tracking-normal`}>
                             Un partenariat pour un projet collaboratif
                         </Typography>
-                    </Box>
-                    <Box className={`mx-10 p-4`} sx={{ gridArea: 'part', height: 140, }}>
-                        <PartenairesImageList />
                     </Box>
                     <Box className={`mx-10 p-4`} sx={{ gridArea: 'comp', }}>
                         <Typography className={`font-articulat_cf text-sm md:text-lg xl:text-2xl font-normal leading-none tracking-normal`}>

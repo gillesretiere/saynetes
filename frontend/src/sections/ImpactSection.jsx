@@ -20,12 +20,12 @@ const ImpactSection = () => {
             {/* Statistiques (Placeholders) */}
             <div className="grid grid-cols-2 gap-6">
               <div className="p-6 rounded-3xl bg-white dark:bg-[rgb(var(--color-bg-card))] shadow-sm border-l-4 border-[rgb(var(--color-secondary))]">
-                <div className="text-3xl font-bold text-[rgb(var(--color-text-main))] mb-1">10+</div>
+                <div className="text-3xl font-bold text-[rgb(var(--color-text-main))] mb-1">7+</div>
                 <div className="text-sm text-long-content font-medium uppercase tracking-wider">Langues</div>
               </div>
               <div className="p-6 rounded-3xl bg-white dark:bg-[rgb(var(--color-bg-card))] shadow-sm border-l-4 border-[rgb(var(--color-primary))]">
                 <div className="text-3xl font-bold text-[rgb(var(--color-text-main))] mb-1">100%</div>
-                <div className="text-sm text-long-content font-medium uppercase tracking-wider">Médicalisé</div>
+                <div className="text-sm text-long-content font-medium uppercase tracking-wider">Validé</div>
               </div>
             </div>
           </div>

@@ -27,12 +27,12 @@ export default function LandingPage() {
 
     useEffect(() => {
         const menuItems = [
-            { index: 0, label: "Problème", url: "#problem_section", active:true, },
-            { index: 1, label: "Solution", url: "#solution_section", active:true,  },
-            { index: 2, label: "L'App", url: "#app_section", active:true, },
-            { index: 3, label: "Guide", url: "#guide_section", active:true, },
-            { index: 4, label: "Impact", url: "#impact_section", active:true, },
-            { index: 5, label: "Équipe", url: "#equipe_section", active:true, },
+            { index: 0, label: "Problème", url: "#problem_section", active: true, },
+            { index: 1, label: "Solution", url: "#solution_section", active: true, },
+            { index: 2, label: "L'App", url: "#app_section", active: true, },
+            { index: 3, label: "Guide", url: "#guide_section", active: true, },
+            { index: 4, label: "Impact", url: "#impact_section", active: true, },
+            { index: 5, label: "Équipe", url: "#equipe_section", active: true, },
         ];
         deckContext.current_deck.navlinks = menuItems;
     }, []);
@@ -67,7 +67,9 @@ export default function LandingPage() {
             <SolutionSection />
             <AppShowcase />
             <PractitionerGuide />
+            {/*
             <ImpactSection />
+            */}
             <TeamSection />
             <FooterSection />
         </div>

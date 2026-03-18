@@ -42,7 +42,7 @@ const FooterSection = () => {
             <img 
               src={hmrt_logo} 
               alt="Logo Saynètes" 
-              className="h-8 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
+              className="h-4 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
             />
           {/* Crédits et Mentions Légales */}
           <div className="text-sm text-gray-800 dark:text-gray-500 space-y-2">

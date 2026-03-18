@@ -1,17 +1,15 @@
 import React from 'react';
-import { interpretes, } from "../assets/img/index.js";
+import { interpretes, mariama, mohamed, nune, paula, sonia, alysone, } from "../assets/img/index.js";
 
 const TeamSection = () => {
   // Simulation d'une liste d'interprètes (à remplir avec vos photos réelles)
   const interpreters = [
-    { name: "Paula", lang: "Roumain", img: "/img/team/stefan.jpg" },
-    { name: "Nune", lang: "Russe", img: "/img/team/elena.jpg" },
-    { name: "Mariama", lang: "Portugais", img: "/img/team/yusuf.jpg" },
-    { name: "Sonia", lang: "Espagnol", img: "/img/team/maria.jpg" },
-    { name: "Alysone", lang: "Anglais", img: "/img/team/lamine.jpg" },
-    { name: "Mohamed", lang: "Arabe", img: "/img/team/amira.jpg" },
-    { name: "Françoise", lang: "Médecin", img: "/img/team/amira.jpg" },
-    { name: "Annamaria", lang: "Roumain, Français", img: "/img/team/amira.jpg" },
+    { name: "Paula", lang: "Roumain", img: paula },
+    { name: "Nune", lang: "Russe", img: nune },
+    { name: "Mariama", lang: "Portugais", img: mariama },
+    { name: "Sonia", lang: "Espagnol", img: sonia },
+    { name: "Alysone", lang: "Anglais", img: alysone },
+    { name: "Mohamed", lang: "Arabe", img: mohamed },
     // Ajoutez autant d'entrées que nécessaire...
   ];
 
@@ -27,14 +25,14 @@ const TeamSection = () => {
               Les voix de <span className="text-[rgb(var(--color-primary))]">l'inclusivité</span>
             </h2>
             <p className="text-long-content">
-              Nos contenus sont rédigés par des professionnels de santé, puis traduits et enregistrés par des interprètes professionnels diplômés, garantissant une fidélité médicale absolue dans chaque langue.
+              Nos contenus sont rédigés par des professionnels de santé, puis traduits et enregistrés par des interprètes traducteurs professionnels diplômés, garantissant une fidélité médicale absolue dans chaque langue.
             </p>
             <div className="flex gap-2">
               <span className="px-4 py-1 bg-[rgb(var(--color-secondary)/0.1)] text-[rgb(var(--color-secondary))] rounded-full text-sm font-bold">
-                10+ Langues
+                7+ Langues
               </span>
               <span className="px-4 py-1 bg-[rgb(var(--color-primary)/0.1)] text-[rgb(var(--color-primary))] rounded-full text-sm font-bold">
-                Experts diplômés
+                Interprètes Traducteurs diplômés
               </span>
             </div>
           </div>

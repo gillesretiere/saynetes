@@ -12,7 +12,7 @@ const ProblemSection = () => {
             Le défi de la <span className="text-[rgb(var(--color-primary))]">barrière linguistique</span>
           </h2>
           <p className="text-xl text-long-content">
-            En France, une part importante des patients diabétiques fait face à des difficultés de compréhension qui impactent directement leur santé.
+            En France, une part non négligeable des patients diabétiques fait face à des difficultés de compréhension qui impactent directement leur santé.
           </p>
         </div>
 

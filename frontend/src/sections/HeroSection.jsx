@@ -8,7 +8,7 @@ const HeroSection = ({ callbackModal }) => {
     callbackModal();
   };
 
-  const vk = [medic_woman_1, dietician, diabetic, nurse, coach, interpretes, ]; // Ajoutez vos imports ici
+  const vk = [ dietician, diabetic, medic_woman_1, nurse, coach, interpretes, ]; // Ajoutez vos imports ici
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const HeroSection = ({ callbackModal }) => {
               <span className="text-[rgb(var(--color-primary))]">sans frontières.</span>
             </h1>
             <p className="text-lg lg:text-xl mb-10 text-long-content max-w-lg">
-              Parce que comprendre son traitement ne devrait pas dépendre de sa langue maternelle.
+              Parce que comprendre son traitement ne devrait pas être contrecarré par la barrière de la langue.
               Découvrez notre approche visuelle pour le suivi du diabète.
             </p>
 

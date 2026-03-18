@@ -16,7 +16,7 @@ const PractitionerGuide = () => {
             Un outil au service de <span className="text-[rgb(var(--color-primary))]">votre consultation</span>
           </h2>
           <p className="text-xl text-long-content">
-            Saynètes n'est pas seulement une application, c'est un médiateur thérapeutique qui s'intègre en trois étapes clés.
+            Les Saynètes, ce n'est pas seulement une application, c'est un médiateur thérapeutique qui s'intègre en trois étapes clés.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ const PractitionerGuide = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--color-text-main))]">En consultation</h3>
             <p className="text-long-content">
-              Utilisez les saynètes comme support visuel pour illustrer un propos technique ou une consigne d'injection.
+              Utilisez les saynètes comme support visuel pour illustrer un propos technique ou une consigne de traitement.
             </p>
           </div>
 

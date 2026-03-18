@@ -63,7 +63,7 @@ const AppShowcase = () => {
               <ul className="space-y-4 text-long-content">
                 <li className="flex items-center gap-3">
                   <span className="text-[rgb(var(--color-primary))] font-bold text-xl">🎧</span>
-                  Traductions audios réalisées par des interprètes professionnels.
+                  Traductions audios réalisées par des interprètes traducteurs professionnels.
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-[rgb(var(--color-primary))] font-bold text-xl">👁️</span>
