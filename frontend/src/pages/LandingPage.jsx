@@ -66,7 +66,7 @@ export default function LandingPage() {
             <ProblemSection />
             <SolutionSection />
             <AppShowcase />
-            <PractitionerGuide />
+            <PractitionerGuide callbackModal={callbackModal} />
             {/*
             <ImpactSection />
             */}

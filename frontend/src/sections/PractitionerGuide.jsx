@@ -2,7 +2,12 @@ import React from 'react';
 import { hand_barcode, } from "../assets/img/index.js";
 
 
-const PractitionerGuide = () => {
+const PractitionerGuide = ({ callbackModal }) => {
+  const handleClick = () => {
+    callbackModal();
+  };
+
+
   return (
     <section id="guide_section" className="py-20 bg-[rgb(var(--color-bg-main))] transition-colors duration-300">
       <div className="container mx-auto px-6">
@@ -79,18 +84,25 @@ const PractitionerGuide = () => {
                 <span className="text-green-500">✓</span> Respect de la confidentialité
               </li>
             </ul>
-            <button className="px-8 py-4 bg-[rgb(var(--color-primary))] text-white rounded-full font-bold hover:shadow-xl transition-all">
-              Je me connecte
-            </button>
-
+            <div className="flex flex-wrap gap-4">
+              {/* Bouton Orange/Corail menant à l'application */}
+              <a
+                href="./language_page/"
+                onClick={handleClick}
+                className="px-10 py-4 bg-[rgb(var(--color-primary))] text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform text-center"
+              >
+                Je me connecte
+              </a>
+            </div>
           </div>
           <div className="lg:w-2/3 flex justify-center">
             {/* Ici on imagine une illustration d'un smartphone affichant un QR code */}
             <img src={hand_barcode} />
           </div>
-                      <h3 className="text-xl font-bold my-6 text-[rgb(var(--color-primary))]">
-              https://saynetes.fr
-            </h3>
+          <a href="./language_page/"
+            onClick={handleClick} className="text-xl font-bold my-6 text-[rgb(var(--color-primary))]">
+            https://saynetes.fr
+          </a>
         </div>
 
       </div>

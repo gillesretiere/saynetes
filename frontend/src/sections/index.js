@@ -1,5 +1,4 @@
 import ProjectSection from "./ProjectSection";
-import SaynetesDescriptionSection from "./SaynetesDescriptionSection";
 import { SaynetesAboutSection } from "./SaynetesAboutSection";
 import SaynetesLanguagesSection from "./SaynetesLanguagesSection";
 import { SaynetesMainSection } from "./SaynetesMainSection";
@@ -15,7 +14,6 @@ import TeamSection from './TeamSection';
 
 export {
     ProjectSection,
-    SaynetesDescriptionSection,
     SaynetesAboutSection,
     SaynetesMainSection,
     SaynetesLanguagesSection,

@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { saynetes_sections } from "../assets/localData/data.js";
 import {
-    SaynetesDescriptionSection,
-    SaynetesAboutSection,
-    HeroSection,
     ProblemSection,
     SolutionSection,
     PractitionerGuide,
@@ -128,16 +125,6 @@ const SaynetesPage = () => {
                 <AppShowcase />
                 <TeamSection />
                 <FooterSection />
-                {/*
-                <SaynetesHomeSection
-                    dynamicStylesTitle={dynamicStylesTitle}
-                    dynamicStylesSubTitle={dynamicStylesSubTitle}
-                    dynamicStylesSubSection={dynamicStylesSubSection}
-                    callbackModal={callbackModal} />
-                <SaynetesDescriptionSection dynamicStylesTitle={dynamicStylesSubTitle} />
-                <SaynetesCardSystemSection dynamicStylesTitle={dynamicStylesSubSection} />
-                <SaynetesAboutSection dynamicStylesTitle={dynamicStylesSubSection} />
-                */}
 
             </Layout >
         </main>

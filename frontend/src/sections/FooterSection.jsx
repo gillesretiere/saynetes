@@ -1,17 +1,17 @@
 import React from 'react';
-import { logo_asamla, hmrt_logo, } from "../assets/img/index.js";
+import { logo_asamla, hmrt_logo, team_saynetes, } from "../assets/img/index.js";
 
 const FooterSection = () => {
   return (
     <footer className="py-16 bg-white dark:bg-[rgb(var(--color-bg-card))] border-t border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center">
-          
+
           {/* Logo et Nom du Projet */}
           <div className="mb-8 group">
-            <img 
-              src={logo_asamla} 
-              alt="Logo Saynètes" 
+            <img
+              src={logo_asamla}
+              alt="Logo Saynètes"
               className="h-16 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
             />
             <h3 className="text-2xl font-bold text-[rgb(var(--color-text-main))] tracking-tight">
@@ -26,7 +26,7 @@ const FooterSection = () => {
             </p>
             <div className="flex justify-center gap-6">
               {['LinkedIn', 'Twitter', 'Contact'].map((item) => (
-                <a 
+                <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="text-sm font-bold uppercase tracking-widest text-[rgb(var(--color-text-body))] hover:text-[rgb(var(--color-primary))] transition-colors"
@@ -35,15 +35,20 @@ const FooterSection = () => {
                 </a>
               ))}
             </div>
+            <div className="flex justify-center">
+              {/* Ici on imagine une illustration d'un smartphone affichant un QR code */}
+              <img src={team_saynetes} />
+            </div>
+
           </div>
 
           {/* Séparateur discret */}
           <div className="w-24 h-px bg-gray-200 dark:bg-gray-700 mb-8"></div>
-            <img 
-              src={hmrt_logo} 
-              alt="Logo Saynètes" 
-              className="h-4 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
-            />
+          <img
+            src={hmrt_logo}
+            alt="Logo Saynètes"
+            className="h-4 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
+          />
           {/* Crédits et Mentions Légales */}
           <div className="text-sm text-gray-800 dark:text-gray-500 space-y-2">
             <p>Conception du site et graphisme © Hammer & Marteau 2026</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { landing_page_01, barrieredelalangue, } from "../assets/img/index.js";
+import { barrieredelalangue, } from "../assets/img/index.js";
 
 const ProblemSection = () => {
   return (
