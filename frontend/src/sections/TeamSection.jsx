@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpretes, mariama, mohamed, nune, paula, sonia, alysone, } from "../assets/img/index.js";
+import { interpretes, mariama, mohamed, nune, paula, sonia, alysone, gulseren, } from "../assets/img/index.js";
 
 const TeamSection = () => {
   // Simulation d'une liste d'interprètes (à remplir avec vos photos réelles)
@@ -10,6 +10,7 @@ const TeamSection = () => {
     { name: "Sonia", lang: "Espagnol", img: sonia },
     { name: "Alysone", lang: "Anglais", img: alysone },
     { name: "Mohamed", lang: "Arabe", img: mohamed },
+    { name: "Gulseren", lang: "Turque", img: gulseren }
     // Ajoutez autant d'entrées que nécessaire...
   ];
 
