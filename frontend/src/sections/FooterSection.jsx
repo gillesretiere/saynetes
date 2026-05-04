@@ -25,7 +25,7 @@ const FooterSection = () => {
               L'éducation thérapeutique du diabète sans la barrière de la langue. Une initiative pour l'autonomie et l'inclusivité dans le parcours de soin.
             </p>
             <div className="flex justify-center gap-6">
-              {['LinkedIn', 'Twitter', 'Contact'].map((item) => (
+              {['Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -35,7 +35,10 @@ const FooterSection = () => {
                 </a>
               ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-6 text-[rgb(var(--color-text-main))] text-sm font-bold">
+              ASAMLA : Association Santé Migrants Loire Atlantique <br/>5 place Anatole France – 44000 NANTES<br/>02 40 48 51 99 - contact@asamla.org
+            </div>
+            <div className="flex justify-center" >
               {/* Ici on imagine une illustration d'un smartphone affichant un QR code */}
               <img src={team_saynetes} />
             </div>

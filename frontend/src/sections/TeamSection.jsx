@@ -10,7 +10,7 @@ const TeamSection = () => {
     { name: "Sonia", lang: "Espagnol", img: sonia },
     { name: "Alysone", lang: "Anglais", img: alysone },
     { name: "Mohamed", lang: "Arabe", img: mohamed },
-    { name: "Gulseren", lang: "Turque", img: gulseren }
+    { name: "Gulseren", lang: "Turc", img: gulseren }
     // Ajoutez autant d'entrées que nécessaire...
   ];
 
